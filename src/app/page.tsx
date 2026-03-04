@@ -362,12 +362,12 @@ function DesignShowcase() {
         <div className="text-center mb-12 md:mb-16">
           <MaskReveal>
             <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                De l'idée au déploiement
+                De l’architecture au déploiement
               </span>
             </MaskReveal>
             <div className="mt-3">
               <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-[0.95]">
-                <SplitText type="words" stagger={0.05}>Ingénierie & Architecture logicielle</SplitText>
+                <SplitText type="words" stagger={0.05}>Ingénierie Full-Stack & Architecture</SplitText>
             </h2>
           </div>
         </div>

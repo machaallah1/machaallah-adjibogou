@@ -43,37 +43,25 @@ const skills = [
 ];
 
 const experience = [
-    {
-      role: "Développeur Junior",
-      company: "ORTA Service",
-      period: "Juin — Juil 2022",
-      desc: "Première immersion technique. Développement de fonctionnalités pour des outils internes, maintenance corrective et apprentissage des standards de code de l'entreprise.",
-    },
-    {
-      role: "Développeur Web & Mobile",
-      company: "Upsilon Consulting",
-      period: "Juil 2022 — Janv 2023",
-      desc: "Développement d'applications web réactives et mobiles. Collaboration directe sur l'intégration technique des maquettes et la mise en place de flux de données complexes.",
-    },
-    {
-      role: "Ingénieur Software",
-      company: "CADRECO",
-      period: "Juin — Sept 2023",
-      desc: "Mise en œuvre de solutions numériques robustes. Développement de prototypes fonctionnels avancés et optimisation des parcours critiques à travers un code performant.",
-    },
-    {
-      role: "Lead Développeur Mobile",
-      company: "SLI Afrika",
-      period: "Déc 2023 — Sept 2024",
-      desc: "Développement mobile axé sur l'accessibilité et les performances en connectivité limitée. Architecture de solutions adaptées au marché africain, avec un focus sur la robustesse technique.",
-    },
-    {
-      role: "Architecte Logiciel & Lead Dev",
-      company: "Maono — Togo",
-      period: "Oct 2024 — Présent",
-      desc: "Responsable de l'architecture technique sur des projets digitaux d'envergure. Pilotage du développement de bout en bout, de la modélisation des données au déploiement scale-ready, en garantissant la qualité et la performance.",
-    },
-  ];
+  {
+    role: "Software Architect & Full-Stack Developer",
+    company: "Maono",
+    period: "Oct 2024 — Présent",
+    desc: "Architecture et développement frontend avec Next.js (SSR/SSG/SEO), intégration Headless WordPress (REST API) et optimisation des performances (Core Web Vitals). Maintenance et évolution de plusieurs plateformes (TogoTech, SIN, ARCEP, etc.).",
+  },
+  {
+    role: "Développeur Full-Stack",
+    company: "KIDOLE",
+    period: "2024",
+    desc: "Développement d'une application web de gestion de panneaux publicitaires : backend Laravel (API REST sécurisées), frontend Vue.js, gestion des rôles/permissions et tableaux de bord analytiques.",
+  },
+  {
+    role: "Stagiaire Développeur Mobile",
+    company: "Kimoasoft",
+    period: "2024",
+    desc: "Développement d'applications mobiles Flutter, implémentation d'interfaces UI, intégration API et gestion d'état sur des produits comme Kweek et Afrostand.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -125,7 +113,7 @@ export default function AboutPage() {
                       <Code size={120} strokeWidth={0.5} />
                     </div>
                     {/* Image */}
-                    <img src="/images/bariou.png" alt="Machaallah ADJIBOGOU" className="relative z-10 w-full h-full object-cover grayscale" />
+                    <img src="/images/machaallah.jpg" alt="Machaallah ADJIBOGOU" className="relative z-10 w-full h-full object-cover grayscale hover:grayscale-0" />
                     {/* Border */}
                     <div className="absolute inset-0 border border-[var(--primary)]/10 z-20" />
                   </div>
