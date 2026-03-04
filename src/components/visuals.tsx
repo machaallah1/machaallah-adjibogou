@@ -622,22 +622,22 @@ export function ProcessFlowDiagram({ className = "" }: { className?: string }) {
       transition={{ duration: 1 }}
     >
       {/* Section label */}
-      <motion.div
-        className="text-center mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-          Cycle de vie
-        </span>
-          <h3 className="font-serif text-2xl md:text-3xl text-foreground mt-3">
-            De l&apos;idée au produit scalable
-          </h3>
-          <p className="text-[#6B635A] text-sm mt-2 max-w-md mx-auto">
-            Un processus itératif garantissant qualité technique et alignement métier
-          </p>
-      </motion.div>
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
+            Cycle de vie
+          </span>
+            <h3 className="font-serif text-2xl md:text-3xl text-[#1a1a1a] mt-3">
+              De l&apos;idée au produit scalable
+            </h3>
+            <p className="text-[#4a4a4a] text-sm mt-2 max-w-md mx-auto font-medium">
+              Un processus itératif garantissant qualité technique et alignement métier
+            </p>
+        </motion.div>
 
       <svg viewBox="0 0 920 320" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
         {/* Background grid dots */}

@@ -74,8 +74,8 @@ export function CustomCursor() {
         <div
           className={`w-full h-full rounded-full border transition-all duration-300 flex items-center justify-center ${
             hovered
-              ? "border-[#C4A97D] bg-[#C4A97D]/10 backdrop-blur-sm"
-              : "border-white/20"
+              ? "border-[#047607] bg-[#047607]/10 backdrop-blur-sm"
+              : "border-[#047607]"
           }`}
         >
           <AnimatePresence>

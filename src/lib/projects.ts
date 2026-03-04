@@ -30,457 +30,18 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // 1. TOJU
-  {
-    slug: "toju",
-    title: "TOJU",
-    subtitle:
-      "Conception UX/UI d'une plateforme de suivi en soins palliatifs",
-    type: "UX / Product",
-    sector: "Santé · e-santé · Social impact",
-    tags: ["UX", "Product"],
-    year: "2023–2024",
-    role: "UX/UI Designer · Concepteur produit",
-    scope: "Recherche · UX · UI · Prototype",
-      description:
-        "TOJU est une plateforme de suivi des patients en soins palliatifs, conçue pour améliorer la coordination médicale, réduire la charge opérationnelle des soignants et renforcer la communication entre professionnels, patients et proches dans un contexte de ressources limitées.",
-      vision:
-        "Les soins palliatifs ne concernent pas seulement la fin de vie. Ils concernent la dignité, la coordination et la qualité du suivi au quotidien.",
-    thumbnail:
-      "/images/projects/toju/01.png",
-    gallery: [
-      "/images/projects/toju/01.png",
-      "/images/projects/toju/02.png",
-      "/images/projects/toju/03.png",
-      "/images/projects/toju/04.png",
-      "/images/projects/toju/05.png",
-      "/images/projects/toju/06.png",
-      "/images/projects/toju/07.png",
-      "/images/projects/toju/08.png",
-      "/images/projects/toju/09.png",
-      "/images/projects/toju/10.png",
-      "/images/projects/toju/11.png",
-      "/images/projects/toju/12.png",
-      "/images/projects/toju/13.png",
-      "/images/projects/toju/14.png",
-      "/images/projects/toju/15.png",
-      "/images/projects/toju/16.png",
-      "/images/projects/toju/17.png",
-    ],
-    colors: [
-      { name: "Soft Sage", hex: "#0065FF" },
-      { name: "Healing Green", hex: "#0CE07A" },
-      { name: "Warm Cream", hex: "#FFD211" },
-      { name: "Calm Stone", hex: "#F33060" },
-    ],
-    tools: ["Figma", "Miro", "Notion", "UserTesting"],
-    metrics: [
-      { label: "Entretiens", value: "40" },
-      { label: "Personas", value: "5" },
-      { label: "Journey maps", value: "3" },
-      { label: "Année", value: "23–24" },
-    ],
-    sections: [
-      {
-        num: "02",
-        title: "Contexte & problématique",
-        content:
-          "Au Bénin, plus de 62 000 personnes ont besoin de soins palliatifs chaque année, principalement en raison du cancer et du VIH/SIDA. Pourtant, les soins palliatifs restent :",
-        bullets: [
-          "Peu connus du grand public",
-          "Faiblement structurés sur le plan organisationnel",
-          "Difficilement accessibles hors des centres hospitaliers",
-        ],
-        subsections: [
-          {
-            title: "Les professionnels de santé font face à",
-            bullets: [
-              "Un manque d'outils numériques adaptés",
-              "Une gestion des données souvent réalisée sur Excel",
-              "Des difficultés de suivi à domicile",
-              "Des problèmes logistiques (déplacements, coordination)",
-            ],
-          },
-        ],
-          quote:
-            "Comment améliorer l'accessibilité, la coordination et le suivi des soins palliatifs grâce au numérique — dans un contexte de ressources contraintes ?",
-        },
-        {
-          num: "03",
-          title: "Recherche & démarche terrain",
-          content:
-            "TOJU repose sur une recherche qualitative approfondie menée directement sur le terrain.",
-          subsections: [
-            {
-              title: "Méthodologie",
-              bullets: [
-                "40 entretiens semi-dirigés — 20 professionnels de santé, 20 membres du grand public",
-                "Analyse de données issues d'études cliniques nationales",
-                "Veilles sociales, concurrentielles, juridiques, littéraires et artistiques",
-              ],
-            },
-            {
-              title: "Constats clés",
-              bullets: [
-                "100 % des personnes du grand public interrogées ne connaissaient pas le terme « soins palliatifs »",
-                "Aucun des professionnels interrogés n'avait reçu de formation spécifique durant ses études",
-                "La douleur est présente chez 100 % des patients admis en soins palliatifs",
-              ],
-            },
-          ],
-          quote:
-            "Ces constats terrain ont directement déterminé les priorités UX — pas des hypothèses, des faits.",
-        },
-        {
-          num: "04",
-          title: "Cibles utilisateurs",
-          content: "TOJU s'adresse à trois profils aux besoins distincts :",
-          subsections: [
-            {
-              title: "Professionnels de santé",
-              content:
-                "Infirmiers, coordinateurs de soins palliatifs, médecins référents.",
-              bullets: [
-                "Besoins : suivi structuré, alertes critiques, rapports lisibles, coordination terrain",
-              ],
-            },
-            {
-              title: "Patients en soins palliatifs",
-              content:
-                "Souvent suivis à domicile, mobilité réduite, forte dépendance aux aidants.",
-              bullets: [
-                "Besoins : soulagement de la douleur, suivi régulier, communication simplifiée",
-              ],
-            },
-            {
-              title: "Proches & aidants",
-              content:
-                "Acteurs clés du suivi quotidien — peu formés, charge émotionnelle élevée.",
-              bullets: [
-                "Besoins : information accessible, réassurance, lien direct avec les soignants",
-              ],
-            },
-          ],
-        },
-        {
-          num: "05",
-          title: "Concept & proposition de valeur",
-          content:
-            "TOJU est conçu comme une plateforme de suivi palliatif centralisée, accessible et humaine.",
-          bullets: [
-            "Suivi de l'état de santé en temps réel",
-            "Alertes automatiques en cas de changement critique",
-            "Planification et suivi des visites à domicile",
-            "Centralisation des données patients — remplacement d'Excel",
-            "Amélioration de la coordination entre tous les acteurs",
-          ],
-          quote:
-            "Le design vise à soutenir la décision médicale, pas à la complexifier.",
-        },
-        {
-          num: "06",
-          title: "Démarche UX",
-          content:
-            "Le projet repose sur trois axes stratégiques :",
-          bullets: [
-            "Faciliter l'accès aux soins palliatifs via des parcours sans friction",
-            "Renforcer la coordination médicale et la traçabilité des interventions",
-            "Sensibiliser et informer autour des soins palliatifs",
-          ],
-          quote:
-            "Chaque fonctionnalité répond à un problème réel identifié sur le terrain — aucune feature spéculative.",
-        },
-        {
-          num: "07",
-          title: "Direction UI & intentions visuelles",
-          content: "",
-          subsections: [
-            {
-              title: "Intentions",
-              bullets: [
-                "Interface sobre et rassurante — jamais anxiogène",
-                "Priorité absolue à la lisibilité et à l'utilisabilité",
-                "Accessibilité maximale — utilisateurs sous stress, contexte médical",
-                "Neutralité émotionnelle respectueuse du contexte de soin",
-              ],
-            },
-          ],
-          quote:
-            "Le design UI s'efface au profit de l'usage. Dans un contexte médical critique, l'interface ne doit jamais être un obstacle.",
-        },
-        {
-          num: "08",
-          title: "Prototype & vision produit",
-          content:
-            "Un prototype fonctionnel a été conçu pour tester les parcours critiques, simuler les alertes, structurer les tableaux de suivi et projeter l'usage réel en contexte hospitalier et à domicile.",
-          subsections: [
-            {
-              title: "Vision long terme",
-              bullets: [
-                "Intégration aux dossiers médicaux numériques",
-                "Partenariats public-privé pour le déploiement",
-                "Extension nationale et régionale",
-                "Contribution à une stratégie de e-santé structurée",
-              ],
-            },
-          ],
-        },
-        {
-          num: "09",
-          title: "Valeur & impact",
-          content: "",
-          subsections: [
-            {
-              title: "Impact social",
-              bullets: [
-                "Amélioration de la qualité de vie et de suivi des patients",
-                "Meilleure prise en charge de la douleur — signal prioritaire",
-                "Soutien concret aux proches et aidants",
-                "Renforcement des pratiques médicales par la structuration des données",
-              ],
-            },
-            {
-              title: "Impact système",
-              bullets: [
-                "Structuration des soins palliatifs à l'échelle institutionnelle",
-                "Optimisation des ressources disponibles",
-                "Amélioration de la traçabilité et de la coordination intersectorielle",
-              ],
-            },
-          ],
-        },
-        {
-          num: "10",
-          title: "Learnings & posture de designer",
-          content:
-              "TOJU a redéfini ma compréhension du design responsable. Lier recherche sociale et conception numérique, travailler sur des enjeux éthiques et médicaux, concevoir dans un contexte à fort impact humain — tout cela impose une rigueur et une humilité que les projets commerciaux n'exigent pas au même degré.",
-            quote:
-              "Concevoir pour la santé, c'est concevoir avec responsabilité. Chaque friction dans l'interface a un coût humain.",
-          },
-        ],
-      url: "https://www.figma.com/proto/nrIme8g0vIfAJ6VnsFIgib/Soins-palliatifs-Bariou?page-id=639%3A3128&node-id=639-4233&starting-point-node-id=639%3A4320&show-proto-sidebar=1&t=ij0nW0HkHNiBAG5I-1",
-      urlLabel: "Voir le prototype",
-      },
-    // 2. On Se Dit Oui
-  {
-    slug: "on-se-dit-oui",
-    title: "On Se Dit Oui",
-    subtitle:
-      "Conception UX/UI & prototype d'une plateforme mariage",
-    type: "UX / Product",
-      sector: "Événementiel · Mariage",
-      tags: ["UX", "UI", "Product"],
-      year: "2025",
-      role: "UX/UI Designer · Product Designer",
-      scope: "UX · UI · Prototype",
-      description:
-        "On Se Dit Oui est une plateforme B2C dédiée à l'organisation du mariage. Le vrai défi était de concevoir un produit complexe — site builder, gestion des invités, RSVP, dashboard — accessible à des utilisateurs non-techniques, sans dénaturer l'émotion du moment.",
-      vision:
-        "Concevoir un produit qui simplifie l'organisation sans alourdir l'expérience — et qui protège l'utilisateur contre sa propre complexité.",
-    thumbnail:
-      "/images/projects/onseditoui/01.png",
-    gallery: [
-      "/images/projects/onseditoui/01.png",
-      "/images/projects/onseditoui/02.png",
-      "/images/projects/onseditoui/03.png",
-      "/images/projects/onseditoui/04.png",
-      "/images/projects/onseditoui/05.png",
-      "/images/projects/onseditoui/06.png",
-      "/images/projects/onseditoui/07.png",
-      "/images/projects/onseditoui/08.png",
-      "/images/projects/onseditoui/09.png",
-      "/images/projects/onseditoui/10.png",
-      "/images/projects/onseditoui/11.png",
-      "/images/projects/onseditoui/12.png",
-      "/images/projects/onseditoui/13.png",
-      "/images/projects/onseditoui/14.png",
-      "/images/projects/onseditoui/15.png",
-      "/images/projects/onseditoui/16.png",
-      "/images/projects/onseditoui/17.png",
-    ],
-    colors: [
-      { name: "Blush Pink", hex: "#3B3026" },
-      { name: "Romantic Rose", hex: "#F09C3D" },
-      { name: "Warm Cream", hex: "#FDF8F3" },
-      { name: "Charcoal", hex: "#596B54" },
-    ],
-    tools: ["Figma", "FigJam", "Miro", "Notion", "Maze"],
-    metrics: [
-        { label: "Type de projet", value: "Client" },
-        { label: "Secteur", value: "Mariage" },
-        { label: "Année", value: "2025" },
-        { label: "Rôle", value: "Product" },
-    ],
-    sections: [
-      {
-        num: "02",
-        title: "Contexte & problématique",
-        content:
-          "On Se Dit Oui est une plateforme B2C permettant aux futurs mariés de créer, personnaliser et gérer un site web de mariage, tout en centralisant des fonctionnalités clés comme les RSVP, la gestion des invités et la communication. Les solutions existantes sur le marché présentent plusieurs limites majeures :",
-        bullets: [
-          "Templates rigides et peu personnalisables",
-          "Interfaces complexes pour des utilisateurs non techniques",
-          "Multiplication des outils (site, RSVP, liste d'invités, communication)",
-          "Faible contrôle de la confidentialité des informations personnelles",
-        ],
-          quote:
-            "Proposer une solution centralisée, accessible à tous les profils — qui réduit la charge mentale sans supprimer le contrôle.",
-        },
-        {
-          num: "03",
-          title: "Utilisateurs & cibles",
-          content: "",
-          subsections: [
-            {
-              title: "Jeunes mariés connectés (25–32 ans)",
-              content:
-                "Priorité mobile, attentes élevées en termes de design, faible tolérance à la complexité, besoin de résultats rapides et rassurants.",
-            },
-            {
-              title: "Mariés confirmés (35–45 ans)",
-              content:
-                "Temps limité, forte sensibilité à la sécurité et à la confidentialité, recherche d'une expérience stable, élégante et fiable.",
-            },
-          ],
-          quote:
-            "Ces deux profils ont imposé des compromis précis sur la densité des fonctionnalités et la lisibilité des parcours.",
-        },
-        {
-          num: "04",
-          title: "Mon rôle & périmètre",
-          content:
-            "Sur On Se Dit Oui, j'ai travaillé comme designer produit UX/UI, avec une vision orientée scalabilité et usage réel.",
-          bullets: [
-            "Définition de l'expérience utilisateur globale et des parcours critiques",
-            "Conception des flux de création, personnalisation et gestion",
-            "Design UI de la plateforme B2C et de l'interface d'administration",
-            "Prototype fonctionnel desktop et mobile",
-          ],
-          quote:
-            "L'enjeu n'était pas esthétique — il était structurel. Un beau produit inutilisable échoue.",
-        },
-        {
-          num: "05",
-          title: "Démarche UX",
-          content: "",
-          subsections: [
-            {
-              title: "1. Décomposition du produit",
-              content:
-                "La plateforme a été pensée autour de 3 grands blocs :",
-              bullets: [
-                "Site vitrine (découverte & conversion)",
-                "Templates de sites de mariage personnalisables",
-                "Interface d'administration / builder no-code",
-              ],
-            },
-            {
-              title: "2. Simplification d'un produit complexe",
-              content: "Le cœur du travail UX a été de :",
-              bullets: [
-                "Rendre un produit riche accessible sans formation préalable",
-                "Éviter les effets \"usine à gaz\" — progressivité fonctionnelle",
-                "Maintenir la cohérence visuelle malgré le haut niveau de personnalisation",
-              ],
-            },
-          ],
-          quote:
-            "Chaque décision UX visait à réduire la charge cognitive — pas à limiter les possibilités.",
-        },
-        {
-          num: "06",
-          title: "Focus UX : Builder & Dashboard",
-          content: "",
-          subsections: [
-            {
-              title: "Dashboard principal",
-              content:
-                "Hub central : vision immédiate de l'avancement (RSVP, invités, visites), accès rapide aux actions prioritaires, logique de priorisation claire pour réduire les allers-retours.",
-            },
-            {
-              title: "Éditeur de site (Builder)",
-              content:
-                "Interface WYSIWYG pensée pour l'édition en temps réel : drag & drop, personnalisation guidée (couleurs, photos, contenus), zéro friction technique — accessible sans compétences de développement.",
-            },
-          ],
-          quote:
-            "N'importe quel couple devait pouvoir créer un site élégant et cohérent en moins de 30 minutes.",
-        },
-        {
-          num: "07",
-          title: "Direction UI & intentions visuelles",
-          content: "",
-          subsections: [
-            {
-              title: "Intentions",
-              bullets: [
-                "Esthétique douce et élégante — émotionnellement juste",
-                "UI rassurante : composants stables, états clairs, feedback immédiat",
-                "Composants modulaires et cohérents à travers tous les templates",
-                "Hiérarchie protégeant contre les mauvais choix visuels",
-              ],
-            },
-            {
-              title: "Templates",
-              content:
-                "Les templates ont été conçus comme des univers visuels complets — pas des skins :",
-              bullets: [
-                "Élégant classique",
-                "Moderne romantique",
-                "Bohème authentique",
-              ],
-            },
-          ],
-          quote:
-            "Le design système protège l'utilisateur de lui-même — il maintient la cohérence même quand les choix personnels divergent.",
-        },
-        {
-          num: "08",
-          title: "Valeur apportée",
-          content: "",
-          subsections: [
-            {
-              title: "Valeur utilisateur",
-              bullets: [
-                "Centralisation de tous les outils du mariage en un seul produit",
-                "Réduction significative de la charge organisationnelle",
-                "Expérience fluide, mobile-first, accessible à tous",
-              ],
-            },
-            {
-              title: "Valeur business",
-              bullets: [
-                "Architecture produit scalable — conçue pour évoluer",
-                "Expérience différenciante sur un marché concurrentiel",
-                "Base solide pour un modèle SaaS à plusieurs niveaux",
-              ],
-            },
-          ],
-        },
-        {
-          num: "09",
-          title: "Learnings & posture de designer",
-          content:
-              "Ce projet a consolidé ma capacité à structurer des produits complexes sans les simplifier à l'excès, à arbitrer entre richesse fonctionnelle et accessibilité, et à penser la scalabilité dès la phase de conception.",
-            quote:
-              "Un produit émotionnel demande encore plus de rigueur UX qu'un outil purement fonctionnel. L'émotion ne pardonne pas les frictions.",
-          },
-        ],
-      url: "https://dev.onseditoui.io/fr",
-      urlLabel: "Visiter le site",
-      },
   // 3. Maono
   {
     slug: "maono",
     title: "Maono",
     subtitle:
       "Conception UX/UI & structuration de l'expérience digitale d'une agence d'innovation africaine",
-    type: "UX / UI",
+    type: "Développement Web",
       sector: "Digital · IA · Innovation",
-      tags: ["UX", "UI", "Web"],
+      tags: ["Product", "UI", "Web"],
       year: "2025–2026",
-    role: "UX/UI Designer",
-    scope: "UX · UI · Structure de contenu · Direction visuelle · Storytelling",
+    role: "Développeur Frontend & Intégrateur",
+    scope: "Développement Web ",
       description:
         "Maono est une agence digitale, créative et IA positionnée comme acteur de la transformation numérique en Afrique. Le défi était de concevoir une expérience digitale capable de rendre lisible un écosystème complexe — Studio, Systems, Labs, Strategy — sans en diluer l'ambition.",
       vision:
@@ -512,70 +73,70 @@ export const projects: Project[] = [
       { name: "Clean White", hex: "#FAFAFA" },
       { name: "Graphite", hex: "#1E1E1E" },
     ],
-    tools: ["Figma", "FigJam", "Notion", "Miro", "After Effects"],
+    tools: ["Next.js", "Tailwind CSS", "Framer Motion","Wordpress"],
     metrics: [
         { label: "Type de projet", value: "Client" },
         { label: "Secteur", value: "Digital/IA" },
         { label: "Année", value: "25–26" },
-        { label: "Rôle", value: "UX/UI" },
+        { label: "Rôle", value: "Developpeur" },
     ],
     sections: [
       {
         num: "02",
         title: "Contexte & problématique",
         content:
-          "La digitalisation en Afrique est un levier majeur de transformation, mais de nombreuses organisations font face à plusieurs freins :",
+          "Maono devait disposer d'une plateforme web capable de présenter clairement ses pôles (Studio, Systems, Labs, Strategy) tout en restant rapide, accessible et facile à maintenir. Le challenge : transformer un univers riche en une navigation simple, performante et orientée conversion.",
         bullets: [
-          "Difficulté à structurer leur présence digitale",
-          "Manque d'outils adaptés aux réalités locales",
-          "Complexité d'intégration des nouvelles technologies (IA, ERP, UX)",
-          "Décalage entre standards internationaux et contextes africains",
+          "Structurer un site multi-offres sans perdre l'utilisateur",
+          "Mettre en place une base technique fiable (SEO, performance, accessibilité)",
+          "Assurer l'évolutivité du contenu et des pages (scalabilité)",
+          "Conserver une expérience premium sur mobile comme sur desktop",
         ],
           quote:
-            "Maono se positionne comme une réponse systémique — combinant design centré usage, technologies intelligentes et compréhension fine des réalités africaines.",
+            "L'objectif : une vitrine technique crédible — qui charge vite, qui se comprend vite, et qui peut évoluer sans dette.",
         },
         {
           num: "03",
           title: "Vision & positionnement",
           content:
-            "Contrairement à une agence classique, Maono revendique un positionnement clair :",
+            "La plateforme devait refléter une posture : innovation, rigueur et exécution. Le site n'était pas un simple portfolio, mais un outil de communication produit, pensé pour inspirer confiance.",
           bullets: [
-            "Le design comme moteur économique — pas comme service décoratif",
-            "L'UX comme socle stratégique des organisations",
-            "La technologie comme outil d'impact mesurable",
+            "Clarté du message et hiérarchie de l'information",
+            "Preuves de crédibilité (réalisations, expertise, méthode)",
+            "Expérience fluide : transitions, micro-interactions, cohérence UI",
           ],
           quote:
-            "Maono ne propose pas des services — elle structure des écosystèmes. Cette distinction devait être perceptible dès les premières secondes de navigation.",
+            "Une seconde de latence peut coûter une opportunité. La performance fait partie du positionnement.",
         },
         {
           num: "04",
           title: "Mon rôle & responsabilités",
           content:
-            "Sur ce projet, mon rôle était de traduire une vision stratégique complexe en expérience digitale lisible, crédible et inspirante.",
+            "Sur ce projet, j'ai assuré la conception technique et l'implémentation du frontend, avec une approche orientée architecture, performance et qualité.",
           bullets: [
-            "Structuration de l'architecture UX du site",
-            "Hiérarchisation des contenus — vision, services, produits, expertise",
-            "Design UI aligné avec l'identité Maono",
-            "Mise en récit (storytelling) des expertises et de la proposition de valeur",
-            "Cohérence entre discours stratégique et perception utilisateur",
+            "Architecture Next.js (routing, composants, découpage, conventions)",
+            "Intégration des contenus et structuration des pages (sections, blocs, navigation)",
+            "Optimisation performance (Core Web Vitals, images, bundles, lazy loading)",
+            "Mise en place des fondamentaux SEO (métadonnées, sémantique, performance)",
+            "Qualité & maintenabilité (TypeScript, composants réutilisables, patterns)",
           ],
           quote:
-            "L'enjeu principal : éviter le discours institutionnel vide — et faire percevoir concrètement la valeur de Maono.",
+            "Ma priorité : livrer une base saine et scalable, sur laquelle Maono peut itérer vite sans dégrader l'expérience.",
         },
         {
           num: "05",
-          title: "Démarche UX",
+          title: "Démarche de développement",
           content: "",
           subsections: [
             {
-              title: "1. Clarification du message",
+              title: "1. Cadrage & structure",
               content:
-                "Avant toute interface, un travail de fond a été nécessaire : qu'est-ce que Maono fait réellement, et en quoi c'est différent ? Cela a conduit à clarifier les piliers de l'agence, structurer les offres par pôle, et éliminer toute ambiguïté de positionnement.",
+                "J'ai travaillé à partir des piliers de Maono pour construire une structure de pages claire (pôles, offres, preuves, CTA) et une navigation cohérente. L'objectif : réduire l'ambiguïté et guider la lecture sans surcharge.",
             },
             {
-              title: "2. Architecture de l'information",
+              title: "2. Implémentation orientée performance",
               content:
-                "L'architecture UX guide progressivement l'utilisateur à travers un écosystème riche. Chaque section répond à une intention précise : comprendre, rassurer, démontrer, projeter. Aucune section redondante, aucun contenu sans objectif.",
+                "J'ai mis l'accent sur une implémentation robuste : composants modulaires, pages optimisées, chargement maîtrisé des assets et une base TypeScript stable pour faciliter l'évolution continue du site.",
             },
           ],
         },
@@ -586,25 +147,25 @@ export const projects: Project[] = [
           subsections: [
             {
               title: "Intention globale",
-              content: "Le design devait refléter :",
+              content: "L'interface devait refléter :",
               bullets: [
-                "La maturité — pas la sophistication décorative",
-                "La rigueur — interfaces sobres, hiérarchie affirmée",
-                "Une ambition internationale depuis un ancrage africain",
+                "Une identité sobre et premium — sans surcharge",
+                "Une hiérarchie claire — lisibilité immédiate",
+                "Une cohérence cross-device — mobile-first",
               ],
             },
             {
               title: "Principes UI",
               bullets: [
-                "Interfaces contrastées, sobres, sans ornement superflu",
-                "Visuels forts qui portent un sens — jamais décoratifs",
-                "Espaces maîtrisés pour laisser le discours respirer",
-                "Typographie comme outil de hiérarchie et de posture",
+                "Composants réutilisables pour garantir la cohérence",
+                "Animations légères au service de la compréhension",
+                "Espaces et grilles maîtrisés pour rythmer la lecture",
+                "Typographie comme outil de hiérarchie et d'impact",
               ],
             },
           ],
           quote:
-            "Le design ne séduit pas par l'effet visuel — il convainc par la cohérence de la posture.",
+            "Le design est au service du message, et le code au service du design — sans compromis sur la performance.",
         },
         {
           num: "07",
@@ -614,28 +175,28 @@ export const projects: Project[] = [
             {
               title: "Pour Maono",
               bullets: [
-                "Une identité digitale alignée avec sa vision stratégique",
-                "Une plateforme crédible pour adresser institutions, entreprises et partenaires",
-                "Un support clair pour présenter services, produits et expertises",
+                "Une base frontend solide et maintenable",
+                "Un site performant et prêt pour l'évolution (nouvelles pages, contenus, offres)",
+                "Une vitrine crédible (SEO, accessibilité, qualité perçue)",
               ],
             },
             {
               title: "Pour les utilisateurs",
               bullets: [
-                "Compréhension rapide et précise du positionnement",
-                "Lecture fluide d'un écosystème riche",
-                "Expérience rassurante et professionnelle dès le premier contact",
+                "Accès rapide à l'information (navigation claire, contenu scannable)",
+                "Expérience fluide sur mobile et desktop",
+                "Temps de chargement réduit et interactions nettes",
               ],
             },
           ],
         },
         {
           num: "08",
-          title: "Learnings & recul de designer",
+          title: "Learnings & recul",
           content:
-              "Maono m'a permis de travailler à l'échelle d'un système — pas d'une interface. Sur des enjeux de positionnement stratégique, à la frontière entre UX, branding et vision produit. Ce type de projet requiert autant de pensée éditoriale que de rigueur de design.",
+              "Maono m'a confirmé qu'un site vitrine performant est un produit à part entière : il nécessite une architecture claire, des choix techniques maîtrisés et une attention constante à la qualité perçue. La crédibilité se joue autant dans le contenu que dans l'exécution.",
             quote:
-              "Quand l'ambition est forte, le rôle du designer est d'apporter de la clarté — pas de l'esbroufe.",
+              "La meilleure vitrine, c'est celle qui ne se fait pas remarquer — parce qu'elle fonctionne parfaitement.",
           },
         ],
       url: "https://maono.co",
@@ -646,12 +207,12 @@ export const projects: Project[] = [
     slug: "alea-park",
     title: "Alea Park",
     subtitle: "Création du site web d'un complexe sportif & de loisirs",
-    type: "UX / UI",
+    type: "Développement Web",
       sector: "Sport · Loisirs",
-      tags: ["UX", "UI", "Web"],
+      tags: ["Web", "UI"],
       year: "2025",
-    role: "UX/UI Designer",
-    scope: "UX, UI, structure des contenus, direction visuelle",
+    role: "Développeur Frontend",
+    scope: "Développement Web · Intégration · Animations",
     description:
         "Alea Park est un complexe sportif et de loisirs qui réunit sport, convivialité et événementiel sur un même site. Le défi n'était pas de concevoir un site vitrine — c'était de traduire en ligne une expérience collective avant même que l'utilisateur ne franchisse les portes du lieu.",
       vision:
@@ -683,93 +244,82 @@ export const projects: Project[] = [
       { name: "Light Cream", hex: "#FFF8F0" },
       { name: "Warm Grey", hex: "#0260D2" },
     ],
-    tools: ["Figma", "FigJam", "Notion", "Miro"],
+    tools: ["Next.js", "Tailwind CSS", "Framer Motion"],
     metrics: [
         { label: "Type de projet", value: "Site web" },
         { label: "Secteur", value: "Sport" },
         { label: "Année", value: "2025" },
-        { label: "Rôle", value: "UX/UI" },
+        { label: "Rôle", value: "Developpeur" },
     ],
       sections: [
         {
           num: "02",
           title: "Contexte & enjeux",
           content:
-            "Alea Park s'adresse à un public large et hétérogène :",
+            "Alea Park propose une offre multiservices (sport, loisirs, événements). Le site devait présenter cette diversité sans complexifier la lecture, tout en restant rapide sur mobile et efficace pour convertir (contact / réservation).",
           bullets: [
-            "Sportifs amateurs",
-            "Familles",
-            "Groupes d'amis",
-            "Entreprises (team building, événements)",
+            "Clarifier l'offre en quelques secondes (scannable)",
+            "Mettre en valeur les activités avec une UI immersive mais légère",
+            "Optimiser le chargement (images, sections, animations)",
+            "Faciliter la conversion (CTA visibles, friction minimale)",
           ],
           subsections: [
             {
               title: "Enjeux clés",
               bullets: [
-                "Rendre lisible une offre multiservices sans surcharger l'interface",
-                "Déclencher une émotion dès les premières secondes de navigation",
-                "Donner envie d'une visite physique à travers l'expérience digitale",
-                "Faciliter la prise de contact sans friction technique",
+                "Hiérarchiser l'information et structurer les sections",
+                "Maintenir une performance stable (Core Web Vitals)",
+                "Garantir une expérience fluide sur mobile",
+                "Assurer une base maintenable pour évoluer (nouvelles activités, événements)",
               ],
             },
           ],
           quote:
-            "L'enjeu principal n'était pas d'informer, mais de projeter — créer l'anticipation de l'expérience physique.",
+            "L'objectif : une expérience immersive qui reste performante — l'émotion ne doit pas coûter du temps de chargement.",
         },
         {
           num: "03",
           title: "Mon rôle & responsabilités",
           content:
-            "Sur ce projet, j'ai occupé un rôle central et transverse.",
+            "Sur ce projet, j'ai assuré l'implémentation frontend et l'intégration UI, avec un focus sur la performance, l'accessibilité et la conversion.",
           bullets: [
-            "Définition de la vision UX globale",
-            "Structuration des contenus et hiérarchisation de l'information",
-            "Conception du parcours utilisateur de l'entrée à la conversion",
-            "Direction artistique et production UI",
-            "Arbitrages visuels au service de l'émotion voulue",
+            "Intégration des pages et des sections (architecture composants)",
+            "Animations et interactions (Framer Motion) sans dégrader la fluidité",
+            "Optimisation des images et des chargements (lazy loading, formats)",
+            "SEO & sémantique (structure, titres, contenu)",
+            "Responsive et accessibilité (mobile-first)",
           ],
           quote:
-            "L'objectif n'était pas de faire un site vitrine classique, mais un support d'attraction et de projection.",
+            "Un site qui convertit commence par un site qui charge vite et se lit sans effort.",
         },
         {
           num: "04",
-          title: "Démarche UX",
+          title: "Démarche de développement",
           content: "",
           subsections: [
             {
-              title: "1. Compréhension du lieu et de l'expérience réelle",
+              title: "1. Structure & découpage",
               content:
-                "Avant toute conception, le travail a consisté à comprendre :",
+                "J'ai structuré la page en sections lisibles (hero, activités, ambiance, preuves, contact) avec un découpage clair des composants pour faciliter l'évolution et la réutilisation.",
+            },
+            {
+              title: "2. Performance & UX",
+              content: "Objectifs techniques et expérience :",
               bullets: [
-                "Ce que l'on vit sur place — les émotions, les moments forts",
-                "Ce que les gens viennent chercher — le collectif, l'évasion",
-                "Ce qui différencie Alea Park d'un simple équipement sportif",
+                "Chargement rapide sur mobile (images optimisées, lazy loading)",
+                "Animations progressives (sans jank)",
+                "CTA visibles et accessibles",
+                "Contenu hiérarchisé pour être scanné",
               ],
             },
             {
-              title: "2. Définition des besoins utilisateurs",
-              content: "Les attentes prioritaires identifiées :",
-              bullets: [
-                "Comprendre l'offre en moins de 10 secondes",
-                "Découvrir les activités avec un contexte émotionnel fort",
-                "Ressentir l'ambiance — pas juste la lire",
-                "Accéder facilement à la réservation ou au contact",
-              ],
-            },
-            {
-              title: "3. Architecture de l'information",
+              title: "3. Maintenabilité",
               content:
-                "Structure conçue pour créer un rythme de lecture narratif :",
-              bullets: [
-                "Immersion & promesse",
-                "Découverte des activités",
-                "Réassurance et preuves sociales",
-                "Incitation à l'action au bon moment",
-              ],
+                "Une base TypeScript propre et des composants cohérents pour permettre d'ajouter de nouvelles activités / événements sans régression.",
             },
           ],
           quote:
-            "Le site devait traduire l'énergie collective du lieu — pas simplement lister des services.",
+            "Une bonne architecture frontend protège la cohérence visuelle et la performance dans la durée.",
         },
         {
           num: "05",
@@ -780,10 +330,10 @@ export const projects: Project[] = [
               title: "Intention globale",
               content: "Une interface pensée pour :",
               bullets: [
-                "Immerger immédiatement — fond sombre, visuels grands formats",
-                "Guider le regard par les contrastes et la typographie",
-                "Créer un rythme visuel inspiré de l'univers sportif et événementiel",
-                "Permettre au contenu de respirer",
+                "Créer une immersion immédiate (hero et visuels)",
+                "Garder une hiérarchie lisible (titres, sections, spacing)",
+                "Assurer une cohérence UI sur tout le site",
+                "Préserver la performance malgré les visuels",
               ],
             },
             {
@@ -797,7 +347,7 @@ export const projects: Project[] = [
             },
           ],
           quote:
-            "L'interface devait évoquer l'énergie d'un événement — pas la neutralité d'un site institutionnel.",
+            "Le visuel doit servir le message — et rester optimisé pour ne pas pénaliser l'expérience.",
         },
         {
           num: "06",
@@ -807,22 +357,22 @@ export const projects: Project[] = [
             {
               title: "Hero section",
               content:
-                "Image immersive plein écran, message court et percutant. La proposition de valeur est émotionnelle avant d'être informationnelle.",
+                "Message court + visuel fort, avec une mise en page responsive et un chargement optimisé des assets.",
             },
             {
               title: "Section Activités",
               content:
-                "Chaque activité est présentée comme une expérience à vivre — pas comme une ligne dans une liste de services.",
+                "Cartes/sections structurées pour présenter l'offre rapidement, sans surcharge, avec une hiérarchie claire.",
             },
             {
               title: "Sections d'ambiance",
               content:
-                "Visuels grands formats pour transmettre l'énergie collective, renforcer la dimension émotionnelle et montrer le lieu en action.",
+                "Visuels mis en scène avec des animations légères et des optimisations (lazy loading) pour garder une navigation fluide.",
             },
             {
               title: "Call to action",
               content:
-                "Les CTA sont positionnés après les pics émotionnels — là où la décision est naturelle, pas forcée.",
+                "CTA placés aux moments clés, avec des actions simples (contact / réservation) et une accessibilité correcte.",
             },
           ],
         },
@@ -834,28 +384,28 @@ export const projects: Project[] = [
             {
               title: "Pour les utilisateurs",
               bullets: [
-                "Compréhension immédiate du concept et de l'offre",
-                "Immersion dans l'ambiance du lieu avant la visite",
-                "Parcours fluide de la découverte à la prise de contact",
+                "Compréhension rapide de l'offre et des activités",
+                "Expérience fluide sur mobile",
+                "Accès direct au contact / réservation",
               ],
             },
             {
               title: "Pour Alea Park",
               bullets: [
-                "Un outil digital aligné avec l'expérience physique du lieu",
-                "Une image professionnelle et différenciante",
-                "Un site conçu pour soutenir la fréquentation et la notoriété",
+                "Un site performant et maintenable",
+                "Une vitrine crédible pour attirer et convertir",
+                "Une base prête pour faire évoluer contenus et événements",
               ],
             },
           ],
         },
         {
           num: "08",
-          title: "Learnings & recul de designer",
+          title: "Learnings & recul",
           content:
-              "Ce projet a renforcé une conviction : quand le produit est une expérience physique, le digital doit en être le prolongement émotionnel — pas un catalogue de services.",
+              "Ce projet m'a rappelé qu'un site vitrine est aussi un produit : performance, structure et qualité d'implémentation conditionnent directement la perception. Une UI immersive doit être accompagnée d'une discipline d'optimisation.",
             quote:
-              "Un bon site de service ne documente pas une offre. Il fait ressentir ce que l'utilisateur n'a pas encore vécu.",
+              "La meilleure expérience est souvent celle qu'on ne remarque pas : rapide, fluide, évidente.",
           },
         ],
       url: "https://aleapark.tg",
@@ -866,13 +416,13 @@ export const projects: Project[] = [
     slug: "togotech",
     title: "TogoTech",
     subtitle:
-      "Conception UX/UI & prototype d'une plateforme technologique",
-    type: "UX / UI",
+      "Développement frontend d'une plateforme de valorisation de l'écosystème tech",
+    type: "Développement Web",
       sector: "Technologie · Innovation",
-      tags: ["UX", "UI", "Product"],
+      tags: ["Web", "Product"],
       year: "2025",
-    role: "UX/UI Designer",
-    scope: "UX · UI · Prototype",
+    role: "Développeur Frontend",
+    scope: "Développement Web · Architecture UI · Intégration",
       description:
         "TogoTech est une initiative visant à structurer et valoriser l'écosystème tech togolais. Le défi n'était pas esthétique — c'était architectural : rendre un écosystème fragmenté lisible, hiérarchiser des contenus hétérogènes, et positionner l'innovation locale avec une crédibilité internationale.",
       vision:
@@ -904,23 +454,23 @@ export const projects: Project[] = [
       { name: "Clean White", hex: "#FAFAFA" },
       { name: "Steel Grey", hex: "#00134B" },
     ],
-    tools: ["Figma", "FigJam", "Miro", "Notion"],
+    tools: ["Next.js", "TypeScript", "Tailwind CSS"],
     metrics: [
         { label: "Type de projet", value: "Client" },
         { label: "Secteur", value: "Tech" },
         { label: "Année", value: "2025" },
-        { label: "Rôle", value: "UX/UI" },
+        { label: "Rôle", value: "Developpeur" },
     ],
     sections: [
       {
         num: "02",
         title: "Contexte & enjeux",
         content:
-          "Le secteur tech togolais est en pleine croissance, mais souffre souvent :",
+          "TogoTech devait agréger des contenus variés (acteurs, initiatives, infos) et les rendre trouvables rapidement. L'enjeu côté frontend : transformer une densité de données en une UI claire, rapide et évolutive.",
         bullets: [
-          "D'un manque de visibilité",
-          "D'une fragmentation des acteurs",
-          "D'une difficulté à accéder à l'information",
+          "Navigation claire malgré la densité (catégories, sections)",
+          "Performance et lisibilité sur mobile",
+          "Composants réutilisables pour scaler les contenus",
         ],
         subsections: [
           {
@@ -934,45 +484,45 @@ export const projects: Project[] = [
           },
         ],
           quote:
-            "TogoTech répondait à un enjeu central : rendre compréhensible un écosystème riche — sans le réduire ni le simplifier à l'excès.",
+            "Structurer l'information est aussi un travail d'architecture frontend.",
         },
         {
           num: "03",
           title: "Mon rôle & responsabilités",
           content:
-            "Sur ce projet, je suis intervenu sur l'ensemble de l'expérience utilisateur et visuelle.",
+            "Sur ce projet, j'ai contribué à la mise en place d'une base frontend claire et maintenable pour présenter l'écosystème et ses contenus.",
           bullets: [
-            "Analyse des besoins utilisateurs et des profils cibles",
-            "Structuration de l'architecture de l'information",
-            "Conception des parcours clés et des flux de navigation",
-            "Design UI complet du site et du prototype interactif",
+            "Structuration des pages et des composants",
+            "Intégration UI responsive (mobile-first)",
+            "Optimisation du rendu et du chargement (assets, sections)",
+            "Qualité du code (TypeScript, patterns, réutilisabilité)",
           ],
           quote:
-            "Mon rôle était de rendre un sujet complexe accessible — pas de le simplifier à l'excès.",
+            "Une plateforme utile, c'est une plateforme où l'information se trouve sans effort.",
         },
         {
           num: "04",
-          title: "Démarche UX",
+          title: "Démarche de développement",
           content: "",
           subsections: [
             {
-              title: "1. Compréhension de l'écosystème",
+              title: "1. Découpage & conventions",
               content:
-                "Avant toute interface, il fallait comprendre la diversité des profils utilisateurs, identifier les attentes prioritaires, clarifier la mission réelle de la plateforme. L'objectif n'était pas de tout montrer — mais de hiérarchiser intelligemment selon les cas d'usage.",
+                "Mise en place d'une structure de pages et de composants cohérente pour accueillir des contenus hétérogènes sans multiplier la complexité.",
             },
             {
-              title: "2. Définition des besoins utilisateurs",
+              title: "2. Lisibilité & performance",
               bullets: [
-                "Comprendre le positionnement de TogoTech en quelques secondes",
-                "Accéder facilement aux informations et initiatives clés",
-                "Percevoir la valeur de l'écosystème local",
-                "Naviguer sans être submergé par la densité du contenu",
+                "UI scannable (titres, cards, sections)",
+                "Chargement progressif et optimisations sur mobile",
+                "Composants réutilisables et variantes",
+                "Préparation à l'extension (plus d'initiatives, plus d'acteurs)",
               ],
             },
             {
-              title: "3. Architecture de l'information",
+              title: "3. Maintenabilité",
               content:
-                "L'architecture a été conçue pour guider naturellement l'utilisateur, décomposer les blocs de contenu denses, et proposer une navigation progressive. Chaque page a un rôle clair dans le parcours global — aucune page redondante.",
+                "Organisation du code et des composants pour garder une base facile à faire évoluer (ajout de sections, nouveaux types de contenu).",
             },
           ],
         },
@@ -1001,7 +551,7 @@ export const projects: Project[] = [
             },
           ],
           quote:
-            "Le design sert la lisibilité et la crédibilité du message — pas l'inverse.",
+            "Une UI claire + une implémentation robuste = une plateforme crédible.",
         },
         {
           num: "06",
@@ -1050,11 +600,11 @@ export const projects: Project[] = [
         },
         {
           num: "08",
-          title: "Learnings & recul de designer",
+          title: "Learnings & recul",
           content:
-                "TogoTech m'a appris que structurer l'information est un acte de design à part entière — avant même de concevoir un composant. La rigueur architecturale détermine la clarté perçue bien plus que le style visuel.",
+                "TogoTech m'a appris que la clarté perçue vient d'abord de la structure : composants, hiérarchie, navigation, performance. Le frontend n'est pas que de l'UI : c'est un système d'organisation de l'information.",
             quote:
-              "Dans les sujets complexes, le vrai défi du design est la clarté — pas la sophistication.",
+              "La clarté n'est pas un style, c'est une architecture.",
           },
         ],
       url: "https://togotech.tg",
@@ -1065,12 +615,12 @@ export const projects: Project[] = [
     slug: "sin",
       title: "SIN",
         subtitle: "Société d'Infrastructures Numériques",
-        type: "UX / UI",
+        type: "Développement Web",
         sector: "Infrastructures · Institutionnel · Numérique",
-        tags: ["UX", "UI", "Web"],
+        tags: ["Web", "Institutionnel"],
           year: "2025",
-        role: "UX/UI Designer",
-        scope: "UX · UI · Web · Prototype",
+        role: "Développeur Frontend",
+        scope: "Développement Web · Intégration · Optimisation",
           description:
             "La SIN pilote le développement des infrastructures numériques stratégiques du Togo : fibre optique nationale, data centers, interconnexions internationales. J'ai conçu une expérience digitale institutionnelle capable de traduire la souveraineté numérique du pays en une interface claire, moderne et crédible.",
           vision:
@@ -1102,11 +652,11 @@ export const projects: Project[] = [
       { name: "Signal White", hex: "#FFFFFF" },
       { name: "Glass Grey", hex: "#04585D" },
     ],
-    tools: ["Figma", "FigJam", "Notion", "After Effects"],
+    tools: ["Next.js", "TypeScript", "Tailwind CSS"],
       metrics: [
           { label: "Client", value: "SIN" },
           { label: "Création", value: "2025" },
-          { label: "Rôle", value: "UX/UI" },
+          { label: "Rôle", value: "Developpeur" },
           { label: "Périmètre", value: "Web" },
       ],
         sections: [
@@ -1114,7 +664,7 @@ export const projects: Project[] = [
               num: "01",
               title: "Contexte",
               content:
-                "La SIN est un acteur stratégique de l'écosystème numérique togolais. Son site devait refléter son rôle institutionnel, clarifier ses missions auprès des partenaires publics et privés, valoriser les infrastructures nationales et inspirer confiance et crédibilité.",
+                "La SIN est un acteur stratégique de l'écosystème numérique togolais. Le site devait refléter son rôle institutionnel, clarifier ses missions et offrir une expérience web moderne : rapide, accessible, et robuste sur tous les supports.",
               bullets: [
                 "Refléter son rôle institutionnel",
                 "Clarifier ses missions auprès des partenaires publics et privés",
@@ -1122,7 +672,7 @@ export const projects: Project[] = [
                 "Inspirer confiance et crédibilité",
               ],
               quote:
-                "L'enjeu principal : transformer un discours technique et réglementaire en une expérience structurée, accessible et impactante.",
+                "L'enjeu : transformer un contenu dense en une interface claire, performante et facile à maintenir.",
             },
           {
             num: "02",
@@ -1143,24 +693,24 @@ export const projects: Project[] = [
           },
           {
             num: "03",
-            title: "Approche UX",
+            title: "Approche de développement",
             content:
               "J'ai structuré le projet autour de trois piliers :",
             subsections: [
               {
-                title: "1. Clarification stratégique",
+                title: "1. Architecture de contenu",
                 content:
                   "Repenser l'architecture de l'information pour prioriser les messages clés : mission, infrastructures, services.",
               },
               {
-                title: "2. Hiérarchisation visuelle",
+                title: "2. Implémentation stable",
                 content:
-                  "Utilisation d'une grille rigoureuse, contrastes forts et respiration maîtrisée pour guider la lecture.",
+                  "Composants cohérents, responsive, et une base TypeScript propre pour faciliter l'évolution et réduire la dette.",
               },
               {
-                title: "3. Crédibilité institutionnelle",
+                title: "3. Performance & accessibilité",
                 content:
-                  "Palette sobre, typographies élégantes, imagerie technologique forte.",
+                  "Optimisation du chargement et respect des bonnes pratiques d'accessibilité pour une expérience fiable.",
               },
             ],
           },
@@ -1235,14 +785,183 @@ export const projects: Project[] = [
           },
           {
             num: "08",
-            title: "Learnings & recul de designer",
+            title: "Learnings & recul",
             content:
-                  "Ce projet m'a rappelé qu'un site institutionnel n'est pas un document — c'est une prise de position. Chaque choix typographique, chaque hiérarchie visuelle, chaque respiration contribue à transmettre ou à trahir la posture de l'organisation.",
+                  "Ce projet m'a rappelé qu'un site institutionnel se juge sur l'exécution : clarté, stabilité, performance, accessibilité. La crédibilité passe autant par la qualité du contenu que par la qualité du frontend.",
                 quote:
-                  "La crédibilité ne se déclare pas. Elle se perçoit — dans chaque détail de l'interface.",
+                  "La crédibilité se perçoit dans les détails : structure, vitesse, cohérence.",
             },
           ],
       url: "https://sin.maono.design",
       urlLabel: "Visiter le site",
       },
+  // 7. ARCEP
+  {
+    slug: "arcep",
+    title: "ARCEP",
+    subtitle: "Développement d'une vitrine institutionnelle moderne et performante",
+    type: "Développement Web",
+    sector: "Institutionnel · Régulation · Télécoms",
+    tags: ["Web", "Institutionnel"],
+    year: "2025",
+    role: "Développeur Frontend",
+    scope: "Développement Web · Intégration · Performance · SEO",
+    description:
+      "ARCEP est une autorité de régulation dont la plateforme web doit rendre accessibles des contenus institutionnels et réglementaires (missions, actualités, décisions, documents) tout en conservant une lecture claire et une crédibilité forte.",
+    vision:
+      "Construire une interface institutionnelle fiable : claire pour le public, robuste pour l'évolution, et performante sur tous les supports.",
+    thumbnail: "/images/projects/arcep/01.png",
+    gallery: [
+      "/images/projects/arcep/01.png",
+      "/images/projects/arcep/02.png",
+      "/images/projects/arcep/03.png",
+      "/images/projects/arcep/04.png",
+      "/images/projects/arcep/05.png",
+      "/images/projects/arcep/06.png",
+      "/images/projects/arcep/07.png",
+      "/images/projects/arcep/08.png",
+      "/images/projects/arcep/09.png",
+      "/images/projects/arcep/10.png",
+      "/images/projects/arcep/11.png",
+      "/images/projects/arcep/12.png",
+      "/images/projects/arcep/13.png",
+      "/images/projects/arcep/14.png",
+      "/images/projects/arcep/15.png",
+      "/images/projects/arcep/16.png",
+      "/images/projects/arcep/17.png",
+    ],
+    colors: [
+      { name: "Institutional Dark", hex: "#0D0D0D" },
+      { name: "Trust", hex: "#FFFFFF" },
+      { name: "Accent", hex: "#04585D" },
+      { name: "Neutral", hex: "#1E1E1E" },
+    ],
+    tools: ["Next.js", "TypeScript", "Tailwind CSS"],
+    metrics: [
+      { label: "Type de projet", value: "Client" },
+      { label: "Secteur", value: "Institutionnel" },
+      { label: "Année", value: "2025" },
+      { label: "Rôle", value: "Developpeur" },
+    ],
+    sections: [
+      {
+        num: "02",
+        title: "Contexte & problématique",
+        content:
+          "Le site devait présenter une grande quantité de contenu institutionnel, tout en gardant une expérience simple : trouver l'information rapidement, comprendre le rôle de l'institution, et accéder aux documents sans friction.",
+        bullets: [
+          "Densité de contenu (documents, actualités, pages institutionnelles)",
+          "Niveau d'exigence élevé sur la crédibilité et la clarté",
+          "Performance et accessibilité indispensables (public large)",
+          "Base maintenable pour itérer sans régression",
+        ],
+        quote:
+          "Sur l'institutionnel, la qualité perçue passe par la clarté et la stabilité de l'expérience.",
+      },
+      {
+        num: "03",
+        title: "Objectifs produit",
+        content:
+          "L'approche a consisté à combiner une structure de contenu rigoureuse et une implémentation frontend stable.",
+        bullets: [
+          "Hiérarchiser l'information et clarifier les parcours",
+          "Renforcer la performance (Core Web Vitals)",
+          "Améliorer le SEO et l'accessibilité",
+          "Faciliter l'évolution (nouveaux contenus / nouvelles pages)",
+        ],
+        quote:
+          "Une bonne architecture frontend évite que la complexité du contenu devienne une complexité pour l'utilisateur.",
+      },
+      {
+        num: "04",
+        title: "Mon rôle & responsabilités",
+        content:
+          "J'ai contribué à l'implémentation frontend et à la structuration de l'interface, avec un focus sur la maintenabilité et la performance.",
+        bullets: [
+          "Mise en place d'une architecture de composants réutilisables",
+          "Intégration responsive (mobile-first)",
+          "Optimisations performance (images, sections, chargement)",
+          "SEO technique et sémantique",
+          "Qualité du code (TypeScript, conventions)",
+        ],
+        quote:
+          "Le but : livrer une base solide, simple à faire évoluer et agréable à utiliser.",
+      },
+      {
+        num: "05",
+        title: "Démarche de développement",
+        content: "",
+        subsections: [
+          {
+            title: "1. Structure & navigation",
+            content:
+              "Découpage des pages et des sections pour guider la lecture : qui sommes-nous, missions, contenus, documents, actualités, contact.",
+          },
+          {
+            title: "2. Performance & accessibilité",
+            bullets: [
+              "Optimiser les médias et le chargement",
+              "Garantir une hiérarchie de titres correcte",
+              "Assurer une navigation clavier et une bonne lisibilité",
+            ],
+          },
+          {
+            title: "3. Maintenabilité",
+            content:
+              "Composants cohérents, styles maîtrisés et conventions TypeScript pour réduire la dette et accélérer les évolutions.",
+          },
+        ],
+      },
+      {
+        num: "06",
+        title: "Interface & UI",
+        content: "",
+        subsections: [
+          {
+            title: "Principes",
+            bullets: [
+              "Sobriété et lisibilité (institutionnel)",
+              "Composants cohérents et réutilisables",
+              "Mise en avant des contenus et documents",
+            ],
+          },
+        ],
+        quote:
+          "Une interface institutionnelle doit rassurer : tout doit être clair, stable et prévisible.",
+      },
+      {
+        num: "07",
+        title: "Valeur apportée",
+        content: "",
+        subsections: [
+          {
+            title: "Pour l'institution",
+            bullets: [
+              "Vitrine crédible et moderne",
+              "Base technique maintenable",
+              "Amélioration de la découverte des contenus",
+            ],
+          },
+          {
+            title: "Pour les utilisateurs",
+            bullets: [
+              "Accès rapide à l'information",
+              "Lecture plus claire des pages et documents",
+              "Expérience fluide sur mobile",
+            ],
+          },
+        ],
+      },
+      {
+        num: "08",
+        title: "Learnings & recul",
+        content:
+          "Ce projet m'a confirmé qu'en contexte institutionnel, la valeur se joue sur l'exécution : structurer le contenu, garder une performance stable, et maintenir une base de code saine pour accompagner la durée.",
+        quote:
+          "La crédibilité se gagne avec de la clarté, de la performance et de la cohérence.",
+      },
+    ],
+    url: "https://demo.arcep.tg",
+    urlLabel: "Visiter le site",
+  },
 ];

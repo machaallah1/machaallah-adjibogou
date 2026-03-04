@@ -45,10 +45,9 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="group font-serif text-2xl md:text-[1.7rem] tracking-[-0.02em] text-foreground transition-colors duration-500"
+          className="group font-serif text-2xl md:text-[1.7rem] tracking-[-0.02em] text-primary transition-colors duration-500"
         >
-          <span className="group-hover:text-[var(--primary)] transition-colors duration-500">M</span>
-          <span className="text-foreground/80">achaallah</span>
+          <span className="group-hover:text-[var(--primary)] transition-colors duration-500">Machaallah</span>
           <span className="text-[var(--primary)]">.</span>
         </Link>
 

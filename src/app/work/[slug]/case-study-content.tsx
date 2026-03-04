@@ -53,7 +53,7 @@ function SectionLabel({ num, title }: { num: string; title: string }) {
         {num}
       </span>
       <span className="w-12 h-[1px] bg-[var(--primary)]/30" />
-      <span className="text-[11px] text-[#6B635A] tracking-[0.2em] uppercase">
+      <span className="text-[11px] text-[#4a4a4a] tracking-[0.2em] uppercase font-medium">
         {title}
       </span>
     </div>
@@ -78,13 +78,13 @@ function MetricCard({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }}
-      className="relative group p-8 md:p-10 border border-[var(--primary)]/10 hover:border-[var(--primary)]/20 transition-all duration-700 overflow-hidden"
+      className="relative group p-8 md:p-10 border border-[var(--primary)]/15 hover:border-[var(--primary)]/40 transition-all duration-700 overflow-hidden bg-white/40 backdrop-blur-sm"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       <span className="relative block font-serif text-4xl md:text-5xl lg:text-6xl text-[var(--primary)] mb-4 leading-none">
         {value}
       </span>
-      <span className="relative block text-[11px] text-[#6B635A] tracking-[0.2em] uppercase">
+      <span className="relative block text-[11px] text-[#1a1a1a] tracking-[0.2em] uppercase font-semibold">
         {label}
       </span>
     </motion.div>
@@ -105,7 +105,7 @@ function FullBleedImage({ src, alt, caption }: { src: string; alt: string; capti
           <motion.div style={{ y, scale }} className="absolute inset-0">
             <Image src={src} alt={alt} fill className="object-cover" sizes="100vw" />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/30 via-transparent to-[#080808]/10" />
+          <div className="absolute inset-0" />
         </div>
         
       </div>
@@ -126,18 +126,19 @@ function BrowserMockup({ src, alt }: { src: string; alt: string }) {
       className="py-12 md:py-20"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="bg-[#1A1918] border border-[var(--primary)]/10 rounded-t-xl overflow-hidden">
+        <div className="bg-[#111110] border border-[var(--primary)]/20 rounded-t-xl overflow-hidden shadow-2xl">
           {/* Chrome bar */}
-          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-[var(--primary)]/5">
+          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-[var(--primary)]/10 bg-[#1a1a19]">
             <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[var(--primary)]/15" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[var(--primary)]/10" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[var(--primary)]/10" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="bg-[#0E0D0C] rounded-md px-16 py-1.5">
-                  <span className="text-[10px] text-[#6B635A] tracking-wider">
-                    aperçu technique
+              <div className="bg-[#0a0a09] border border-white/5 rounded-md px-16 py-1.5 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse" />
+                  <span className="text-[10px] text-[#8A817A] tracking-wider uppercase font-mono">
+                    production_env.v1
                   </span>
               </div>
             </div>
@@ -163,13 +164,13 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
       transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
       className="mx-auto max-w-[320px] relative"
     >
-      <div className="bg-[#1A1918] border border-[var(--primary)]/10 rounded-[2.5rem] overflow-hidden p-2.5">
-        <div className="relative aspect-[9/19] rounded-[2rem] overflow-hidden bg-[#0E0D0C]">
+      <div className="bg-[#111110] border border-[var(--primary)]/20 rounded-[3rem] overflow-hidden p-3 shadow-2xl">
+        <div className="relative aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-[#0E0D0C]">
           <Image src={src} alt={alt} fill className="object-cover object-top" sizes="320px" />
         </div>
       </div>
-        <p className="text-[11px] text-[#6B635A] tracking-[0.15em] uppercase mt-6 text-center">
-          Interface mobile
+        <p className="text-[11px] text-[#4a4a4a] tracking-[0.15em] uppercase mt-6 text-center font-medium">
+          Interface Mobile Native
         </p>
     </motion.div>
   );
@@ -340,8 +341,8 @@ function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileS
   );
 }
 
-/* ── Color palette ── */
-function ColorPalette({ colors }: { colors: { name: string; hex: string }[] }) {
+/* ── Design tokens ── */
+function DesignTokens({ colors }: { colors: { name: string; hex: string }[] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
@@ -353,7 +354,7 @@ function ColorPalette({ colors }: { colors: { name: string; hex: string }[] }) {
       className="py-16 md:py-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <SectionLabel num="Identité" title="Univers chromatique" />
+        <SectionLabel num="Système" title="Tokens & Identité Visuelle" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {colors.map((c, i) => (
             <motion.div
@@ -364,11 +365,10 @@ function ColorPalette({ colors }: { colors: { name: string; hex: string }[] }) {
               className="group"
             >
               <div
-                className="aspect-[3/2] rounded-sm mb-4 border border-white/5 transition-transform duration-500 group-hover:scale-[1.02]"
+                className="aspect-[3/2] rounded-sm mb-4 border border-black/5 transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ backgroundColor: c.hex }}
               />
-              {/* <p className="text-sm text-foreground font-medium mb-1">{c.name}</p> */}
-              <p className="text-[11px] text-[#6B635A] tracking-[0.1em] uppercase font-mono">
+              <p className="text-[11px] text-[#1a1a1a] tracking-[0.1em] uppercase font-mono font-semibold">
                 {c.hex}
               </p>
             </motion.div>
@@ -437,15 +437,15 @@ function RichSection({ section }: { section: ProjectSection }) {
           {/* Right */}
           <div className="max-w-2xl">
             {section.content && (
-              <p className="text-[#8A817A] leading-[1.9] text-base md:text-lg mb-6">
+              <p className="text-[#1a1a1a] leading-[1.9] text-base md:text-lg mb-6">
                 {section.content}
               </p>
             )}
             {section.bullets && section.bullets.length > 0 && (
               <ul className="space-y-2 mb-8">
                 {section.bullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[#8A817A] leading-[1.8] text-base">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/30 mt-2.5 shrink-0" />
+                  <li key={i} className="flex items-start gap-3 text-[#4a4a4a] leading-[1.8] text-base font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/60 mt-2.5 shrink-0" />
                     {b}
                   </li>
                 ))}
@@ -453,20 +453,20 @@ function RichSection({ section }: { section: ProjectSection }) {
             )}
             {section.subsections?.map((sub, i) => (
               <div key={i} className="mb-8 last:mb-0">
-                <h3 className="text-foreground text-sm md:text-base font-medium tracking-wide mb-3 flex items-center gap-3">
-                  <span className="w-6 h-[1px] bg-[var(--primary)]/20" />
+                <h3 className="text-foreground text-sm md:text-base font-semibold tracking-wide mb-3 flex items-center gap-3">
+                  <span className="w-6 h-[1px] bg-[var(--primary)]/40" />
                   {sub.title}
                 </h3>
                 {sub.content && (
-                  <p className="text-[#8A817A] leading-[1.9] text-base mb-4 pl-9">
+                  <p className="text-[#1a1a1a] leading-[1.9] text-base mb-4 pl-9">
                     {sub.content}
                   </p>
                 )}
                 {sub.bullets && sub.bullets.length > 0 && (
                   <ul className="space-y-2 pl-9">
                     {sub.bullets.map((b, j) => (
-                      <li key={j} className="flex items-start gap-3 text-[#8A817A] leading-[1.8] text-sm md:text-base">
-                        <span className="w-1 h-1 rounded-full bg-[var(--primary)]/25 mt-2.5 shrink-0" />
+                      <li key={j} className="flex items-start gap-3 text-[#4a4a4a] leading-[1.8] text-sm md:text-base">
+                        <span className="w-1 h-1 rounded-full bg-[var(--primary)]/50 mt-2.5 shrink-0" />
                         {b}
                       </li>
                     ))}
@@ -603,7 +603,7 @@ export function CaseStudyContent({
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-[#080808]/90 backdrop-blur-md border border-[var(--primary)]/30 text-[11px] text-[var(--primary)]/80 tracking-[0.2em] uppercase hover:border-[var(--primary)]/70 hover:text-[var(--primary)] transition-all duration-500 group shadow-xl shadow-black/40"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-[#1a1a19] border border-white/10 text-[11px] text-white tracking-[0.2em] uppercase hover:bg-[var(--primary)] transition-all duration-500 group shadow-2xl shadow-black/40"
               >
                 {project.urlLabel ?? "Voir le projet"}
                 <ArrowUpRight
@@ -657,20 +657,20 @@ export function CaseStudyContent({
             </div>
           </MaskReveal>
 
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-[10rem] text-foreground leading-[0.85] mb-6">
+          <h1 className="font-serif text-6xl md:text-8xl lg:text-[10rem] text-primary leading-[0.85] mb-6">
             <SplitText type="words" delay={0.2} stagger={0.08}>
               {project.title}
             </SplitText>
           </h1>
 
           <MaskReveal delay={0.4}>
-            <p className="text-base md:text-lg text-[var(--primary)]/60 font-serif italic mb-6 max-w-2xl">
+            <p className="text-base md:text-lg text-white/60 font-serif italic mb-6 max-w-2xl">
               {project.subtitle}
             </p>
           </MaskReveal>
 
             <MaskReveal delay={0.5}>
-              <p className="text-lg md:text-xl text-[#8A817A] max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed font-medium">
                 {project.description}
               </p>
             </MaskReveal>
@@ -695,18 +695,18 @@ export function CaseStudyContent({
         </section>
 
       {/* ═══ VISION QUOTE ═══ */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#0A0A09] to-[#080808]" />
+      <section className="py-20 md:py-32 relative overflow-hidden bg-[#0a0a09]">
+        <div className="absolute inset-0 grid-pattern opacity-[0.05]" />
         <FloatingElement className="absolute top-10 right-[8%] w-[200px] h-[200px] hidden lg:block" speed={15}>
-          <AbstractBlob variant={2} className="w-full h-full opacity-20" />
+          <AbstractBlob variant={2} className="w-full h-full opacity-30" />
         </FloatingElement>
         <div className="relative max-w-[1000px] mx-auto px-6 md:px-10 text-center">
           <AnimSection>
             <div className="relative">
-              <span className="text-[var(--primary)]/10 text-8xl md:text-9xl font-serif absolute -top-10 left-1/2 -translate-x-1/2 select-none">
+              <span className="text-[var(--primary)]/20 text-8xl md:text-9xl font-serif absolute -top-10 left-1/2 -translate-x-1/2 select-none">
                 &ldquo;
               </span>
-              <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-foreground/90 italic leading-relaxed pt-8">
+              <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-white/90 italic leading-relaxed pt-8">
                 {project.vision}
               </p>
             </div>
@@ -715,10 +715,10 @@ export function CaseStudyContent({
       </section>
 
       {/* ═══ KEY METRICS ═══ */}
-      <section className="py-12 md:py-20 relative overflow-hidden">
+      <section className="py-12 md:py-20 relative overflow-hidden bg-background">
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
-            <SectionLabel num="Synthèse" title="Chiffres & Impact" />
+            <SectionLabel num="Système" title="Performance & Impact" />
           </AnimSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {project.metrics.map((m, i) => (
@@ -732,22 +732,22 @@ export function CaseStudyContent({
       <section className="py-8 md:py-12">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-t border-b border-[var(--primary)]/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-t border-b border-[var(--primary)]/15">
               <div>
-                <span className="text-[10px] text-[#6B635A] tracking-[0.2em] uppercase block mb-2">Rôle</span>
-                <span className="text-sm text-foreground">{project.role}</span>
+                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-bold">Rôle</span>
+                <span className="text-sm text-[#1a1a1a] font-medium">{project.role}</span>
               </div>
               <div>
-                <span className="text-[10px] text-[#6B635A] tracking-[0.2em] uppercase block mb-2">Périmètre</span>
-                <span className="text-sm text-foreground">{project.scope}</span>
+                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-bold">Périmètre</span>
+                <span className="text-sm text-[#1a1a1a] font-medium">{project.scope}</span>
               </div>
               <div>
-                <span className="text-[10px] text-[#6B635A] tracking-[0.2em] uppercase block mb-2">Année</span>
-                <span className="text-sm text-foreground">{project.year}</span>
+                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-bold">Année</span>
+                <span className="text-sm text-[#1a1a1a] font-medium">{project.year}</span>
               </div>
               <div>
-                <span className="text-[10px] text-[#6B635A] tracking-[0.2em] uppercase block mb-2">Secteur</span>
-                <span className="text-sm text-foreground">{project.sector}</span>
+                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-bold">Secteur</span>
+                <span className="text-sm text-[#1a1a1a] font-medium">{project.sector}</span>
               </div>
             </div>
           </AnimSection>
@@ -764,9 +764,9 @@ export function CaseStudyContent({
         </div>
       ))}
 
-      {/* ═══ DESIGN INTERLUDE: Colors + Tools ═══ */}
+      {/* ═══ DESIGN INTERLUDE: Tokens + Tools ═══ */}
       <Divider />
-      <ColorPalette colors={project.colors} />
+      <DesignTokens colors={project.colors} />
       <ToolsList tools={project.tools} />
 
       {/* ═══ SECOND BATCH: remaining sections with late visuals ═══ */}

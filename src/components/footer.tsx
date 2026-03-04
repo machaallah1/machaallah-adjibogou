@@ -63,7 +63,7 @@ export function Footer() {
               <div className="flex flex-col gap-3">
                 <Magnetic strength={0.2}>
                   <a
-                    href="#"
+                    href="www.linkedin.com/in/adjibogou-machaallah-32937126a"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-300 font-medium"
@@ -73,7 +73,7 @@ export function Footer() {
                 </Magnetic>
                 <Magnetic strength={0.2}>
                   <a
-                    href="#"
+                    href="https://github.com/machaallah1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-300 font-medium"
@@ -99,7 +99,7 @@ export function Footer() {
           </div>
 
           {/* Bottom bar */}
-          <div className="h-[1px] bg-[rgba(4,118,7,0.1)] mb-8" />
+          <div className="h-[1px] bg-primary mb-8" />
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="font-serif text-lg text-foreground">

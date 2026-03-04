@@ -31,7 +31,7 @@ export default function ContactPage() {
 
     const whatsappMessage = `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/22890776819?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/22892218207?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
     setSubmitted(true);
@@ -178,10 +178,10 @@ export default function ContactPage() {
                         <Mail size={12} /> Email
                       </span>
                       <a
-                        href="mailto:contact@machaallah.dev"
+                        href="machdev02@gmail.com"
                         className="text-foreground text-lg link-underline"
                       >
-                        contact@machaallah.dev
+                        machdev02@gmail.com
                       </a>
                     </div>
 
@@ -191,7 +191,7 @@ export default function ContactPage() {
                       </span>
                       <div className="space-y-4">
                         <a
-                          href="#"
+                          href="www.linkedin.com/in/adjibogou-machaallah-32937126a"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-foreground block link-underline w-fit"
@@ -199,7 +199,7 @@ export default function ContactPage() {
                           LinkedIn
                         </a>
                         <a
-                          href="#"
+                          href="https://github.com/machaallah1"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-foreground block link-underline w-fit"

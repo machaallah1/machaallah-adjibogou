@@ -102,7 +102,8 @@ export function LineReveal({ className = "", delay = 0 }: LineRevealProps) {
         className="h-[1px] w-full"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(196,169,125,0.4), transparent)",
+            "linear-gradient(90deg, transparent, var(--primary), transparent)",
+          opacity: 0.3
         }}
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
@@ -284,7 +285,7 @@ export function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[2px] bg-[#C4A97D] origin-left z-[9999]"
+      className="fixed top-0 left-0 right-0 h-[2px] bg-[var(--primary)] origin-left z-[9999]"
       style={{ scaleX: scrollYProgress }}
     />
   );

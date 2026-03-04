@@ -94,7 +94,7 @@
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(4, 118, 7, 0.3);
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
   color: #000;
 }
 
@@ -102,10 +102,10 @@
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: rgba(4, 118, 7, 0.12);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
   border-radius: 2px;
 }
-::-webkit-scrollbar-thumb:hover { background: rgba(4, 118, 7, 0.25); }
+::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--primary) 25%, transparent); }
 
 /* ── Noise texture overlay ── */
 body::before {

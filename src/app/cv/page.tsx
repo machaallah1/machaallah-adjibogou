@@ -7,57 +7,42 @@ import Link from "next/link";
 
 const experience = [
   {
-    role: "Architecte Logiciel & Lead Dev",
+    role: "Software Architect & Full-Stack Developer",
     company: "Maono",
-    location: "Togo",
+    location: "Lomé, Togo",
     period: "Oct 2024 — Présent",
     tasks: [
-      "Responsable de l'architecture technique pour des plateformes B2B/B2C d'envergure",
-      "Pilotage technique des équipes et mise en place de standards de qualité (Clean Code, CI/CD)",
-      "Conception de schémas de données complexes et d'APIs scalables",
+      "Développement du frontend du site Maono avec Next.js (SSR, SSG, optimisation SEO)",
+      "Intégration Headless WordPress (REST API) pour la gestion dynamique des contenus",
+      "Conception d'interfaces modernes, performantes et responsive",
+      "Optimisation des performances (Core Web Vitals, lazy loading, caching)",
+      "Développement et maintenance des plateformes : Togotech, CNCIA, Palais de Lomé, Lome Data Centre (LDC), SIN, ARCEP",
+      "Développement de l'application Horizon360 (Next.js + Firebase)",
     ],
   },
   {
-    role: "Lead Développeur Mobile",
-    company: "SLI Afrika",
-    location: "Togo",
-    period: "Déc 2023 — Sept 2024",
+    role: "Développeur Full-Stack",
+    company: "KIDOLE",
+    location: "Togo (Sous-région : Togo, Bénin, Ghana, Côte d’Ivoire)",
+    period: "2024",
     tasks: [
-      "Architecture et développement d'applications mobiles performantes sous React Native",
-      "Optimisation des temps de chargement et de la consommation de données",
-      "Mise en place de tests unitaires et d'intégration pour garantir la robustesse",
+      "Développement d'une application web de gestion des panneaux publicitaires",
+      "Conception du backend avec Laravel (API REST sécurisées)",
+      "Développement du frontend en Vue.js",
+      "Gestion des rôles, permissions et tableaux de bord analytiques",
+      "Optimisation des performances et structuration de la base de données",
     ],
   },
   {
-    role: "Ingénieur Software",
-    company: "CADRECO",
+    role: "Stagiaire Développeur Mobile",
+    company: "Kimoasoft",
     location: "Togo",
-    period: "Juin — Sept 2023",
+    period: "2024",
     tasks: [
-      "Développement de prototypes fonctionnels avancés pour des projets innovants",
-      "Refonte technique d'applications existantes pour améliorer la scalabilité",
-      "Intégration de solutions tierces et gestion de flux de données temps réel",
-    ],
-  },
-  {
-    role: "Développeur Web & Mobile",
-    company: "Upsilon Consulting",
-    location: "Togo",
-    period: "Juil 2022 — Janv 2023",
-    tasks: [
-      "Développement full-stack sur des projets clients variés (SaaS, E-commerce)",
-      "Optimisation SEO et performance web (Core Web Vitals)",
-      "Collaboration étroite avec les designers pour une fidélité d'intégration maximale",
-    ],
-  },
-  {
-    role: "Développeur Junior",
-    company: "ORTA Service",
-    location: "Togo",
-    period: "Juin — Juil 2022",
-    tasks: [
-      "Maintenance évolutive et corrective d'applications internes",
-      "Apprentissage des bonnes pratiques de développement et de versioning (Git)",
+      "Développement d'applications mobiles avec Flutter",
+      "Participation au développement des applications Kweek et Afrostand",
+      "Implémentation d'interfaces UI modernes et responsives",
+      "Connexion aux APIs et gestion d’état des applications",
     ],
   },
 ];
@@ -65,16 +50,48 @@ const experience = [
 const education = [
   {
     degree: "Ingénierie Logicielle & Systèmes d'Information",
-    school: "École Supérieure d'Informatique",
+    school: "École Supérieure de Gestion d'Informatique et des Sciences (ESGIS)",
     period: "2021 — 2024",
   },
 ];
 
 const skills = {
-  web: ["React / Next.js", "TypeScript", "Tailwind CSS", "Redux / Zustand", "SSR / SSG", "Node.js"],
-  mobile: ["React Native", "Expo", "Navigation Native", "Push Notifications", "Performance Mobile"],
-  backend: ["Architecture Logicielle", "NestJS", "APIs REST / GraphQL", "PostgreSQL / MongoDB", "Docker"],
-  expertise: ["Clean Code", "Design Patterns", "CI/CD", "Tests Unitaires", "Sécurité applicative"],
+  web: [
+    "Next.js (SSR / SSG / ISR)",
+    "React",
+    "Vue.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Headless WordPress",
+    "SEO & Core Web Vitals"
+  ],
+  mobile: [
+    "Flutter",
+    "Dart",
+    "Architecture Mobile",
+    "State Management"
+  ],
+  backend: [
+    "Laravel",
+    "APIs REST",
+    "Firebase",
+    "Authentication & Security",
+    "Database Design",
+    "PostgreSQL / MySQL"
+  ],
+  architecture: [
+    "Software Architecture",
+    "Clean Code",
+    "Scalable Systems",
+    "System Design",
+    "CI/CD"
+  ],
+  innovation: [
+    "Intelligence Artificielle",
+    "Automatisation",
+    "Optimisation des performances",
+    "Veille technologique"
+  ]
 };
 
 const fadeIn = {
@@ -118,7 +135,7 @@ export default function CVPage() {
         ref={cvRef}
         initial="hidden"
         animate="visible"
-        className="cv-page max-w-[900px] mx-auto bg-[#0C0C0B] border border-[var(--primary)]/10 relative overflow-hidden"
+        className="cv-page max-w-[900px] mx-auto bg-white border border-[var(--primary)]/10 relative overflow-hidden"
       >
         {/* Subtle corner accents */}
         <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-[var(--primary)]/20 print:border-[var(--primary)]/30" />
@@ -160,9 +177,9 @@ export default function CVPage() {
                 className="text-right text-[#6B635A] text-xs leading-[2] tracking-wide"
               >
                 <p>Lomé, TOGO</p>
-                <p>contact@machaallah.dev</p>
+                <p>machdev02@gmail.com</p>
                 <p>linkedin.com/in/machaallah-adjibogou</p>
-                <p>github.com/machaallah</p>
+                <p>github.com/machaallah1</p>
               </motion.div>
             </div>
 
@@ -174,11 +191,13 @@ export default function CVPage() {
           <motion.section variants={fadeIn} custom={5} className="mb-12">
             <h2 className="cv-section-title">Profil Technique</h2>
             <p className="text-[#8A817A] text-sm leading-[1.9] max-w-[680px]">
-              Développeur Web et Mobile avec plus de 5 ans d&apos;expérience, spécialisé dans l&apos;architecture
-              logicielle et la conception de solutions robustes et scalables. Expert dans l&apos;écosystème
-              React (Next.js, React Native), je privilégie une approche rigoureuse basée sur le Clean Code,
-              la performance et la sécurité. Passionné par la résolution de défis techniques complexes
-              et l&apos;optimisation des flux de données.
+              Développeur Web & Architecte applicatif spécialisé en Next.js et architectures Headless
+              (WordPress API, Laravel, Firebase). Je conçois des applications performantes, scalables
+              et orientées expérience utilisateur.
+              Passionné par l’Intelligence Artificielle et les systèmes intelligents,
+              j’explore continuellement les solutions basées sur l’IA pour optimiser les performances,
+              automatiser les processus et créer des produits à forte valeur technologique.
+              Rigoureux sur la qualité du code (Clean Code), la performance et la sécurité applicative.
             </p>
           </motion.section>
 
@@ -283,7 +302,7 @@ export default function CVPage() {
                       Expertise
                     </h3>
                     <div className="flex flex-wrap gap-1.5">
-                      {skills.expertise.map((s) => (
+                      {skills.architecture.map((s) => (
                         <span
                           key={s}
                           className="cv-tag"
