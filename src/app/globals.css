@@ -1,0 +1,330 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #f8f8f6;
+  --foreground: #1a1a1a;
+  --card: #f8f8f6;
+  --card-foreground: #1a1a1a;
+  --popover: #f8f8f6;
+  --popover-foreground: #1a1a1a;
+  --primary: #047607;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f0ee;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f0f0ee;
+  --muted-foreground: #4a4a4a;
+  --accent: #047607;
+  --accent-foreground: #ffffff;
+  --destructive: #B54444;
+  --border: rgba(4, 118, 7, 0.12);
+  --input: rgba(4, 118, 7, 0.15);
+  --ring: #047607;
+  --chart-1: #047607;
+  --chart-2: #7A7068;
+  --chart-3: #5C534A;
+  --chart-4: #3A3530;
+  --chart-5: #F0EBE3;
+  --sidebar: #0a0a09;
+  --sidebar-foreground: #F0EBE3;
+  --sidebar-primary: #047607;
+  --sidebar-primary-foreground: #080808;
+  --sidebar-accent: #151413;
+  --sidebar-accent-foreground: #F0EBE3;
+  --sidebar-border: rgba(4, 118, 7, 0.12);
+  --sidebar-ring: #047607;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    cursor: default;
+  }
+  html {
+    scroll-behavior: auto; /* lenis handles smooth scroll */
+  }
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(4, 118, 7, 0.3);
+  color: #000;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(4, 118, 7, 0.12);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(4, 118, 7, 0.25); }
+
+/* ── Noise texture overlay ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 512px 512px;
+}
+
+/* ── Gradient divider ── */
+.divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(4,118,7,0.2) 30%, rgba(4,118,7,0.2) 70%, transparent 100%);
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #F0EBE3 0%, #047607 50%, #F0EBE3 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+/* ── Glow dot ── */
+.glow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #047607;
+  box-shadow: 0 0 12px 4px rgba(4, 118, 7, 0.3), 0 0 40px 8px rgba(4, 118, 7, 0.1);
+}
+
+/* ── Decorative circle ── */
+.deco-circle {
+  border-radius: 50%;
+  border: 1px solid rgba(4,118,7,0.08);
+}
+
+/* ── Rotating text badge ── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ── Floating animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Pulse glow ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(4,118,7,0); }
+  50% { box-shadow: 0 0 30px 10px rgba(4,118,7,0.08); }
+}
+.pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* ── Grid pattern background ── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(4,118,7,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4,118,7,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Cross pattern ── */
+.cross-pattern {
+  background-image:
+    radial-gradient(circle, rgba(4,118,7,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Radial gradient orbs ── */
+.orb-1 {
+  background: radial-gradient(circle at 30% 50%, rgba(4,118,7,0.06) 0%, transparent 50%);
+}
+.orb-2 {
+  background: radial-gradient(circle at 70% 30%, rgba(4,118,7,0.04) 0%, transparent 50%);
+}
+
+/* ── Project card hover ── */
+.project-card {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.project-card:hover {
+  transform: translateY(-8px);
+}
+.project-card .project-img {
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* ── Link underline animation ── */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Stagger fade ── */
+@keyframes stagger-fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Blend cursor for project cards ── */
+[data-cursor] { cursor: none; }
+
+/* ── Hide Next.js error overlay portal ── */
+nextjs-portal { display: none !important; }
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid rgba(4,118,7,0.5);
+  outline-offset: 2px;
+}
+
+/* ── CV Page styles ── */
+.cv-section-title {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(4, 118, 7, 0.08);
+}
+
+.cv-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #525252;
+  border: 1px solid rgba(4, 118, 7, 0.08);
+  background: rgba(4, 118, 7, 0.02);
+  transition: all 0.3s ease;
+}
+.cv-tag:hover {
+  border-color: rgba(4, 118, 7, 0.2);
+  color: var(--primary);
+}
+
+/* ── Print styles for CV ── */
+@media print {
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body::before {
+    display: none !important;
+  }
+  header, footer, .print-hidden {
+    display: none !important;
+  }
+
+  .cv-page {
+    max-width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+
+  .cv-page * {
+    color: #1a1a1a !important;
+  }
+
+  .cv-section-title {
+    color: #333 !important;
+    border-bottom-color: #ddd !important;
+  }
+
+  .cv-tag {
+    border-color: #ddd !important;
+    color: #444 !important;
+    background: #f5f5f5 !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+}
