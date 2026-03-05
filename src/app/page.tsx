@@ -189,7 +189,7 @@ function HeroSection() {
 }
 
 function MarqueeStrip() {
-  const skills = ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js", "React Native", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"];
+  const skills = ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js","Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"];
 
   return (
     <div className="py-8 border-t border-b border-[var(--primary)]/10">
@@ -218,7 +218,7 @@ function StatsStrip() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
             <StatBlock number="10+" label="Projets livrés" accent />
             <StatBlock number="6+" label="Secteurs techniques" />
-            <StatBlock number="5+" label="Ans d'expérience" accent />
+            <StatBlock number="2+" label="Ans d'expérience" accent />
             <StatBlock number="100%" label="Code de qualité" />
         </div>
       </div>

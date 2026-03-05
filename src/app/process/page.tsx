@@ -35,7 +35,7 @@ const steps = [
   {
     num: "03",
     title: "Développement & Implémentation",
-    desc: "Le code est écrit avec rigueur, en suivant les principes Clean Code et DRY. Que ce soit pour le Web (Next.js) ou le Mobile (React Native), l'accent est mis sur la performance, la lisibilité et la maintenabilité du code source.",
+    desc: "Le code est écrit avec rigueur, en suivant les principes Clean Code et DRY. Que ce soit pour le Web (Next.js) ou le Mobile (Flutter), l'accent est mis sur la performance, la lisibilité et la maintenabilité du code source.",
     methods: ["Code Clean & Modulaire", "Développement itératif", "Gestion d'état complexe", "Intégration UI/UX"],
   },
   {

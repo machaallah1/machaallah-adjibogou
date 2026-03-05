@@ -30,7 +30,7 @@ const skills = [
   },
   {
     category: "Développement Mobile",
-    items: ["React Native", "Expo", "Navigation native", "Gestion de l'état", "Optimisation mobile"],
+    items: ["Flutter", "Dart", "Kotlin", "Gestion de l'état", "Optimisation mobile"],
   },
   {
     category: "Architecture & Backend",
@@ -105,15 +105,23 @@ export default function AboutPage() {
               {/* Profile area with visual richness */}
               <Reveal direction="left">
                 <div className="relative">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-[#111110]">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-[#111110] group">
+
                     {/* Grid overlay */}
                     <div className="absolute inset-0 grid-pattern opacity-30" />
-                    {/* Placeholder content if image missing */}
+
+                    {/* Placeholder */}
                     <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 text-[var(--primary)]/20">
                       <Code size={120} strokeWidth={0.5} />
                     </div>
+
                     {/* Image */}
-                    <img src="/images/machaallah.jpg" alt="Machaallah ADJIBOGOU" className="relative z-10 w-full h-full object-cover grayscale hover:grayscale-0" />
+                    <img
+                      src="/images/machaallah.jpg"
+                      alt="Machaallah ADJIBOGOU"
+                      className="relative z-10 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+                    />
+
                     {/* Border */}
                     <div className="absolute inset-0 border border-[var(--primary)]/10 z-20" />
                   </div>
@@ -129,29 +137,29 @@ export default function AboutPage() {
 
               {/* Bio */}
               <div>
-                  <MaskReveal delay={0.2}>
-                    <p className="text-xl md:text-2xl text-foreground leading-[1.5] mb-10 font-serif">
-                      Je suis Machaallah ADJIBOGOU, Développeur Web et Mobile spécialisé en Architecture Logicielle basé à Lomé.
-                    </p>
-                  </MaskReveal>
+                <MaskReveal delay={0.2}>
+                  <p className="text-xl md:text-2xl text-foreground leading-[1.5] mb-10 font-serif">
+                    Je suis Machaallah ADJIBOGOU, Développeur Web et Mobile spécialisé en Architecture Logicielle basé à Lomé.
+                  </p>
+                </MaskReveal>
 
-          <MaskReveal delay={0.3}>
-            <p className="text-neutral-600 leading-[1.9] mb-6 font-medium">
-                Ma démarche repose sur la rigueur technique et la compréhension profonde des systèmes. Avant d'écrire la première ligne de code, j'analyse les besoins, je définis l'architecture et je prévois la scalabilité. Pour moi, une application réussie est une application qui dure, performe et reste maintenable.
-            </p>
-          </MaskReveal>
+                <MaskReveal delay={0.3}>
+                  <p className="text-neutral-600 leading-[1.9] mb-6 font-medium">
+                    Ma démarche repose sur la rigueur technique et la compréhension profonde des systèmes. Avant d'écrire la première ligne de code, j'analyse les besoins, je définis l'architecture et je prévois la scalabilité. Pour moi, une application réussie est une application qui dure, performe et reste maintenable.
+                  </p>
+                </MaskReveal>
 
-          <MaskReveal delay={0.4}>
-            <p className="text-neutral-600 leading-[1.9] mb-10 font-medium">
-              Spécialisé dans les technologies Web modernes (Next.js, Node.js) et le développement mobile (React Native), j'apporte une vision transverse aux projets : de la gestion de base de données à l'expérience utilisateur finale, en passant par le déploiement cloud.
-            </p>
-          </MaskReveal>
+                <MaskReveal delay={0.4}>
+                  <p className="text-neutral-600 leading-[1.9] mb-10 font-medium">
+                    Spécialisé dans les technologies Web modernes (Next.js, Node.js), le développement mobile (Flutter, Dart) et WordPress avancé (custom themes/plugins/elementor), je suis également passionné par l'Intelligence Artificielle et ses applications. J'apporte une vision transverse aux projets : de la gestion de base de données à l'expérience utilisateur finale, en passant par le déploiement cloud et l'intégration de solutions IA.
+                  </p>
+                </MaskReveal>
 
                 <MaskReveal delay={0.5}>
                   <div className="flex items-center gap-6 pt-6 border-t border-[var(--primary)]/5">
                     <StatBlock number="10+" label="Projets" accent />
                     <div className="w-[1px] h-10 bg-[var(--primary)]/10" />
-                    <StatBlock number="5+" label="Ans d'exp." />
+                    <StatBlock number="2+" label="Ans d'exp." />
                     <div className="w-[1px] h-10 bg-[var(--primary)]/10" />
                     <StatBlock number="Lomé" label="Basé" />
                   </div>
@@ -167,9 +175,9 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 relative">
             <div className="text-center mb-12">
               <MaskReveal>
-                  <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                    Ingénierie & Qualité
-                  </span>
+                <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
+                  Ingénierie & Qualité
+                </span>
               </MaskReveal>
               <div className="mt-3">
                 <h2 className="font-serif text-3xl md:text-5xl text-foreground">
@@ -254,71 +262,71 @@ export default function AboutPage() {
                     <div className="w-12 h-12 border border-[var(--primary)]/15 flex items-center justify-center group-hover:border-[var(--primary)]/30 group-hover:bg-[var(--primary)]/5 transition-all duration-500">
                       <FileText size={18} className="text-[var(--primary)]/60 group-hover:text-[var(--primary)] transition-colors duration-500" />
                     </div>
-                  <div>
-                    <h3 className="text-foreground font-serif text-lg md:text-xl group-hover:text-[var(--primary)] transition-colors duration-500 font-semibold">
-                      Consulter mon CV technique
-                    </h3>
+                    <div>
+                      <h3 className="text-foreground font-serif text-lg md:text-xl group-hover:text-[var(--primary)] transition-colors duration-500 font-semibold">
+                        Consulter mon CV technique
+                      </h3>
                       <p className="text-neutral-500 text-sm mt-1">
                         Parcours détaillé, stack technique et projets — format A4
                       </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-[var(--primary)] text-xs tracking-[0.2em] uppercase font-semibold group-hover:translate-x-1 transition-all duration-500">
+                    <span>Voir le CV</span>
+                    <ArrowRight size={14} className="transition-transform duration-300" />
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-[var(--primary)] text-xs tracking-[0.2em] uppercase font-semibold group-hover:translate-x-1 transition-all duration-500">
-                  <span>Voir le CV</span>
-                  <ArrowRight size={14} className="transition-transform duration-300" />
-                </div>
-              </div>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section className="py-24 md:py-40 relative overflow-hidden">
-        <FloatingElement className="absolute bottom-20 left-[5%] w-[200px] h-[200px] hidden lg:block" speed={20} direction="down">
-          <AbstractBlob variant={1} className="w-full h-full opacity-20" />
-        </FloatingElement>
-
-        <LineReveal />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-40">
-          <MaskReveal>
-            <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-              Expertise
-            </span>
-          </MaskReveal>
-          <div className="mt-4 mb-16 md:mb-24">
-            <h2 className="font-serif text-4xl md:text-6xl text-foreground">
-              <SplitText type="words" stagger={0.05}>Stack & compétences</SplitText>
-            </h2>
+              </Link>
+            </Reveal>
           </div>
+        </section>
 
-          <Stagger stagger={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
-            {skills.map((group) => (
-              <StaggerItem key={group.category}>
-                <div className="p-8 md:p-10 border border-[var(--primary)]/5 hover:border-[var(--primary)]/10 transition-all duration-700 h-full group relative overflow-hidden">
-                  {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[var(--primary)]/0 group-hover:border-[var(--primary)]/15 transition-colors duration-500" />
+        {/* Skills */}
+        <section className="py-24 md:py-40 relative overflow-hidden">
+          <FloatingElement className="absolute bottom-20 left-[5%] w-[200px] h-[200px] hidden lg:block" speed={20} direction="down">
+            <AbstractBlob variant={1} className="w-full h-full opacity-20" />
+          </FloatingElement>
 
-                  <h3 className="text-[var(--primary)] text-[10px] tracking-[0.3em] uppercase font-medium mb-8 group-hover:tracking-[0.4em] transition-all duration-500">
-                    {group.category}
-                  </h3>
-                  <ul className="space-y-4">
-                    {group.items.map((item) => (
-                      <li
-                        key={item}
-                        className="text-neutral-600 text-sm flex items-center gap-3 transition-colors duration-500 font-medium"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-[var(--primary)]/20 group-hover:bg-[var(--primary)]/40 transition-colors duration-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+          <LineReveal />
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-40">
+            <MaskReveal>
+              <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
+                Expertise
+              </span>
+            </MaskReveal>
+            <div className="mt-4 mb-16 md:mb-24">
+              <h2 className="font-serif text-4xl md:text-6xl text-foreground">
+                <SplitText type="words" stagger={0.05}>Stack & compétences</SplitText>
+              </h2>
+            </div>
+
+            <Stagger stagger={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+              {skills.map((group) => (
+                <StaggerItem key={group.category}>
+                  <div className="p-8 md:p-10 border border-[var(--primary)]/5 hover:border-[var(--primary)]/10 transition-all duration-700 h-full group relative overflow-hidden">
+                    {/* Corner accent */}
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[var(--primary)]/0 group-hover:border-[var(--primary)]/15 transition-colors duration-500" />
+
+                    <h3 className="text-[var(--primary)] text-[10px] tracking-[0.3em] uppercase font-medium mb-8 group-hover:tracking-[0.4em] transition-all duration-500">
+                      {group.category}
+                    </h3>
+                    <ul className="space-y-4">
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className="text-neutral-600 text-sm flex items-center gap-3 transition-colors duration-500 font-medium"
+                        >
+                          <span className="w-1 h-1 rounded-full bg-[var(--primary)]/20 group-hover:bg-[var(--primary)]/40 transition-colors duration-500" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+        </section>
 
         {/* Philosophy */}
         <section className="py-32 md:py-48 relative overflow-hidden">
@@ -332,19 +340,19 @@ export default function AboutPage() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pulse-glow rounded-full" />
 
               <Reveal>
-                  <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium block mb-8">
-                    Philosophie
-                  </span>
-                  <div className="space-y-12 relative z-10">
-                    <blockquote className="font-serif text-2xl md:text-4xl text-foreground leading-[1.3] italic">
-                      &laquo; Le code n'est pas une fin en soi, c'est un outil pour bâtir des solutions robustes et durables. &raquo;
-                    </blockquote>
-                    <div className="w-12 h-[1px] bg-[var(--primary)]/20 mx-auto" />
-                    <blockquote className="font-serif text-2xl md:text-4xl text-foreground leading-[1.3] italic">
-                      &laquo; La scalabilité commence par une architecture propre et une vision claire des enjeux métier. &raquo;
-                    </blockquote>
-                  </div>
-                </Reveal>
+                <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium block mb-8">
+                  Philosophie
+                </span>
+                <div className="space-y-12 relative z-10">
+                  <blockquote className="font-serif text-2xl md:text-4xl text-foreground leading-[1.3] italic">
+                    &laquo; Le code n'est pas une fin en soi, c'est un outil pour bâtir des solutions robustes et durables. &raquo;
+                  </blockquote>
+                  <div className="w-12 h-[1px] bg-[var(--primary)]/20 mx-auto" />
+                  <blockquote className="font-serif text-2xl md:text-4xl text-foreground leading-[1.3] italic">
+                    &laquo; La scalabilité commence par une architecture propre et une vision claire des enjeux métier. &raquo;
+                  </blockquote>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
