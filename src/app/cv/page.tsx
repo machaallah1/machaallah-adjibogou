@@ -145,7 +145,7 @@ export default function CVPage() {
 
         <div className="px-10 md:px-16 py-12 md:py-16">
           {/* Header */}
-          <motion.header variants={fadeIn} custom={0} className="mb-12">
+          <motion.div variants={fadeIn} custom={0} className="mb-12">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div>
                 <motion.h1
@@ -165,7 +165,7 @@ export default function CVPage() {
                 <motion.p
                   variants={fadeIn}
                   custom={3}
-                  className="mt-3 text-[var(--primary)] text-sm tracking-[0.25em] uppercase font-medium"
+                  className="mt-3 text-[var(--primary)] text-sm uppercase font-medium"
                 >
                   Développeur Web & Mobile / Architecte
                 </motion.p>
@@ -176,8 +176,9 @@ export default function CVPage() {
                 custom={4}
                 className="text-right text-[#6B635A] text-xs leading-[2] tracking-wide"
               >
-                <p>Lomé, TOGO</p>
-                <p>machdev02@gmail.com</p>
+                <p>Lomé, TOGO - Agoe-Assiyéyé</p>
+                <p>+228 92 21 82 07</p>
+                <p className="text-primary">machdev02@gmail.com</p>
                 <p>linkedin.com/in/machaallah-adjibogou</p>
                 <p>github.com/machaallah1</p>
               </motion.div>
@@ -185,7 +186,7 @@ export default function CVPage() {
 
             {/* Divider */}
             <div className="mt-8 h-[1px] bg-gradient-to-r from-[var(--primary)]/40 via-[var(--primary)]/10 to-transparent" />
-          </motion.header>
+          </motion.div>
 
           {/* Profile summary */}
           <motion.section variants={fadeIn} custom={5} className="mb-12">
@@ -360,7 +361,7 @@ export default function CVPage() {
           </div>
 
           {/* Footer */}
-          <motion.footer
+          <motion.div
             variants={fadeIn}
             custom={16}
             className="mt-14 pt-6 border-t border-[var(--primary)]/5"
@@ -373,7 +374,7 @@ export default function CVPage() {
                 {new Date().getFullYear()}
               </p>
             </div>
-          </motion.footer>
+          </motion.div>
         </div>
       </motion.div>
     </div>
