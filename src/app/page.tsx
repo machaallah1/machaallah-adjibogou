@@ -27,6 +27,8 @@ import {
   DotsPattern,
   DesktopWireframe,
   WireframeMockup,
+  ClassDiagramSkeleton,
+  MobileClassDiagramSkeleton,
 } from "@/components/visuals";
 
 const processSteps = [
@@ -81,9 +83,9 @@ function HeroSection() {
         <div className="spin-slow w-[120px] h-[120px] relative">
           <svg viewBox="0 0 120 120" className="w-full h-full">
             <path id="circle-text" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" fill="none" />
-              <text className="fill-[var(--primary)]/30 text-[11px] tracking-[0.35em] uppercase">
-                <textPath href="#circle-text">DEVELOPPEUR WEB & MOBILE &#x2022; ARCHITECTURE &#x2022; </textPath>
-              </text>
+            <text className="fill-[var(--primary)]/30 text-[11px] tracking-[0.35em] uppercase">
+              <textPath href="#circle-text">DEVELOPPEUR WEB & MOBILE &#x2022; ARCHITECTURE &#x2022; </textPath>
+            </text>
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="glow-dot" />
@@ -97,33 +99,33 @@ function HeroSection() {
       >
         {/* Top line */}
         <div className="mb-10 md:mb-14">
-          
+
         </div>
 
         {/* Main title */}
-          <h1 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-[-0.03em] text-foreground">
-              <SplitText delay={0.4} stagger={0.025} type="words">
-                Développeur de
-              </SplitText>{" "}
-              <span className="italic text-[var(--primary)]">
-                <SplitText delay={0.6} stagger={0.025} type="words">
-                  solutions
-                </SplitText>
-              </span>
-              <br className="hidden md:block" />{" "}
-              <SplitText delay={0.7} stagger={0.025} type="words">
-                qui pense
-              </SplitText>{" "}
-              <span className="italic text-[var(--primary)]">
-                <SplitText delay={0.9} stagger={0.025} type="words">
-                  architecture
-                </SplitText>
-              </span>
-              <br className="hidden md:block" />{" "}
-              <SplitText delay={1.0} stagger={0.025} type="words">
-                  avant de coder
-              </SplitText>
-            </h1>
+        <h1 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-[-0.03em] text-foreground">
+          <SplitText delay={0.4} stagger={0.025} type="words">
+            Développeur de
+          </SplitText>{" "}
+          <span className="italic text-[var(--primary)]">
+            <SplitText delay={0.6} stagger={0.025} type="words">
+              solutions
+            </SplitText>
+          </span>
+          <br className="hidden md:block" />{" "}
+          <SplitText delay={0.7} stagger={0.025} type="words">
+            qui pense
+          </SplitText>{" "}
+          <span className="italic text-[var(--primary)]">
+            <SplitText delay={0.9} stagger={0.025} type="words">
+              architecture
+            </SplitText>
+          </span>
+          <br className="hidden md:block" />{" "}
+          <SplitText delay={1.0} stagger={0.025} type="words">
+            avant de coder
+          </SplitText>
+        </h1>
 
         {/* Subtitle & CTAs */}
         <motion.div
@@ -131,21 +133,21 @@ function HeroSection() {
           className="mt-10 md:mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10"
         >
           <MaskReveal delay={1.2}>
-              <p className="text-lg md:text-xl text-neutral-600 max-w-md leading-relaxed">
-                Conception d'applications robustes, scalables et centrées sur la performance.
-                <br />
-                  <span className="text-neutral-500">Basé à Lomé — disponible pour transformer vos visions techniques en réalité.</span>
-              </p>
+            <p className="text-lg md:text-xl text-neutral-600 max-w-md leading-relaxed">
+              Conception d'applications robustes, scalables et centrées sur la performance.
+              <br />
+              <span className="text-neutral-500">Basé à Lomé — disponible pour transformer vos visions techniques en réalité.</span>
+            </p>
           </MaskReveal>
 
           <MaskReveal delay={1.4}>
             <div className="flex gap-4">
               <Magnetic>
                 <Link
-                  href="/work"
+                  href="/project"
                   className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[var(--primary)] text-white text-sm font-medium tracking-[0.12em] uppercase overflow-hidden"
                 >
-                    <span className="relative z-10">Voir les projets</span>
+                  <span className="relative z-10">Voir les projets</span>
                   <ArrowRight size={15} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                   <span className="absolute inset-0 bg-[#068a09] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 </Link>
@@ -170,7 +172,7 @@ function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          
+
         </motion.div>
       </motion.div>
     </section>
@@ -178,7 +180,7 @@ function HeroSection() {
 }
 
 function MarqueeStrip() {
-  const skills = ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js","Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"];
+  const skills = ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js", "Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"];
 
   return (
     <div className="py-8 border-t border-b border-[var(--primary)]/10">
@@ -205,10 +207,10 @@ function StatsStrip() {
       <div className="absolute inset-0 cross-pattern opacity-20" />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
-            <StatBlock number="10+" label="Projets livrés" accent />
-            <StatBlock number="6+" label="Secteurs techniques" />
-            <StatBlock number="2+" label="Ans d'expérience" accent />
-            <StatBlock number="100%" label="Code de qualité" />
+          <StatBlock number="10+" label="Projets livrés" accent />
+          <StatBlock number="6+" label="Secteurs techniques" />
+          <StatBlock number="2+" label="Ans d'expérience" accent />
+          <StatBlock number="100%" label="Code de qualité" />
         </div>
       </div>
     </section>
@@ -226,7 +228,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: (index % 2) * 0.15 }}
     >
-      <Link href={`/work/${project.slug}`} className="group block project-card" data-cursor="Voir">
+      <Link href={`/project/${project.slug}`} className="group block project-card" data-cursor="Voir">
         {/* Image */}
         <div className="relative overflow-hidden bg-[#111110] aspect-[4/3] rounded-sm">
           <Image
@@ -277,7 +279,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   );
 }
 
-function SelectedWork() {
+function Selectedproject() {
   const featured = projects.slice(0, 6);
 
   return (
@@ -295,44 +297,44 @@ function SelectedWork() {
         <div className="flex items-end justify-between mb-14 md:mb-20">
           <div>
             <MaskReveal>
-                <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                  Portfolio
-                </span>
-              </MaskReveal>
-              <div className="mt-3">
-                <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
-                  <SplitText type="words" stagger={0.05}>Projets sélectionnés</SplitText>
-                </h2>
+              <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
+                Portfolio
+              </span>
+            </MaskReveal>
+            <div className="mt-3">
+              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
+                <SplitText type="words" stagger={0.05}>Projets sélectionnés</SplitText>
+              </h2>
             </div>
           </div>
           <Reveal>
             <Magnetic>
               <Link
-                href="/work"
+                href="/project"
                 className="hidden sm:inline-flex items-center gap-3 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.12em] uppercase link-underline"
               >
-                  Tous les projets
-                    <ArrowUpRight size={14} />
-                </Link>
-              </Magnetic>
-            </Reveal>
-          </div>
-
-          {/* Projects grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {featured.map((project, i) => (
-              <ProjectCard key={project.slug} project={project} index={i} />
-            ))}
-          </div>
-
-          {/* View all - mobile */}
-          <div className="mt-12 sm:hidden text-center">
-            <Magnetic>
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-3 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.12em] uppercase"
-              >
                 Tous les projets
+                <ArrowUpRight size={14} />
+              </Link>
+            </Magnetic>
+          </Reveal>
+        </div>
+
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {featured.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} />
+          ))}
+        </div>
+
+        {/* View all - mobile */}
+        <div className="mt-12 sm:hidden text-center">
+          <Magnetic>
+            <Link
+              href="/project"
+              className="inline-flex items-center gap-3 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.12em] uppercase"
+            >
+              Tous les projets
               <ArrowUpRight size={14} />
             </Link>
           </Magnetic>
@@ -351,29 +353,29 @@ function DesignShowcase() {
         <div className="text-center mb-12 md:mb-16">
           <MaskReveal>
             <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                De l’architecture au déploiement
-              </span>
-            </MaskReveal>
-            <div className="mt-3">
-              <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-[0.95]">
-                <SplitText type="words" stagger={0.05}>Ingénierie Full-Stack & Architecture</SplitText>
+              De l’architecture au déploiement
+            </span>
+          </MaskReveal>
+          <div className="mt-3">
+            <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-[0.95]">
+              <SplitText type="words" stagger={0.05}>Ingénierie Full-Stack & Architecture</SplitText>
             </h2>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 md:gap-12 items-center">
-          {/* Desktop wireframe */}
+          {/* Desktop logic diagram */}
           <div className="relative">
-            <DesktopWireframe className="w-full max-w-[700px] mx-auto" />
+            <ClassDiagramSkeleton className="w-full max-w-[700px] mx-auto" />
             {/* Decorative dots */}
             <div className="absolute -top-4 -left-4 hidden lg:block opacity-40">
               <DotsPattern cols={4} rows={4} />
             </div>
           </div>
 
-          {/* Mobile wireframe */}
+          {/* Mobile logic diagram */}
           <div className="relative max-w-[240px] mx-auto lg:mx-0">
-            <WireframeMockup className="w-full" />
+            <MobileClassDiagramSkeleton className="w-full" />
             {/* Floating concentric circles */}
             <FloatingElement className="absolute -top-12 -right-12 w-[100px] h-[100px] hidden lg:block" speed={10}>
               <ConcentricCircles className="w-full h-full" rings={3} />
@@ -459,13 +461,13 @@ function StrengthsSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-32 md:pt-48">
         <div className="text-center mb-20 md:mb-28">
           <MaskReveal>
-              <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                  Expertise
-                </span>
-            </MaskReveal>
-            <div className="mt-4">
-              <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
-                <SplitText type="words" stagger={0.05}>Ce que j'apporte techniquement</SplitText>
+            <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
+              Expertise
+            </span>
+          </MaskReveal>
+          <div className="mt-4">
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
+              <SplitText type="words" stagger={0.05}>Ce que j'apporte techniquement</SplitText>
             </h2>
           </div>
         </div>
@@ -525,15 +527,15 @@ function CTASection() {
             Me contacter
           </span>
         </MaskReveal>
-          <div className="mt-6">
-            <h2 className="font-serif text-[clamp(2rem,6vw,5rem)] text-foreground leading-[0.95] max-w-5xl mx-auto">
-              <SplitText type="words" stagger={0.04}>Vous cherchez un développeur qui</SplitText>{" "}
-              <span className="italic text-[var(--primary)]">
-                <SplitText type="words" delay={0.5} stagger={0.04}>comprend vos enjeux métier</SplitText>
-              </span>{" "}
-              <SplitText type="words" delay={0.6} stagger={0.04}>avant d'écrire une ligne de code ?</SplitText>
-            </h2>
-          </div>
+        <div className="mt-6">
+          <h2 className="font-serif text-[clamp(2rem,6vw,5rem)] text-foreground leading-[0.95] max-w-5xl mx-auto">
+            <SplitText type="words" stagger={0.04}>Vous cherchez un développeur qui</SplitText>{" "}
+            <span className="italic text-[var(--primary)]">
+              <SplitText type="words" delay={0.5} stagger={0.04}>comprend vos enjeux métier</SplitText>
+            </span>{" "}
+            <SplitText type="words" delay={0.6} stagger={0.04}>avant d'écrire une ligne de code ?</SplitText>
+          </h2>
+        </div>
 
         <MaskReveal delay={0.8}>
           <div className="mt-14">
@@ -542,7 +544,7 @@ function CTASection() {
                 href="/contact"
                 className="group relative inline-flex items-center gap-4 px-12 py-6 bg-[var(--primary)] text-white text-sm font-semibold tracking-[0.15em] uppercase overflow-hidden"
               >
-                  <span className="relative z-10">Discutons</span>
+                <span className="relative z-10">Discutons</span>
                 <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                 <span className="absolute inset-0 bg-[#068a09] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </Link>
@@ -561,7 +563,7 @@ export default function Home() {
       <HeroSection />
       <MarqueeStrip />
       <StatsStrip />
-      <SelectedWork />
+      <Selectedproject />
       <DesignShowcase />
       <ProcessSection />
       <StrengthsSection />

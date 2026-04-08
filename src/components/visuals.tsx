@@ -1162,3 +1162,120 @@ export function LogicSequence({ className = "" }: { className?: string }) {
   );
 }
 
+/* Class Diagram Skeleton (Desktop) */
+export function ClassDiagramSkeleton({ className = "" }: { className?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const classes = [
+    { x: 50, y: 50, width: 220, height: 160, name: "Project", attributes: 3, methods: 2 },
+    { x: 380, y: 150, width: 180, height: 130, name: "User", attributes: 2, methods: 1 },
+    { x: 100, y: 280, width: 240, height: 150, name: "Asset", attributes: 4, methods: 1 },
+    { x: 480, y: 340, width: 200, height: 120, name: "Config", attributes: 2, methods: 1 },
+  ];
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`relative ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <svg viewBox="0 0 800 500" className="w-full h-full">
+        <defs>
+          <pattern id="grid-pattern-cd" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="rgba(4, 118, 7, 0.05)" />
+          </pattern>
+        </defs>
+        <rect width="800" height="500" fill="url(#grid-pattern-cd)" rx="12" stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+        
+        {/* Connection lines */}
+        <path d="M 270 130 L 380 180" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <path d="M 170 210 L 170 280" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" />
+        <path d="M 500 280 L 560 340" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" />
+        <path d="M 340 355 L 480 380" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+
+        {/* Classes */}
+        {classes.map((cls, i) => (
+          <motion.g key={i}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
+          >
+            <rect x={cls.x} y={cls.y} width={cls.width} height={cls.height} fill="#ffffff" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" rx="6" />
+            <rect x={cls.x} y={cls.y} width={cls.width} height="35" fill="rgba(4, 118, 7, 0.03)" clipPath={`polygon(0 0, 100% 0, 100% 100%, 0 100%)`} />
+            <line x1={cls.x} y1={cls.y + 35} x2={cls.x + cls.width} y2={cls.y + 35} stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+            
+            <rect x={cls.x + 15} y={cls.y + 14} width="60" height="7" fill="var(--primary)" opacity="0.4" rx="3.5" />
+            
+            {Array.from({ length: cls.attributes }).map((_, j) => (
+              <rect key={`attr-${j}`} x={cls.x + 15} y={cls.y + 50 + j * 16} width={cls.width - 50} height="5" fill="rgba(4, 118, 7, 0.1)" rx="2.5" />
+            ))}
+            
+            <line x1={cls.x} y1={cls.y + 55 + cls.attributes * 16} x2={cls.x + cls.width} y2={cls.y + 55 + cls.attributes * 16} stroke="rgba(4, 118, 7, 0.08)" strokeWidth="1" strokeDasharray="2 2" />
+            
+            {Array.from({ length: cls.methods }).map((_, j) => (
+              <rect key={`meth-${j}`} x={cls.x + 15} y={cls.y + 65 + cls.attributes * 16 + j * 16} width={cls.width - 70} height="5" fill="rgba(4, 118, 7, 0.2)" rx="2.5" />
+            ))}
+          </motion.g>
+        ))}
+      </svg>
+    </motion.div>
+  );
+}
+
+/* Mobile Class Diagram Skeleton */
+export function MobileClassDiagramSkeleton({ className = "" }: { className?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const classes = [
+    { x: 20, y: 50, width: 200, height: 130, attributes: 2, methods: 1 },
+    { x: 40, y: 220, width: 180, height: 110, attributes: 1, methods: 1 },
+    { x: 20, y: 370, width: 190, height: 140, attributes: 2, methods: 2 },
+  ];
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`relative ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <svg viewBox="0 0 240 540" className="w-full h-full">
+        {/* Frame */}
+        <rect x="5" y="5" width="230" height="530" rx="20" fill="none" stroke="rgba(4, 118, 7, 0.2)" strokeWidth="1" />
+        
+        {/* Connections */}
+        <path d="M 120 180 L 120 220" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" />
+        <path d="M 100 330 L 100 370" fill="none" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1.5" strokeDasharray="3 3" />
+
+        {classes.map((cls, i) => (
+          <motion.g key={i}
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 + i * 0.2 }}
+          >
+            <rect x={cls.x} y={cls.y} width={cls.width} height={cls.height} fill="white" stroke="rgba(4, 118, 7, 0.15)" strokeWidth="1" rx="5" />
+            <rect x={cls.x} y={cls.y} width={cls.width} height="25" fill="rgba(4, 118, 7, 0.03)" />
+            <line x1={cls.x} y1={cls.y + 25} x2={cls.x + cls.width} y2={cls.y + 25} stroke="rgba(4, 118, 7, 0.1)" strokeWidth="1" />
+            
+            <rect x={cls.x + 10} y={cls.y + 10} width="40" height="5" fill="var(--primary)" opacity="0.3" rx="2.5" />
+            
+            {Array.from({ length: cls.attributes }).map((_, j) => (
+              <rect key={`attr-${j}`} x={cls.x + 10} y={cls.y + 35 + j * 12} width={cls.width - 30} height="4" fill="rgba(4, 118, 7, 0.1)" rx="2" />
+            ))}
+            
+            <line x1={cls.x} y1={cls.y + 35 + cls.attributes * 12} x2={cls.x + cls.width} y2={cls.y + 35 + cls.attributes * 12} stroke="rgba(4, 118, 7, 0.05)" strokeWidth="1" />
+            
+            {Array.from({ length: cls.methods }).map((_, j) => (
+              <rect key={`meth-${j}`} x={cls.x + 10} y={cls.y + 42 + cls.attributes * 12 + j * 12} width={cls.width - 50} height="4" fill="rgba(4, 118, 7, 0.2)" rx="2" />
+            ))}
+          </motion.g>
+        ))}
+      </svg>
+    </motion.div>
+  );
+}

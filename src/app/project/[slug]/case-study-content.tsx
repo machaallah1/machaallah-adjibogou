@@ -112,7 +112,7 @@ function FullBleedImage({ src, alt, caption }: { src: string; alt: string; capti
           </motion.div>
           <div className="absolute inset-0" />
         </div>
-        
+
       </div>
     </div>
   );
@@ -141,10 +141,10 @@ function BrowserMockup({ src, alt }: { src: string; alt: string }) {
             </div>
             <div className="flex justify-center">
               <div className="bg-[#0a0a09] border border-white/5 rounded-md px-16 py-1.5 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-                  <span className="text-[9px] text-[#8A817A] tracking-[0.2em] uppercase font-mono">
-                    PRODUCTION_STABLE::v1.0.4
-                  </span>
+                <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
+                <span className="text-[9px] text-[#8A817A] tracking-[0.2em] uppercase font-mono">
+                  PRODUCTION_STABLE::v1.0.4
+                </span>
               </div>
             </div>
           </div>
@@ -174,9 +174,9 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
           <Image src={src} alt={alt} fill className="object-cover object-top" sizes="320px" />
         </div>
       </div>
-        <p className="text-[11px] text-[#4a4a4a] tracking-[0.15em] uppercase mt-6 text-center font-medium">
-          Interface Mobile Native
-        </p>
+      <p className="text-[11px] text-[#4a4a4a] tracking-[0.15em] uppercase mt-6 text-center font-medium">
+        Interface Mobile Native
+      </p>
     </motion.div>
   );
 }
@@ -272,24 +272,24 @@ function DuoPhones({ leftSrc, rightSrc, alt }: { leftSrc: string; rightSrc: stri
         <div className="flex justify-center items-center gap-8 md:gap-16">
           {/* Phone 1 */}
           <div className="relative w-[280px] md:w-[320px]">
-             <div className="bg-[#1A1918] border border-[var(--primary)]/10 rounded-[2.5rem] overflow-hidden p-2 shadow-2xl shadow-black/50">
-                <div className="relative aspect-[9/19] rounded-[2rem] overflow-hidden bg-[#0E0D0C]">
-                  <Image src={leftSrc} alt={`${alt} — Screen 1`} fill className="object-cover object-top" sizes="320px" />
-                </div>
-             </div>
+            <div className="bg-[#1A1918] border border-[var(--primary)]/10 rounded-[2.5rem] overflow-hidden p-2 shadow-2xl shadow-black/50">
+              <div className="relative aspect-[9/19] rounded-[2rem] overflow-hidden bg-[#0E0D0C]">
+                <Image src={leftSrc} alt={`${alt} — Screen 1`} fill className="object-cover object-top" sizes="320px" />
+              </div>
+            </div>
           </div>
           {/* Phone 2 - slightly offset or just side by side */}
           <div className="relative w-[280px] md:w-[320px] pt-12 md:pt-24 hidden md:block">
-             <div className="bg-[#1A1918] border border-[var(--primary)]/10 rounded-[2.5rem] overflow-hidden p-2 shadow-2xl shadow-black/50">
-                <div className="relative aspect-[9/19] rounded-[2rem] overflow-hidden bg-[#0E0D0C]">
-                  <Image src={rightSrc} alt={`${alt} — Screen 2`} fill className="object-cover object-top" sizes="320px" />
-                </div>
-             </div>
+            <div className="bg-[#1A1918] border border-[var(--primary)]/10 rounded-[2.5rem] overflow-hidden p-2 shadow-2xl shadow-black/50">
+              <div className="relative aspect-[9/19] rounded-[2rem] overflow-hidden bg-[#0E0D0C]">
+                <Image src={rightSrc} alt={`${alt} — Screen 2`} fill className="object-cover object-top" sizes="320px" />
+              </div>
+            </div>
           </div>
         </div>
-          <p className="text-[11px] text-[#6B635A] tracking-[0.15em] uppercase mt-12 text-center">
-            Vues mobiles
-          </p>
+        <p className="text-[11px] text-[#6B635A] tracking-[0.15em] uppercase mt-12 text-center">
+          Vues mobiles
+        </p>
       </div>
     </motion.div>
   );
@@ -319,7 +319,7 @@ function DeviceDuo({ desktopSrc, mobileSrc, alt }: { desktopSrc: string; mobileS
               </div>
               <div className="flex-1 flex justify-center">
                 <div className="bg-[#0E0D0C] rounded-md px-12 py-1">
-                    <span className="text-[10px] text-[#6B635A] tracking-wider">système</span>
+                  <span className="text-[10px] text-[#6B635A] tracking-wider">système</span>
                 </div>
               </div>
             </div>
@@ -431,7 +431,7 @@ function RichSection({ section }: { section: ProjectSection }) {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-24">
           {/* Left */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, x: -20 },
               visible: { opacity: 1, x: 0 }
@@ -449,7 +449,7 @@ function RichSection({ section }: { section: ProjectSection }) {
           {/* Right */}
           <div className="max-w-2xl bg-white/50 relative">
             {section.content && (
-              <motion.p 
+              <motion.p
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
@@ -463,7 +463,7 @@ function RichSection({ section }: { section: ProjectSection }) {
             {section.bullets && section.bullets.length > 0 && (
               <ul className="space-y-4 mb-10">
                 {section.bullets.map((b, i) => (
-                  <motion.li 
+                  <motion.li
                     key={i}
                     variants={{
                       hidden: { opacity: 0, x: 10 },
@@ -502,7 +502,7 @@ function RichSection({ section }: { section: ProjectSection }) {
               </div>
             ))}
             {section.quote && (
-              <motion.div 
+              <motion.div
                 variants={{
                   hidden: { opacity: 0, scale: 0.98 },
                   visible: { opacity: 1, scale: 1 }
@@ -653,7 +653,7 @@ export function CaseStudyContent({
         >
           <MaskReveal>
             <Link
-              href="/work"
+              href="/project"
               className="inline-flex items-center gap-2 text-[11px] text-[var(--primary)]/60 hover:text-[var(--primary)] transition-colors duration-500 mb-12 tracking-[0.15em] uppercase"
             >
               <ArrowLeft size={12} />
@@ -685,30 +685,30 @@ export function CaseStudyContent({
             </p>
           </MaskReveal>
 
-            <MaskReveal delay={0.5}>
-              <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed font-medium">
-                {project.description}
-              </p>
-            </MaskReveal>
+          <MaskReveal delay={0.5}>
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed font-medium">
+              {project.description}
+            </p>
+          </MaskReveal>
 
-            {project.url && (
-              <MaskReveal delay={0.65}>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 mt-8 px-6 py-3 border border-[var(--primary)]/25 text-[11px] text-[var(--primary)]/70 tracking-[0.2em] uppercase hover:border-[var(--primary)]/60 hover:text-[var(--primary)] transition-all duration-500 group"
-                >
-                  {project.urlLabel ?? "Voir le projet"}
-                  <ArrowUpRight
-                    size={12}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500"
-                  />
-                </a>
-              </MaskReveal>
-            )}
-          </motion.div>
-        </section>
+          {project.url && (
+            <MaskReveal delay={0.65}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 mt-8 px-6 py-3 border border-[var(--primary)]/25 text-[11px] text-[var(--primary)]/70 tracking-[0.2em] uppercase hover:border-[var(--primary)]/60 hover:text-[var(--primary)] transition-all duration-500 group"
+              >
+                {project.urlLabel ?? "Voir le projet"}
+                <ArrowUpRight
+                  size={12}
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-500"
+                />
+              </a>
+            </MaskReveal>
+          )}
+        </motion.div>
+      </section>
 
       {/* ═══ VISION QUOTE ═══ */}
       <section className="py-20 md:py-32 relative overflow-hidden bg-white border-y border-neutral-100">
@@ -757,8 +757,8 @@ export function CaseStudyContent({
               <div>
                 <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-mono font-bold">TAGS</span>
                 <div className="flex gap-1 overflow-hidden opacity-40">
-                    <span className="text-[9px] font-mono">#TS</span>
-                    <span className="text-[9px] font-mono">#NODE</span>
+                  <span className="text-[9px] font-mono">#TS</span>
+                  <span className="text-[9px] font-mono">#NODE</span>
                 </div>
               </div>
               <div>
@@ -846,7 +846,7 @@ export function CaseStudyContent({
 
           <Magnetic>
             <Link
-              href={`/work/${next.slug}`}
+              href={`/project/${next.slug}`}
               className="group inline-flex flex-col items-center gap-8"
               data-cursor="Suivant"
               scroll={false}

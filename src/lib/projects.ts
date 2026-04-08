@@ -1022,5 +1022,45 @@ export const projects: Project[] = [
     ],
     url: "https://fondationbkf.org",
     urlLabel: "Visiter le site"
-  }
+  },
+  // 12. Kidole
+  // {
+  //   slug: "kidole",
+  //   title: "Kidole",
+  //   subtitle: "Plateforme de gestion pour agences",
+  //   type: "Développement Web",
+  //   sector: "Saas · Agence",
+  //   tags: ["Web", "Saas", "Dashboard"],
+  //   year: "2026",
+  //   role: "Développeur Full-Stack",
+  //   scope: "Développement Web · Architecture · Dashboard",
+  //   description: "Conception et développement d'un dashboard métier sur mesure, pensé pour simplifier et optimiser les process d'une agence.",
+  //   vision: "Allier puissance métier et simplicité d'utilisation dans un outil du quotidien.",
+  //   thumbnail: "/mach.png",
+  //   gallery: [
+  //     "/mach.png",
+  //     "/mach.png",
+  //     "/mach.png"
+  //   ],
+  //   tools: ["Next.js", "Tailwind CSS"],
+  //   metrics: [
+  //     { label: "Client", value: "Kidole" },
+  //     { label: "Secteur", value: "Saas" },
+  //     { label: "Rôle", value: "Full-Stack" },
+  //   ],
+  //   sections: [
+  //     {
+  //       num: "01",
+  //       title: "Contexte & réalisation",
+  //       content: "Développement d'une interface d'administration robuste et intuitive pour visualiser directement l'activité et prendre des décisions rapides.",
+  //       bullets: [
+  //         "Tableaux de bord dynamiques",
+  //         "Architecture Full-Stack optimisée",
+  //         "Interface fluide et réactive"
+  //       ]
+  //     }
+  //   ],
+  //   url: "https://demo.kidole.io/agency/dashboard",
+  //   urlLabel: "Visiter le dashboard"
+  // }
 ];
