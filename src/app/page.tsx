@@ -97,22 +97,11 @@ function HeroSection() {
       >
         {/* Top line */}
         <div className="mb-10 md:mb-14">
-          <MaskReveal delay={0.2}>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-[var(--primary)]/40" />
-                <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                  Machaallah ADJIBOGOU
-                </span>
-                <div className="w-12 h-[1px] bg-[var(--primary)]/40" />
-                <span className="text-muted-foreground text-xs tracking-[0.2em] uppercase hidden sm:inline">
-                  Développeur Web & Mobile
-                </span>
-            </div>
-          </MaskReveal>
+          
         </div>
 
         {/* Main title */}
-          <h1 className="font-serif text-[clamp(2.5rem,8vw,6.5rem)] leading-[0.92] tracking-[-0.03em] text-foreground">
+          <h1 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-[-0.03em] text-foreground">
               <SplitText delay={0.4} stagger={0.025} type="words">
                 Développeur de
               </SplitText>{" "}

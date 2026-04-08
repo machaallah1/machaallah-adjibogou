@@ -22,6 +22,17 @@ export const metadata: Metadata = {
   title: "Machaallah ADJIBOGOU — Développeur Web et Mobile",
   description:
     "Développeur Web et Mobile (Architecture Logicielle) basé à Lomé. Conception de solutions digitales robustes et scalables. Portfolio de projets, méthodologie et expertise technique.",
+  icons: {
+    icon: [
+      { url: "/mach.png" },
+      { url: "/mach.png", sizes: "16x16", type: "image/png" },
+      { url: "/mach.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/mach.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

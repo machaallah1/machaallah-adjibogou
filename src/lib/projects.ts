@@ -21,7 +21,6 @@ export interface Project {
   vision: string; // italic quote under intro
   thumbnail: string;
   gallery: string[];
-  colors: { name: string; hex: string }[];
   tools: string[];
   metrics: { label: string; value: string }[];
   sections: ProjectSection[];
@@ -52,26 +51,6 @@ export const projects: Project[] = [
       "/images/projects/maono/01.png",
       "/images/projects/maono/02.png",
       "/images/projects/maono/03.png",
-      "/images/projects/maono/04.png",
-      "/images/projects/maono/05.png",
-      "/images/projects/maono/06.png",
-      "/images/projects/maono/07.png",
-      "/images/projects/maono/08.png",
-      "/images/projects/maono/09.png",
-      "/images/projects/maono/10.png",
-      "/images/projects/maono/11.png",
-      "/images/projects/maono/12.png",
-      "/images/projects/maono/13.png",
-      "/images/projects/maono/14.png",
-      "/images/projects/maono/15.png",
-      "/images/projects/maono/16.png",
-      "/images/projects/maono/17.png",
-    ],
-    colors: [
-      { name: "Deep Black", hex: "#0A0A0A" },
-      { name: "Innovation Blue", hex: "#FFF2D7" },
-      { name: "Clean White", hex: "#FAFAFA" },
-      { name: "Graphite", hex: "#1E1E1E" },
     ],
     tools: ["Next.js", "Tailwind CSS", "Framer Motion","Wordpress"],
     metrics: [
@@ -223,26 +202,6 @@ export const projects: Project[] = [
       "/images/projects/aleapark/01.png",
       "/images/projects/aleapark/02.png",
       "/images/projects/aleapark/03.png",
-      "/images/projects/aleapark/04.png",
-      "/images/projects/aleapark/05.png",
-      "/images/projects/aleapark/06.png",
-      "/images/projects/aleapark/07.png",
-      "/images/projects/aleapark/08.png",
-      "/images/projects/aleapark/09.png",
-      "/images/projects/aleapark/10.png",
-      "/images/projects/aleapark/11.png",
-      "/images/projects/aleapark/12.png",
-      "/images/projects/aleapark/13.png",
-      "/images/projects/aleapark/14.png",
-      "/images/projects/aleapark/15.png",
-      "/images/projects/aleapark/16.png",
-      "/images/projects/aleapark/17.png",
-    ],
-    colors: [
-      { name: "Deep Dark", hex: "#212121" },
-      { name: "Energy Orange", hex: "#EEE8A9" },
-      { name: "Light Cream", hex: "#FFF8F0" },
-      { name: "Warm Grey", hex: "#0260D2" },
     ],
     tools: ["Next.js", "Tailwind CSS", "Framer Motion"],
     metrics: [
@@ -433,26 +392,6 @@ export const projects: Project[] = [
       "/images/projects/togotech/01.png",
       "/images/projects/togotech/02.png",
       "/images/projects/togotech/03.png",
-      "/images/projects/togotech/04.png",
-      "/images/projects/togotech/05.png",
-      "/images/projects/togotech/06.png",
-      "/images/projects/togotech/07.png",
-      "/images/projects/togotech/08.png",
-      "/images/projects/togotech/09.png",
-      "/images/projects/togotech/10.png",
-      "/images/projects/togotech/11.png",
-      "/images/projects/togotech/12.png",
-      "/images/projects/togotech/13.png",
-      "/images/projects/togotech/14.png",
-      "/images/projects/togotech/15.png",
-      "/images/projects/togotech/16.png",
-      "/images/projects/togotech/17.png",
-    ],
-    colors: [
-      { name: "Tech Dark", hex: "#00000000" },
-      { name: "Trust Blue", hex: "#0EDD83" },
-      { name: "Clean White", hex: "#FAFAFA" },
-      { name: "Steel Grey", hex: "#00134B" },
     ],
     tools: ["Next.js", "TypeScript", "Tailwind CSS"],
     metrics: [
@@ -631,26 +570,6 @@ export const projects: Project[] = [
       "/images/projects/sin/01.png",
       "/images/projects/sin/02.png",
       "/images/projects/sin/03.png",
-      "/images/projects/sin/04.png",
-      "/images/projects/sin/05.png",
-      "/images/projects/sin/06.png",
-      "/images/projects/sin/07.png",
-      "/images/projects/sin/08.png",
-      "/images/projects/sin/09.png",
-      "/images/projects/sin/10.png",
-      "/images/projects/sin/11.png",
-      "/images/projects/sin/12.png",
-      "/images/projects/sin/13.png",
-      "/images/projects/sin/14.png",
-      "/images/projects/sin/15.png",
-      "/images/projects/sin/16.png",
-      "/images/projects/sin/17.png",
-    ],
-    colors: [
-      { name: "Void Black", hex: "#0D0D0D" },
-      { name: "Neon Violet", hex: "#39C15F" },
-      { name: "Signal White", hex: "#FFFFFF" },
-      { name: "Glass Grey", hex: "#04585D" },
     ],
     tools: ["Next.js", "TypeScript", "Tailwind CSS"],
       metrics: [
@@ -792,7 +711,7 @@ export const projects: Project[] = [
                   "La crédibilité se perçoit dans les détails : structure, vitesse, cohérence.",
             },
           ],
-      url: "https://sin.maono.design",
+      url: "https://sin.tg",
       urlLabel: "Visiter le site",
       },
   // 7. ARCEP
@@ -802,7 +721,7 @@ export const projects: Project[] = [
     subtitle: "Développement d'une vitrine institutionnelle moderne et performante",
     type: "Développement Web",
     sector: "Institutionnel · Régulation · Télécoms",
-    tags: ["Web", "Institutionnel"],
+    tags: ["Web", "Institutionnel", "Fullstack", "Architecture"],
     year: "2025",
     role: "Développeur Frontend",
     scope: "Développement Web · Intégration · Performance · SEO",
@@ -815,26 +734,6 @@ export const projects: Project[] = [
       "/images/projects/arcep/01.png",
       "/images/projects/arcep/02.png",
       "/images/projects/arcep/03.png",
-      "/images/projects/arcep/04.png",
-      "/images/projects/arcep/05.png",
-      "/images/projects/arcep/06.png",
-      "/images/projects/arcep/07.png",
-      "/images/projects/arcep/08.png",
-      "/images/projects/arcep/09.png",
-      "/images/projects/arcep/10.png",
-      "/images/projects/arcep/11.png",
-      "/images/projects/arcep/12.png",
-      "/images/projects/arcep/13.png",
-      "/images/projects/arcep/14.png",
-      "/images/projects/arcep/15.png",
-      "/images/projects/arcep/16.png",
-      "/images/projects/arcep/17.png",
-    ],
-    colors: [
-      { name: "Institutional Dark", hex: "#0D0D0D" },
-      { name: "Trust", hex: "#FFFFFF" },
-      { name: "Accent", hex: "#04585D" },
-      { name: "Neutral", hex: "#1E1E1E" },
     ],
     tools: ["Next.js", "TypeScript", "Tailwind CSS"],
     metrics: [
@@ -964,4 +863,164 @@ export const projects: Project[] = [
     url: "https://demo.arcep.tg",
     urlLabel: "Visiter le site",
   },
+  // 8. Lome Data Centre
+  {
+    slug: "lome-data-centre",
+    title: "Lomé Data Centre",
+    subtitle: "Développement d'une vitrine pour le premier Data Center de niveau Tier III au Togo",
+    type: "Développement Web",
+    sector: "Technologie · Infrastructures",
+    tags: ["Web", "Institutionnel"],
+    year: "2024",
+    role: "Développeur Frontend",
+    scope: "Développement Web · Intégration",
+    description: "Lomé Data Centre (LDC) est une infrastructure critique. Le site web reflète cette exigence de sécurité, de fiabilité et de haute disponibilité à travers une interface claire, moderne et institutionnelle.",
+    vision: "Une vitrine digitale à l'image du centre : sécurisée, performante et fiable.",
+    thumbnail: "/images/projects/ldc/01.png",
+    gallery: [
+      "/images/projects/ldc/01.png",
+      "/images/projects/ldc/02.png",
+      "/images/projects/ldc/03.png"
+    ],
+    tools: ["Next.js", "Tailwind CSS"],
+    metrics: [
+      { label: "Client", value: "LDC" },
+      { label: "Secteur", value: "Infrastructures" },
+      { label: "Rôle", value: "Developpeur" },
+    ],
+    sections: [
+      {
+        num: "01",
+        title: "Contexte & réalisation",
+        content: "Développement d'une vitrine institutionnelle performante pour mettre en valeur les infrastructures et attirer des partenaires régionaux et internationaux.",
+        bullets: [
+          "Intégration d'interfaces responsives",
+          "Mise en avant des capacités techniques du centre",
+          "Optimisation des temps de chargement"
+        ]
+      }
+    ],
+    url: "https://lomedatacentre.tg/en",
+    urlLabel: "Visiter le site"
+  },
+  // 9. Palais de Lome
+  {
+    slug: "palais-de-lome",
+    title: "Palais de Lomé",
+    subtitle: "Développement vitrine pour le centre d'art et de culture de Lomé",
+    type: "Développement Web",
+    sector: "Culture · Art",
+    tags: ["Web", "Culturel"],
+    year: "2023",
+    role: "Développeur Frontend",
+    scope: "Développement Web · Intégration",
+    description: "Le Palais de Lomé est un lieu historique transformé en centre d'art. La plateforme digitale offre une expérience visuelle riche pour présenter les expositions, le parc et l'histoire du lieu.",
+    vision: "Traduire l'élégance architecturale et la richesse culturelle dans l'espace digital.",
+    thumbnail: "/images/projects/palaisdelome/01.png",
+    gallery: [
+      "/images/projects/palaisdelome/01.png",
+      "/images/projects/palaisdelome/02.png",
+      "/images/projects/palaisdelome/03.png"
+    ],
+    tools: ["Wordpress", "Tailwind CSS", "JavaScript"],
+    metrics: [
+      { label: "Client", value: "Palais de Lomé" },
+      { label: "Secteur", value: "Culture" },
+      { label: "Rôle", value: "Developpeur" },
+    ],
+    sections: [
+      {
+        num: "01",
+        title: "Contexte & réalisation",
+        content: "Création d'une plateforme immersive mettant en avant le patrimoine togolais et la programmation culturelle du Palais.",
+        bullets: [
+          "Mise en valeur du contenu iconographique",
+          "Navigation fluide entre les différentes galeries",
+          "Expérience optimisée sur mobile pour les visiteurs"
+        ]
+      }
+    ],
+    url: "https://palaisdelome.com",
+    urlLabel: "Visiter le site"
+  },
+  // 10. Aurelie Jarry
+  {
+    slug: "aurelie-jarry",
+    title: "Aurélie Jarry",
+    subtitle: "Portfolio digital d'artiste contemporaine",
+    type: "Développement Web",
+    sector: "Art · Portfolio",
+    tags: ["Web", "Portfolio"],
+    year: "2024",
+    role: "Développeur Frontend",
+    scope: "Développement Web · UI",
+    description: "Une plateforme minimaliste et élégante conçue pour mettre en valeur les œuvres et le parcours créatif de l'artiste de manière immersive.",
+    vision: "Le code au service de l'œuvre : un cadre invisible pour sublimer l'art.",
+    thumbnail: "/images/projects/aureliejarry/01.png",
+    gallery: [
+      "/images/projects/aureliejarry/01.png",
+      "/images/projects/aureliejarry/02.png",
+      "/images/projects/aureliejarry/03.png"
+    ],
+    tools: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    metrics: [
+      { label: "Client", value: "Aurélie Jarry" },
+      { label: "Secteur", value: "Art" },
+      { label: "Rôle", value: "Developpeur" },
+    ],
+    sections: [
+      {
+        num: "01",
+        title: "Contexte & réalisation",
+        content: "Conception et développement d'un portfolio sur mesure avec des transitions douces et une typographie soignée.",
+        bullets: [
+          "Architecture minimaliste (focus sur les images)",
+          "Micro-interactions fluides et discrètes",
+          "Performance et SEO"
+        ]
+      }
+    ],
+    url: "https://aureliejarry.com",
+    urlLabel: "Visiter le site"
+  },
+  // 11. Fondation BKF
+  {
+    slug: "fondation-bkf",
+    title: "Fondation BKF",
+    subtitle: "Plateforme digitale pour l'engagement philanthropique",
+    type: "Développement Web",
+    sector: "Fondation · ONG",
+    tags: ["Web", "Institutionnel"],
+    year: "2024",
+    role: "Développeur Frontend",
+    scope: "Développement Web · Intégration",
+    description: "La fondation intervient dans des secteurs clés pour le développement social. Le site permet de présenter les actions, les partenaires et de sensibiliser le public aux causes défendues.",
+    vision: "Donner de la visibilité aux actions ayant un impact positif réel.",
+    thumbnail: "/images/projects/fondation-bkf/01.png",
+    gallery: [
+      "/images/projects/fondation-bkf/01.png",
+      "/images/projects/fondation-bkf/02.png",
+      "/images/projects/fondation-bkf/03.png"
+    ],
+    tools: ["Next.js", "Tailwind CSS"],
+    metrics: [
+      { label: "Client", value: "Fondation BKF" },
+      { label: "Secteur", value: "Philanthropie" },
+      { label: "Rôle", value: "Developpeur" },
+    ],
+    sections: [
+      {
+        num: "01",
+        title: "Contexte & réalisation",
+        content: "Mise en place d'une vitrine claire permettant de communiquer sur les missions de la fondation et ses appels à projets.",
+        bullets: [
+          "Hiérarchisation claire des domaines d'intervention",
+          "Intégration d'un système d'actualités",
+          "Accessibilité et clarté de navigation"
+        ]
+      }
+    ],
+    url: "https://fondationbkf.org",
+    urlLabel: "Visiter le site"
+  }
 ];
