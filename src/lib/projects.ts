@@ -715,154 +715,154 @@ export const projects: Project[] = [
       urlLabel: "Visiter le site",
       },
   // 7. ARCEP
-  {
-    slug: "arcep",
-    title: "ARCEP",
-    subtitle: "Développement d'une vitrine institutionnelle moderne et performante",
-    type: "Développement Web",
-    sector: "Institutionnel · Régulation · Télécoms",
-    tags: ["Web", "Institutionnel", "Fullstack", "Architecture"],
-    year: "2025",
-    role: "Développeur Frontend",
-    scope: "Développement Web · Intégration · Performance · SEO",
-    description:
-      "ARCEP est une autorité de régulation dont la plateforme web doit rendre accessibles des contenus institutionnels et réglementaires (missions, actualités, décisions, documents) tout en conservant une lecture claire et une crédibilité forte.",
-    vision:
-      "Construire une interface institutionnelle fiable : claire pour le public, robuste pour l'évolution, et performante sur tous les supports.",
-    thumbnail: "/images/projects/arcep/01.png",
-    gallery: [
-      "/images/projects/arcep/01.png",
-      "/images/projects/arcep/02.png",
-      "/images/projects/arcep/03.png",
-    ],
-    tools: ["Next.js", "TypeScript", "Tailwind CSS"],
-    metrics: [
-      { label: "Type de projet", value: "Client" },
-      { label: "Secteur", value: "Institutionnel" },
-      { label: "Année", value: "2025" },
-      { label: "Rôle", value: "Developpeur" },
-    ],
-    sections: [
-      {
-        num: "02",
-        title: "Contexte & problématique",
-        content:
-          "Le site devait présenter une grande quantité de contenu institutionnel, tout en gardant une expérience simple : trouver l'information rapidement, comprendre le rôle de l'institution, et accéder aux documents sans friction.",
-        bullets: [
-          "Densité de contenu (documents, actualités, pages institutionnelles)",
-          "Niveau d'exigence élevé sur la crédibilité et la clarté",
-          "Performance et accessibilité indispensables (public large)",
-          "Base maintenable pour itérer sans régression",
-        ],
-        quote:
-          "Sur l'institutionnel, la qualité perçue passe par la clarté et la stabilité de l'expérience.",
-      },
-      {
-        num: "03",
-        title: "Objectifs produit",
-        content:
-          "L'approche a consisté à combiner une structure de contenu rigoureuse et une implémentation frontend stable.",
-        bullets: [
-          "Hiérarchiser l'information et clarifier les parcours",
-          "Renforcer la performance (Core Web Vitals)",
-          "Améliorer le SEO et l'accessibilité",
-          "Faciliter l'évolution (nouveaux contenus / nouvelles pages)",
-        ],
-        quote:
-          "Une bonne architecture frontend évite que la complexité du contenu devienne une complexité pour l'utilisateur.",
-      },
-      {
-        num: "04",
-        title: "Mon rôle & responsabilités",
-        content:
-          "J'ai contribué à l'implémentation frontend et à la structuration de l'interface, avec un focus sur la maintenabilité et la performance.",
-        bullets: [
-          "Mise en place d'une architecture de composants réutilisables",
-          "Intégration responsive (mobile-first)",
-          "Optimisations performance (images, sections, chargement)",
-          "SEO technique et sémantique",
-          "Qualité du code (TypeScript, conventions)",
-        ],
-        quote:
-          "Le but : livrer une base solide, simple à faire évoluer et agréable à utiliser.",
-      },
-      {
-        num: "05",
-        title: "Démarche de développement",
-        content: "",
-        subsections: [
-          {
-            title: "1. Structure & navigation",
-            content:
-              "Découpage des pages et des sections pour guider la lecture : qui sommes-nous, missions, contenus, documents, actualités, contact.",
-          },
-          {
-            title: "2. Performance & accessibilité",
-            bullets: [
-              "Optimiser les médias et le chargement",
-              "Garantir une hiérarchie de titres correcte",
-              "Assurer une navigation clavier et une bonne lisibilité",
-            ],
-          },
-          {
-            title: "3. Maintenabilité",
-            content:
-              "Composants cohérents, styles maîtrisés et conventions TypeScript pour réduire la dette et accélérer les évolutions.",
-          },
-        ],
-      },
-      {
-        num: "06",
-        title: "Interface & UI",
-        content: "",
-        subsections: [
-          {
-            title: "Principes",
-            bullets: [
-              "Sobriété et lisibilité (institutionnel)",
-              "Composants cohérents et réutilisables",
-              "Mise en avant des contenus et documents",
-            ],
-          },
-        ],
-        quote:
-          "Une interface institutionnelle doit rassurer : tout doit être clair, stable et prévisible.",
-      },
-      {
-        num: "07",
-        title: "Valeur apportée",
-        content: "",
-        subsections: [
-          {
-            title: "Pour l'institution",
-            bullets: [
-              "Vitrine crédible et moderne",
-              "Base technique maintenable",
-              "Amélioration de la découverte des contenus",
-            ],
-          },
-          {
-            title: "Pour les utilisateurs",
-            bullets: [
-              "Accès rapide à l'information",
-              "Lecture plus claire des pages et documents",
-              "Expérience fluide sur mobile",
-            ],
-          },
-        ],
-      },
-      {
-        num: "08",
-        title: "Learnings & recul",
-        content:
-          "Ce projet m'a confirmé qu'en contexte institutionnel, la valeur se joue sur l'exécution : structurer le contenu, garder une performance stable, et maintenir une base de code saine pour accompagner la durée.",
-        quote:
-          "La crédibilité se gagne avec de la clarté, de la performance et de la cohérence.",
-      },
-    ],
-    url: "https://demo.arcep.tg",
-    urlLabel: "Visiter le site",
-  },
+  // {
+  //   slug: "arcep",
+  //   title: "ARCEP",
+  //   subtitle: "Développement d'une vitrine institutionnelle moderne et performante",
+  //   type: "Développement Web",
+  //   sector: "Institutionnel · Régulation · Télécoms",
+  //   tags: ["Web", "Institutionnel", "Fullstack", "Architecture"],
+  //   year: "2025",
+  //   role: "Développeur Frontend",
+  //   scope: "Développement Web · Intégration · Performance · SEO",
+  //   description:
+  //     "ARCEP est une autorité de régulation dont la plateforme web doit rendre accessibles des contenus institutionnels et réglementaires (missions, actualités, décisions, documents) tout en conservant une lecture claire et une crédibilité forte.",
+  //   vision:
+  //     "Construire une interface institutionnelle fiable : claire pour le public, robuste pour l'évolution, et performante sur tous les supports.",
+  //   thumbnail: "/images/projects/arcep/01.png",
+  //   gallery: [
+  //     "/images/projects/arcep/01.png",
+  //     "/images/projects/arcep/02.png",
+  //     "/images/projects/arcep/03.png",
+  //   ],
+  //   tools: ["Next.js", "TypeScript", "Tailwind CSS"],
+  //   metrics: [
+  //     { label: "Type de projet", value: "Client" },
+  //     { label: "Secteur", value: "Institutionnel" },
+  //     { label: "Année", value: "2025" },
+  //     { label: "Rôle", value: "Developpeur" },
+  //   ],
+  //   sections: [
+  //     {
+  //       num: "02",
+  //       title: "Contexte & problématique",
+  //       content:
+  //         "Le site devait présenter une grande quantité de contenu institutionnel, tout en gardant une expérience simple : trouver l'information rapidement, comprendre le rôle de l'institution, et accéder aux documents sans friction.",
+  //       bullets: [
+  //         "Densité de contenu (documents, actualités, pages institutionnelles)",
+  //         "Niveau d'exigence élevé sur la crédibilité et la clarté",
+  //         "Performance et accessibilité indispensables (public large)",
+  //         "Base maintenable pour itérer sans régression",
+  //       ],
+  //       quote:
+  //         "Sur l'institutionnel, la qualité perçue passe par la clarté et la stabilité de l'expérience.",
+  //     },
+  //     {
+  //       num: "03",
+  //       title: "Objectifs produit",
+  //       content:
+  //         "L'approche a consisté à combiner une structure de contenu rigoureuse et une implémentation frontend stable.",
+  //       bullets: [
+  //         "Hiérarchiser l'information et clarifier les parcours",
+  //         "Renforcer la performance (Core Web Vitals)",
+  //         "Améliorer le SEO et l'accessibilité",
+  //         "Faciliter l'évolution (nouveaux contenus / nouvelles pages)",
+  //       ],
+  //       quote:
+  //         "Une bonne architecture frontend évite que la complexité du contenu devienne une complexité pour l'utilisateur.",
+  //     },
+  //     {
+  //       num: "04",
+  //       title: "Mon rôle & responsabilités",
+  //       content:
+  //         "J'ai contribué à l'implémentation frontend et à la structuration de l'interface, avec un focus sur la maintenabilité et la performance.",
+  //       bullets: [
+  //         "Mise en place d'une architecture de composants réutilisables",
+  //         "Intégration responsive (mobile-first)",
+  //         "Optimisations performance (images, sections, chargement)",
+  //         "SEO technique et sémantique",
+  //         "Qualité du code (TypeScript, conventions)",
+  //       ],
+  //       quote:
+  //         "Le but : livrer une base solide, simple à faire évoluer et agréable à utiliser.",
+  //     },
+  //     {
+  //       num: "05",
+  //       title: "Démarche de développement",
+  //       content: "",
+  //       subsections: [
+  //         {
+  //           title: "1. Structure & navigation",
+  //           content:
+  //             "Découpage des pages et des sections pour guider la lecture : qui sommes-nous, missions, contenus, documents, actualités, contact.",
+  //         },
+  //         {
+  //           title: "2. Performance & accessibilité",
+  //           bullets: [
+  //             "Optimiser les médias et le chargement",
+  //             "Garantir une hiérarchie de titres correcte",
+  //             "Assurer une navigation clavier et une bonne lisibilité",
+  //           ],
+  //         },
+  //         {
+  //           title: "3. Maintenabilité",
+  //           content:
+  //             "Composants cohérents, styles maîtrisés et conventions TypeScript pour réduire la dette et accélérer les évolutions.",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       num: "06",
+  //       title: "Interface & UI",
+  //       content: "",
+  //       subsections: [
+  //         {
+  //           title: "Principes",
+  //           bullets: [
+  //             "Sobriété et lisibilité (institutionnel)",
+  //             "Composants cohérents et réutilisables",
+  //             "Mise en avant des contenus et documents",
+  //           ],
+  //         },
+  //       ],
+  //       quote:
+  //         "Une interface institutionnelle doit rassurer : tout doit être clair, stable et prévisible.",
+  //     },
+  //     {
+  //       num: "07",
+  //       title: "Valeur apportée",
+  //       content: "",
+  //       subsections: [
+  //         {
+  //           title: "Pour l'institution",
+  //           bullets: [
+  //             "Vitrine crédible et moderne",
+  //             "Base technique maintenable",
+  //             "Amélioration de la découverte des contenus",
+  //           ],
+  //         },
+  //         {
+  //           title: "Pour les utilisateurs",
+  //           bullets: [
+  //             "Accès rapide à l'information",
+  //             "Lecture plus claire des pages et documents",
+  //             "Expérience fluide sur mobile",
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       num: "08",
+  //       title: "Learnings & recul",
+  //       content:
+  //         "Ce projet m'a confirmé qu'en contexte institutionnel, la valeur se joue sur l'exécution : structurer le contenu, garder une performance stable, et maintenir une base de code saine pour accompagner la durée.",
+  //       quote:
+  //         "La crédibilité se gagne avec de la clarté, de la performance et de la cohérence.",
+  //     },
+  //   ],
+  //   url: "https://demo.arcep.tg",
+  //   urlLabel: "Visiter le site",
+  // },
   // 8. Lome Data Centre
   {
     slug: "lome-data-centre",
