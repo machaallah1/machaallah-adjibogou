@@ -20,12 +20,12 @@ import {
   DotsPattern,
   ProcessFlowDiagram,
 } from "@/components/visuals";
-
-const filters = ["Tous", "Web", "Mobile", "Fullstack", "Architecture"];
+import { useLanguage } from "@/lib/i18n";
 
 function ProjectItem({ project, index }: { project: typeof projects[0]; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -53,7 +53,7 @@ function ProjectItem({ project, index }: { project: typeof projects[0]; index: n
 
           {/* View indicator */}
           <div className="absolute bottom-5 right-5 flex items-center gap-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <span className="text-[10px] text-white/50 tracking-[0.2em] uppercase">Détails</span>
+            <span className="text-[10px] text-white/50 tracking-[0.2em] uppercase">{t("projects.details")}</span>
             <div className="w-7 h-7 rounded-full border border-[var(--primary)]/30 flex items-center justify-center group-hover:bg-[var(--primary)]/10 transition-colors duration-300">
               <ArrowUpRight size={11} className="text-[var(--primary)]" />
             </div>
@@ -82,13 +82,27 @@ function ProjectItem({ project, index }: { project: typeof projects[0]; index: n
   );
 }
 
-export default function projectPage() {
-  const [active, setActive] = useState("Tous");
+export default function ProjectPage() {
+  const { t, locale } = useLanguage();
+
+  const filterKeys = [
+    { key: "all", label: t("projects.filters.all") },
+    { key: "Web", label: t("projects.filters.web") },
+    { key: "Mobile", label: t("projects.filters.mobile") },
+    { key: "Fullstack", label: t("projects.filters.fullstack") },
+    { key: "Architecture", label: t("projects.filters.architecture") },
+  ];
+
+  const [active, setActive] = useState("all");
 
   const filtered =
-    active === "Tous"
+    active === "all"
       ? projects
       : projects.filter((p) => p.tags.includes(active) || p.type.includes(active));
+
+  const projectCountText = filtered.length !== 1
+    ? t("projects.projectCountPlural", { count: String(filtered.length) })
+    : t("projects.projectCount", { count: String(filtered.length) });
 
   return (
     <PageTransition>
@@ -109,17 +123,17 @@ export default function projectPage() {
             <div className="mb-20 md:mb-28 relative">
               <MaskReveal>
                 <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                  Portfolio technique
+                  {t("projects.label")}
                 </span>
               </MaskReveal>
               <div className="mt-4 mb-6">
                 <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-foreground leading-[0.9]">
-                  <SplitText type="words" stagger={0.06}>Projets</SplitText>
+                  <SplitText type="words" stagger={0.06}>{t("projects.title")}</SplitText>
                 </h1>
               </div>
               <MaskReveal delay={0.3}>
                 <p className="text-neutral-600 max-w-lg text-lg leading-relaxed font-medium">
-                  Sélection de projets web et mobiles mettant en œuvre des architectures robustes et des solutions techniques innovantes.
+                  {t("projects.subtitle")}
                 </p>
               </MaskReveal>
 
@@ -132,17 +146,17 @@ export default function projectPage() {
             {/* Filters */}
             <MaskReveal delay={0.4}>
               <div className="flex flex-wrap gap-3 mb-16 md:mb-24">
-                {filters.map((f) => (
+                {filterKeys.map((f) => (
                   <button
-                    key={f}
-                    onClick={() => setActive(f)}
-                    className={`relative px-6 py-2.5 text-[11px] tracking-[0.15em] uppercase transition-all duration-500 z-10 ${active === f
+                    key={f.key}
+                    onClick={() => setActive(f.key)}
+                    className={`relative px-6 py-2.5 text-[11px] tracking-[0.15em] uppercase transition-all duration-500 z-10 ${active === f.key
                         ? "text-white"
                         : "text-neutral-500 border border-[var(--primary)]/15 hover:border-[var(--primary)]/30 hover:text-foreground font-medium"
                       }`}
                   >
-                    {f}
-                    {active === f && (
+                    {f.label}
+                    {active === f.key && (
                       <motion.div
                         layoutId="filter-active"
                         className="absolute inset-0 bg-[var(--primary)] -z-10"
@@ -152,7 +166,7 @@ export default function projectPage() {
                   </button>
                 ))}
                 <span className="text-[10px] text-neutral-400 tracking-wider self-center ml-2">
-                  {filtered.length} projet{filtered.length !== 1 ? "s" : ""}
+                  {projectCountText}
                 </span>
               </div>
             </MaskReveal>
@@ -173,7 +187,7 @@ export default function projectPage() {
                   <ProjectItem key={project.slug} project={project} index={i} />
                 ))}
                 {/* Carte "À venir" — visible uniquement sur le filtre All */}
-                {active === "Tous" && (
+                {active === "all" && (
                   <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -194,20 +208,20 @@ export default function projectPage() {
                           <Code size={20} className="text-[var(--primary)]/40" />
                         </div>
                         <span className="text-[10px] text-[#6B635A] tracking-[0.35em] uppercase font-medium relative z-10">
-                          En développement
+                          {t("projects.inDevelopment")}
                         </span>
                       </div>
                       <div className="mt-5">
                         <div className="flex items-center gap-3 mb-2">
                           <span className="text-[10px] text-[var(--primary)]/30 tracking-[0.25em] uppercase font-medium">
-                            Prochainement
+                            {t("projects.comingSoon")}
                           </span>
                         </div>
                         <h3 className="font-serif text-2xl md:text-3xl text-foreground/20 mb-2">
-                          Nouvelle architecture en cours
+                          {t("projects.comingSoonTitle")}
                         </h3>
                         <p className="text-sm text-[#6B635A]/40 leading-relaxed max-w-sm">
-                          De nouvelles réalisations techniques sont régulièrement ajoutées au portfolio.
+                          {t("projects.comingSoonDesc")}
                         </p>
                       </div>
                     </div>

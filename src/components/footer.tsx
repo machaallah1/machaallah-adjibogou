@@ -5,10 +5,20 @@ import { ArrowUpRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Magnetic } from "@/components/animations";
+import { useLanguage } from "@/lib/i18n";
 
 export function Footer() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.projects"), href: "/project" },
+    { label: t("footer.methodology"), href: "/process" },
+    { label: t("nav.about"), href: "/about" },
+    { label: t("nav.contact"), href: "/contact" },
+  ];
 
   return (
     <footer ref={ref} className="relative">
@@ -23,10 +33,10 @@ export function Footer() {
         >
           <Link href="/contact" className="group inline-block">
             <h3 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground group-hover:text-[var(--primary)] transition-colors duration-500 leading-[1.05]">
-              Créons quelque chose
+              {t("footer.cta")}
               <br />
               <span className="italic text-[var(--primary)] group-hover:text-foreground transition-colors duration-500">
-                de robuste
+                {t("footer.ctaHighlight")}
               </span>
               <span className="inline-block ml-4 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500">
                 <ArrowUpRight size={32} className="text-[var(--primary)]" />
@@ -38,15 +48,9 @@ export function Footer() {
         {/* Links row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
           <div>
-            <span className="text-[10px] text-neutral-500 tracking-[0.3em] uppercase block mb-4 font-medium">Navigation</span>
+            <span className="text-[10px] text-neutral-500 tracking-[0.3em] uppercase block mb-4 font-medium">{t("footer.navigation")}</span>
             <div className="flex flex-col gap-3">
-              {[
-                { label: "Accueil", href: "/" },
-                { label: "Projets", href: "/project" },
-                { label: "Méthodologie", href: "/process" },
-                { label: "À propos", href: "/about" },
-                { label: "Contact", href: "/contact" },
-              ].map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -59,7 +63,7 @@ export function Footer() {
           </div>
 
           <div>
-            <span className="text-[10px] text-neutral-500 tracking-[0.3em] uppercase block mb-4 font-medium">Social</span>
+            <span className="text-[10px] text-neutral-500 tracking-[0.3em] uppercase block mb-4 font-medium">{t("footer.social")}</span>
             <div className="flex flex-col gap-3">
               <Magnetic strength={0.2}>
                 <a
@@ -85,14 +89,14 @@ export function Footer() {
           </div>
 
           <div>
-            <span className="text-[10px] text-neutral-500 tracking-[0.3em] uppercase block mb-4 font-medium">Contact</span>
+            <span className="text-[10px] text-neutral-500 tracking-[0.3em] uppercase block mb-4 font-medium">{t("footer.contact")}</span>
             <Magnetic strength={0.2}>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 text-sm text-[var(--primary)] hover:text-foreground transition-colors duration-300 font-semibold"
               >
                 <span className="w-2 h-2 rounded-full bg-[var(--primary)]/40" />
-                Me contacter
+                {t("footer.contactMe")}
               </Link>
             </Magnetic>
           </div>
@@ -110,7 +114,7 @@ export function Footer() {
             </span>
           </div>
           <span className="text-[10px] text-neutral-500/40 tracking-[0.15em] uppercase">
-            Ingénierie & Architecture
+            {t("footer.engineering")}
           </span>
         </div>
       </div>

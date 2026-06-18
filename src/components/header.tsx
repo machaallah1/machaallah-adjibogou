@@ -5,19 +5,54 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 
-const links = [
-  { href: "/", label: "Accueil" },
-  { href: "/project", label: "Projets" },
-  { href: "/process", label: "Processus" }, 
-  { href: "/about", label: "À propos" },
-  { href: "/contact", label: "Contact" },
+const linkKeys = [
+  { href: "/", key: "nav.home" },
+  { href: "/project", key: "nav.projects" },
+  { href: "/process", key: "nav.process" },
+  { href: "/about", key: "nav.about" },
+  { href: "/contact", key: "nav.contact" },
 ];
+
+function LanguageToggle({ className = "" }: { className?: string }) {
+  const { locale, setLocale } = useLanguage();
+
+  return (
+    <div className={`flex items-center gap-1 ${className}`}>
+      <button
+        onClick={() => setLocale("fr")}
+        className={`text-[11px] tracking-[0.15em] uppercase px-2.5 py-1.5 transition-all duration-500 ${
+          locale === "fr"
+            ? "text-[var(--primary)] font-semibold"
+            : "text-neutral-400 hover:text-neutral-600 font-medium"
+        }`}
+        aria-label="Français"
+      >
+        FR
+      </button>
+      <span className="w-[1px] h-3 bg-[var(--primary)]/20" />
+      <button
+        onClick={() => setLocale("en")}
+        className={`text-[11px] tracking-[0.15em] uppercase px-2.5 py-1.5 transition-all duration-500 ${
+          locale === "en"
+            ? "text-[var(--primary)] font-semibold"
+            : "text-neutral-400 hover:text-neutral-600 font-medium"
+        }`}
+        aria-label="English"
+      >
+        EN
+      </button>
+    </div>
+  );
+}
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 80);
@@ -67,12 +102,12 @@ export function Header() {
           className="group font-serif text-2xl md:text-[1.7rem] tracking-[-0.02em] text-primary transition-colors duration-500"
         >
           <span className="group-hover:text-[var(--primary)] transition-colors duration-500">Machaallah</span>
-          <span className="text-[var(--primary)]">.</span>
+          <span className="text-[var(--primary)]">.A</span>
         </Link>
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-12">
-          {links.map((link) => (
+          {linkKeys.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -82,7 +117,7 @@ export function Header() {
                     : "text-neutral-500 hover:text-foreground font-medium"
                 }`}
               >
-                {link.label}
+                {t(link.key)}
                 {pathname === link.href && (
                   <motion.span
                     layoutId="nav-dot"
@@ -95,14 +130,17 @@ export function Header() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <Link
-          href="/contact"
-          className="hidden md:inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase text-[var(--primary)] border border-[var(--primary)]/20 px-5 py-2.5 hover:bg-[var(--primary)]/5 hover:border-[var(--primary)]/40 transition-all duration-500"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/50" />
-            Disponible
-        </Link>
+        {/* Desktop: Language toggle + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageToggle />
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase text-[var(--primary)] border border-[var(--primary)]/20 px-5 py-2.5 hover:bg-[var(--primary)]/5 hover:border-[var(--primary)]/40 transition-all duration-500"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/50" />
+              {t("header.available")}
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -157,7 +195,7 @@ export function Header() {
 
             <div className="flex flex-col justify-center h-full px-10 max-w-2xl mx-auto">
               <ul className="space-y-1">
-                {links.map((link, i) => (
+                {linkKeys.map((link, i) => (
                   <motion.li
                     key={link.href}
                     initial={{ opacity: 0, x: -50 }}
@@ -178,7 +216,7 @@ export function Header() {
                           : "text-foreground hover:text-[var(--primary)]"
                       }`}
                     >
-                      <span className="relative z-10">{link.label}</span>
+                      <span className="relative z-10">{t(link.key)}</span>
                       {pathname === link.href && (
                         <motion.div
                           layoutId="mobile-indicator"
@@ -188,7 +226,7 @@ export function Header() {
                       )}
                       <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--primary)] group-hover:w-full transition-all duration-300 ease-out" />
                     </Link>
-                    {i < links.length - 1 && (
+                    {i < linkKeys.length - 1 && (
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: "100%" }}
@@ -206,6 +244,9 @@ export function Header() {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="mt-20 space-y-6"
               >
+                {/* Mobile Language Toggle */}
+                <LanguageToggle className="mb-4" />
+
                 {/* Mobile CTA */}
                 <Link
                   href="/contact"
@@ -213,7 +254,7 @@ export function Header() {
                   className="inline-flex items-center gap-3 text-[13px] tracking-[0.15em] uppercase text-[var(--primary)] border border-[var(--primary)]/20 px-6 py-3 hover:bg-[var(--primary)]/5 hover:border-[var(--primary)]/40 transition-all duration-500 group"
                 >
                   <span className="w-2 h-2 rounded-full bg-[var(--primary)]/50 group-hover:bg-[var(--primary)] transition-colors" />
-                  Disponible
+                  {t("header.available")}
                 </Link>
 
                 {/* Social links */}

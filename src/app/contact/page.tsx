@@ -18,9 +18,11 @@ import {
   ConcentricCircles,
   DotsPattern,
 } from "@/components/visuals";
+import { useLanguage } from "@/lib/i18n";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useLanguage();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,26 +63,26 @@ export default function ContactPage() {
               <div>
                 <MaskReveal>
                   <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                    Contact
+                    {t("contact.label")}
                   </span>
                 </MaskReveal>
                 <div className="mt-4 mb-6">
                   <h1 className="font-serif text-[clamp(2.5rem,5vw,5rem)] leading-[0.95] text-foreground">
-                    <SplitText type="words" stagger={0.04}>Un projet qui mérite</SplitText>{" "}
+                    <SplitText type="words" stagger={0.04}>{t("contact.title1")}</SplitText>{" "}
                     <span className="italic text-[var(--primary)]">
-                      <SplitText type="words" delay={0.5} stagger={0.04}>une vraie</SplitText>
+                      <SplitText type="words" delay={0.5} stagger={0.04}>{t("contact.titleHighlight1")}</SplitText>
                     </span>{" "}
-                    <SplitText type="words" delay={0.6} stagger={0.04}>expertise</SplitText>{" "}
+                    <SplitText type="words" delay={0.6} stagger={0.04}>{t("contact.title2")}</SplitText>{" "}
                     <span className="italic text-[var(--primary)]">
-                      <SplitText type="words" delay={0.7} stagger={0.04}>technique</SplitText>
+                      <SplitText type="words" delay={0.7} stagger={0.04}>{t("contact.titleHighlight2")}</SplitText>
                     </span>
-                    <SplitText type="words" delay={0.8} stagger={0.04}> ?</SplitText>
+                    <SplitText type="words" delay={0.8} stagger={0.04}>{` ${t("contact.title3")}`}</SplitText>
                   </h1>
                 </div>
 
                 <MaskReveal delay={0.3}>
                   <p className="text-neutral-600 text-lg leading-relaxed mb-14 md:mb-20 max-w-md font-medium">
-                    Parlons technique, architecture et scalabilité. Je reviens vers vous avec une analyse concrète pour votre projet.
+                    {t("contact.subtitle")}
                   </p>
                 </MaskReveal>
 
@@ -95,10 +97,10 @@ export default function ContactPage() {
                       </div>
                       <div className="w-16 h-[1px] bg-[var(--primary)]/40 mb-10" />
                       <h2 className="font-serif text-4xl text-foreground mb-5 font-bold">
-                        Message reçu.
+                        {t("contact.success.title")}
                       </h2>
                       <p className="text-neutral-600 leading-relaxed max-w-md font-medium">
-                        Je reviens vers vous rapidement pour discuter des prochaines étapes techniques de votre projet.
+                        {t("contact.success.description")}
                       </p>
                     </div>
                   </Reveal>
@@ -110,7 +112,7 @@ export default function ContactPage() {
                           htmlFor="name"
                           className="block text-[10px] font-semibold text-[var(--primary)]/70 tracking-[0.3em] uppercase mb-4 group-focus-within:text-[var(--primary)] transition-colors duration-500"
                         >
-                          Nom
+                          {t("contact.form.name")}
                         </label>
                         <input
                           id="name"
@@ -118,7 +120,7 @@ export default function ContactPage() {
                           type="text"
                           required
                           className="w-full bg-transparent border-b border-[var(--primary)]/20 text-foreground placeholder:text-neutral-400 py-4 text-lg focus:outline-none focus:border-[var(--primary)] transition-colors duration-500 font-medium"
-                          placeholder="Votre nom"
+                          placeholder={t("contact.form.namePlaceholder")}
                         />
                       </div>
 
@@ -127,7 +129,7 @@ export default function ContactPage() {
                           htmlFor="email"
                           className="block text-[10px] font-semibold text-[var(--primary)]/70 tracking-[0.3em] uppercase mb-4 group-focus-within:text-[var(--primary)] transition-colors duration-500"
                         >
-                          Email
+                          {t("contact.form.email")}
                         </label>
                         <input
                           id="email"
@@ -135,7 +137,7 @@ export default function ContactPage() {
                           type="email"
                           required
                           className="w-full bg-transparent border-b border-[var(--primary)]/20 text-foreground placeholder:text-neutral-400 py-4 text-lg focus:outline-none focus:border-[var(--primary)] transition-colors duration-500 font-medium"
-                          placeholder="votre@email.com"
+                          placeholder={t("contact.form.emailPlaceholder")}
                         />
                       </div>
 
@@ -144,7 +146,7 @@ export default function ContactPage() {
                           htmlFor="message"
                           className="block text-[10px] font-semibold text-[var(--primary)]/70 tracking-[0.3em] uppercase mb-4 group-focus-within:text-[var(--primary)] transition-colors duration-500"
                         >
-                          Message
+                          {t("contact.form.message")}
                         </label>
                         <textarea
                           id="message"
@@ -152,7 +154,7 @@ export default function ContactPage() {
                           required
                           rows={5}
                           className="w-full bg-transparent border-b border-[var(--primary)]/20 text-foreground placeholder:text-neutral-400 py-4 text-lg focus:outline-none focus:border-[var(--primary)] transition-colors duration-500 resize-none font-medium"
-                          placeholder="Parlez-moi de vos défis techniques..."
+                          placeholder={t("contact.form.messagePlaceholder")}
                         />
                       </div>
 
@@ -161,7 +163,7 @@ export default function ContactPage() {
                           type="submit"
                           className="group relative inline-flex items-center gap-3 px-10 py-5 bg-[var(--primary)] text-white text-sm font-semibold tracking-[0.15em] uppercase overflow-hidden"
                         >
-                          <span className="relative z-10">Envoyer le message</span>
+                          <span className="relative z-10">{t("contact.form.submit")}</span>
                           <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                           <span className="absolute inset-0 bg-[#068a09] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                         </button>
@@ -187,7 +189,7 @@ export default function ContactPage() {
 
                     <div>
                       <span className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[var(--primary)]/60 font-medium mb-5">
-                        <Share2 size={12} /> Réseaux
+                        <Share2 size={12} /> {t("contact.info.networks")}
                       </span>
                       <div className="space-y-4">
                         <a
@@ -211,7 +213,7 @@ export default function ContactPage() {
 
                     <div>
                       <span className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[var(--primary)]/60 font-medium mb-5">
-                        <MapPin size={12} /> Localisation
+                        <MapPin size={12} /> {t("contact.info.location")}
                       </span>
                       <p className="text-foreground">Lomé, TOGO</p>
                     </div>

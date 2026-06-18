@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { CustomCursor } from "@/components/custom-cursor";
+import { LanguageProvider } from "@/lib/i18n";
 import Script from "next/script";
 
 const inter = Inter({
@@ -52,11 +53,13 @@ export default function RootLayout({
           strategy="afterInteractive"
           data-orchids-project-id="f7a6d986-f3fc-456c-93c3-073515ba32e2"
         />
-        <SmoothScroll />
-        <CustomCursor />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <SmoothScroll />
+          <CustomCursor />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
         <VisualEditsMessenger />
       </body>
     </html>

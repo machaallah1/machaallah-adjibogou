@@ -22,48 +22,21 @@ import {
   WireframeMockup,
   DesktopWireframe,
 } from "@/components/visuals";
-
-const skills = [
-  {
-    category: "Développement Web",
-    items: ["React / Next.js", "TypeScript", "Tailwind CSS", "Redux / Zustand", "Performance Web (SSR, SSG)"],
-  },
-  {
-    category: "Développement Mobile",
-    items: ["Flutter", "Dart", "Kotlin", "Gestion de l'état", "Optimisation mobile"],
-  },
-  {
-    category: "Architecture & Backend",
-    items: ["Architecture Logicielle", "Node.js / NestJS", "APIs REST & GraphQL", "Bases de données (SQL/NoSQL)", "Design Patterns"],
-  },
-  {
-    category: "Expertise Technique",
-    items: ["Clean Code", "Tests Unitaires (Jest)", "CI/CD & DevOps", "Sécurité", "Scalabilité"],
-  },
-];
-
-const experience = [
-  {
-    role: "Software Architect & Full-Stack Developer",
-    company: "Maono",
-    period: "Oct 2024 — Présent",
-    desc: "Architecture et développement frontend avec Next.js (SSR/SSG/SEO), intégration Headless WordPress (REST API) et optimisation des performances (Core Web Vitals). Maintenance et évolution de plusieurs plateformes (TogoTech, SIN, ARCEP, etc.).",
-  },
-  {
-    role: "Développeur Full-Stack",
-    company: "KIDOLE",
-    period: "2024",
-    desc: "Développement d'une application web de gestion de panneaux publicitaires : backend Laravel (API REST sécurisées), frontend Vue.js, gestion des rôles/permissions et tableaux de bord analytiques.",
-  },
-  {
-    role: "Stagiaire Développeur Mobile",
-    company: "Kimoasoft",
-    period: "2024",
-    desc: "Développement d'applications mobiles Flutter, implémentation d'interfaces UI, intégration API et gestion d'état sur des produits comme Kweek et Afrostand.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
+  const experience = (t("about.experience.items") as unknown) as Array<{
+    role: string; company: string; period: string; desc: string;
+  }>;
+  const experienceList = Array.isArray(experience) ? experience : [];
+
+  const skillCategories = (t("about.skills.categories") as unknown) as Array<{
+    category: string; items: string[];
+  }>;
+  const skillsList = Array.isArray(skillCategories) ? skillCategories : [];
+
   return (
     <PageTransition>
       <div className="min-h-screen pt-24 md:pt-32">
@@ -82,20 +55,20 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <MaskReveal>
               <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                À propos
+                {t("about.label")}
               </span>
             </MaskReveal>
             <div className="mt-4 mb-16 md:mb-24">
               <h1 className="font-serif text-[clamp(2.2rem,6vw,5rem)] leading-[0.95] text-foreground max-w-5xl">
-                <SplitText type="words" stagger={0.04}>Un ingénieur qui traduit la</SplitText>{" "}
+                <SplitText type="words" stagger={0.04}>{t("about.hero.title1")}</SplitText>{" "}
                 <span className="italic text-[var(--primary)]">
-                  <SplitText type="words" delay={0.5} stagger={0.04}>complexité technique</SplitText>
+                  <SplitText type="words" delay={0.5} stagger={0.04}>{t("about.hero.titleHighlight1")}</SplitText>
                 </span>
-                <SplitText type="words" delay={0.6} stagger={0.04}> en solutions</SplitText>{" "}
+                <SplitText type="words" delay={0.6} stagger={0.04}>{` ${t("about.hero.title2")}`}</SplitText>{" "}
                 <span className="italic text-[var(--primary)]">
-                  <SplitText type="words" delay={0.8} stagger={0.04}>scalables</SplitText>
+                  <SplitText type="words" delay={0.8} stagger={0.04}>{t("about.hero.titleHighlight2")}</SplitText>
                 </span>
-                <SplitText type="words" delay={0.9} stagger={0.04}>.</SplitText>
+                <SplitText type="words" delay={0.9} stagger={0.04}>{` ${t("about.hero.title3")}`}</SplitText>
               </h1>
             </div>
 
@@ -139,29 +112,29 @@ export default function AboutPage() {
               <div>
                 <MaskReveal delay={0.2}>
                   <p className="text-xl md:text-2xl text-foreground leading-[1.5] mb-10 font-serif">
-                    Je suis Machaallah ADJIBOGOU, Développeur Web et Mobile spécialisé en Architecture Logicielle basé à Lomé.
+                    {t("about.bio.intro")}
                   </p>
                 </MaskReveal>
 
                 <MaskReveal delay={0.3}>
                   <p className="text-neutral-600 leading-[1.9] mb-6 font-medium">
-                    Ma démarche repose sur la rigueur technique et la compréhension profonde des systèmes. Avant d'écrire la première ligne de code, j'analyse les besoins, je définis l'architecture et je prévois la scalabilité. Pour moi, une application réussie est une application qui dure, performe et reste maintenable.
+                    {t("about.bio.p1")}
                   </p>
                 </MaskReveal>
 
                 <MaskReveal delay={0.4}>
                   <p className="text-neutral-600 leading-[1.9] mb-10 font-medium">
-                    Spécialisé dans les technologies Web modernes (Next.js, Node.js), le développement mobile (Flutter, Dart) et WordPress avancé (custom themes/plugins/elementor), je suis également passionné par l'Intelligence Artificielle et ses applications. J'apporte une vision transverse aux projets : de la gestion de base de données à l'expérience utilisateur finale, en passant par le déploiement cloud et l'intégration de solutions IA.
+                    {t("about.bio.p2")}
                   </p>
                 </MaskReveal>
 
                 <MaskReveal delay={0.5}>
                   <div className="flex items-center gap-6 pt-6 border-t border-[var(--primary)]/5">
-                    <StatBlock number="10+" label="Projets" accent />
+                    <StatBlock number="10+" label={t("about.bio.statProjects")} accent />
                     <div className="w-[1px] h-10 bg-[var(--primary)]/10" />
-                    <StatBlock number="2+" label="Ans d'exp." />
+                    <StatBlock number="2+" label={t("about.bio.statExperience")} />
                     <div className="w-[1px] h-10 bg-[var(--primary)]/10" />
-                    <StatBlock number="Lomé" label="Basé" />
+                    <StatBlock number="Lomé" label={t("about.bio.statBased")} />
                   </div>
                 </MaskReveal>
               </div>
@@ -176,12 +149,12 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <MaskReveal>
                 <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                  Ingénierie & Qualité
+                  {t("about.showcase.label")}
                 </span>
               </MaskReveal>
               <div className="mt-3">
                 <h2 className="font-serif text-3xl md:text-5xl text-foreground">
-                  <SplitText type="words" stagger={0.05}>Robustesse, performance, maintenabilité</SplitText>
+                  <SplitText type="words" stagger={0.05}>{t("about.showcase.title")}</SplitText>
                 </h2>
               </div>
             </div>
@@ -209,17 +182,17 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-40">
             <MaskReveal>
               <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                Parcours
+                {t("about.experience.label")}
               </span>
             </MaskReveal>
             <div className="mt-4 mb-16 md:mb-24">
               <h2 className="font-serif text-4xl md:text-6xl text-foreground">
-                <SplitText type="words" stagger={0.05}>Expérience</SplitText>
+                <SplitText type="words" stagger={0.05}>{t("about.experience.title")}</SplitText>
               </h2>
             </div>
 
             <Stagger stagger={0.1}>
-              {experience.map((exp) => (
+              {experienceList.map((exp) => (
                 <StaggerItem key={exp.role + exp.period}>
                   <div className="group grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-20 py-12 md:py-16 border-b border-[var(--primary)]/5 hover:border-[var(--primary)]/15 transition-colors duration-700">
                     <span className="text-sm text-neutral-500 font-mono tracking-wide font-medium">
@@ -264,15 +237,15 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="text-foreground font-serif text-lg md:text-xl group-hover:text-[var(--primary)] transition-colors duration-500 font-semibold">
-                        Consulter mon CV technique
+                        {t("about.cv.title")}
                       </h3>
                       <p className="text-neutral-500 text-sm mt-1">
-                        Parcours détaillé, stack technique et projets — format A4
+                        {t("about.cv.subtitle")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-[var(--primary)] text-xs tracking-[0.2em] uppercase font-semibold group-hover:translate-x-1 transition-all duration-500">
-                    <span>Voir le CV</span>
+                    <span>{t("about.cv.button")}</span>
                     <ArrowRight size={14} className="transition-transform duration-300" />
                   </div>
                 </div>
@@ -291,17 +264,17 @@ export default function AboutPage() {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-40">
             <MaskReveal>
               <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                Expertise
+                {t("about.skills.label")}
               </span>
             </MaskReveal>
             <div className="mt-4 mb-16 md:mb-24">
               <h2 className="font-serif text-4xl md:text-6xl text-foreground">
-                <SplitText type="words" stagger={0.05}>Stack & compétences</SplitText>
+                <SplitText type="words" stagger={0.05}>{t("about.skills.title")}</SplitText>
               </h2>
             </div>
 
             <Stagger stagger={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
-              {skills.map((group) => (
+              {skillsList.map((group) => (
                 <StaggerItem key={group.category}>
                   <div className="p-8 md:p-10 border border-[var(--primary)]/5 hover:border-[var(--primary)]/10 transition-all duration-700 h-full group relative overflow-hidden">
                     {/* Corner accent */}
@@ -311,7 +284,7 @@ export default function AboutPage() {
                       {group.category}
                     </h3>
                     <ul className="space-y-4">
-                      {group.items.map((item) => (
+                      {group.items.map((item: string) => (
                         <li
                           key={item}
                           className="text-neutral-600 text-sm flex items-center gap-3 transition-colors duration-500 font-medium"
@@ -341,15 +314,15 @@ export default function AboutPage() {
 
               <Reveal>
                 <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium block mb-8">
-                  Philosophie
+                  {t("about.philosophy.label")}
                 </span>
                 <div className="space-y-12 relative z-10">
                   <blockquote className="font-serif text-2xl md:text-4xl text-foreground leading-[1.3] italic">
-                    &laquo; Le code n'est pas une fin en soi, c'est un outil pour bâtir des solutions robustes et durables. &raquo;
+                    {t("about.philosophy.quote1")}
                   </blockquote>
                   <div className="w-12 h-[1px] bg-[var(--primary)]/20 mx-auto" />
                   <blockquote className="font-serif text-2xl md:text-4xl text-foreground leading-[1.3] italic">
-                    &laquo; La scalabilité commence par une architecture propre et une vision claire des enjeux métier. &raquo;
+                    {t("about.philosophy.quote2")}
                   </blockquote>
                 </div>
               </Reveal>

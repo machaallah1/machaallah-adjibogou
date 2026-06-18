@@ -4,56 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Download, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-
-const experience = [
-  {
-    role: "Software Architect & Full-Stack Developer",
-    company: "Maono",
-    location: "Lomé, Togo",
-    period: "Oct 2024 — Présent",
-    tasks: [
-      "Développement du frontend du site Maono avec Next.js (SSR, SSG, optimisation SEO)",
-      "Intégration Headless WordPress (REST API) pour la gestion dynamique des contenus",
-      "Conception d'interfaces modernes, performantes et responsive",
-      "Optimisation des performances (Core Web Vitals, lazy loading, caching)",
-      "Développement et maintenance des plateformes : Togotech, CNCIA, Palais de Lomé, Lome Data Centre (LDC), SIN, ARCEP",
-      "Développement de l'application Horizon360 (Next.js + Firebase)",
-    ],
-  },
-  {
-    role: "Développeur Full-Stack",
-    company: "KIDOLE",
-    location: "Togo (Sous-région : Togo, Bénin, Ghana, Côte d’Ivoire)",
-    period: "2024",
-    tasks: [
-      "Développement d'une application web de gestion des panneaux publicitaires",
-      "Conception du backend avec Laravel (API REST sécurisées)",
-      "Développement du frontend en Vue.js",
-      "Gestion des rôles, permissions et tableaux de bord analytiques",
-      "Optimisation des performances et structuration de la base de données",
-    ],
-  },
-  {
-    role: "Stagiaire Développeur Mobile",
-    company: "Kimoasoft",
-    location: "Togo",
-    period: "2024",
-    tasks: [
-      "Développement d'applications mobiles avec Flutter",
-      "Participation au développement des applications Kweek et Afrostand",
-      "Implémentation d'interfaces UI modernes et responsives",
-      "Connexion aux APIs et gestion d’état des applications",
-    ],
-  },
-];
-
-const education = [
-  {
-    degree: "Ingénierie Logicielle & Systèmes d'Information",
-    school: "École Supérieure de Gestion d'Informatique et des Sciences (ESGIS)",
-    period: "2021 — 2024",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 const skills = {
   web: [
@@ -105,6 +56,12 @@ const fadeIn = {
 
 export default function CVPage() {
   const cvRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
+
+  const experience = (t("cv.experience") as unknown) as Array<{
+    role: string; company: string; location: string; period: string; tasks: string[];
+  }>;
+  const experienceList = Array.isArray(experience) ? experience : [];
 
   const handlePrint = () => {
     window.print();
@@ -119,14 +76,14 @@ export default function CVPage() {
           className="inline-flex items-center gap-2 text-[#6B635A] text-sm hover:text-[var(--primary)] transition-colors duration-300"
         >
           <ArrowLeft size={16} />
-          <span>Retour</span>
+          <span>{t("cv.back")}</span>
         </Link>
         <button
           onClick={handlePrint}
           className="inline-flex items-center gap-2.5 px-6 py-3 bg-[var(--primary)] text-white text-xs font-semibold tracking-[0.15em] uppercase hover:bg-[#068a09] transition-colors duration-300"
         >
           <Download size={14} />
-          Télécharger PDF
+          {t("cv.download")}
         </button>
       </div>
 
@@ -167,7 +124,7 @@ export default function CVPage() {
                   custom={3}
                   className="mt-3 text-[var(--primary)] text-sm uppercase font-medium"
                 >
-                  Développeur Web & Mobile / Architecte
+                  {t("cv.role")}
                 </motion.p>
               </div>
 
@@ -190,15 +147,9 @@ export default function CVPage() {
 
           {/* Profile summary */}
           <motion.section variants={fadeIn} custom={5} className="mb-12">
-            <h2 className="cv-section-title">Profil Technique</h2>
+            <h2 className="cv-section-title">{t("cv.profileTitle")}</h2>
             <p className="text-[#8A817A] text-sm leading-[1.9] max-w-[680px]">
-              Développeur Web & Architecte applicatif spécialisé en Next.js et architectures Headless
-              (WordPress API, Laravel, Firebase). Je conçois des applications performantes, scalables
-              et orientées expérience utilisateur.
-              Passionné par l’Intelligence Artificielle et les systèmes intelligents,
-              j’explore continuellement les solutions basées sur l’IA pour optimiser les performances,
-              automatiser les processus et créer des produits à forte valeur technologique.
-              Rigoureux sur la qualité du code (Clean Code), la performance et la sécurité applicative.
+              {t("cv.profileDesc")}
             </p>
           </motion.section>
 
@@ -207,9 +158,9 @@ export default function CVPage() {
             {/* Left Column — Experience */}
             <div>
               <motion.section variants={fadeIn} custom={6}>
-                <h2 className="cv-section-title">Expérience technique</h2>
+                <h2 className="cv-section-title">{t("cv.experienceTitle")}</h2>
                 <div className="space-y-8">
-                  {experience.map((exp, i) => (
+                  {experienceList.map((exp, i) => (
                     <motion.div
                       key={exp.company + i}
                       variants={fadeIn}
@@ -231,7 +182,7 @@ export default function CVPage() {
                         {exp.company}{exp.location ? ` — ${exp.location}` : ""}
                       </p>
                       <ul className="space-y-1.5">
-                        {exp.tasks.map((task) => (
+                        {exp.tasks.map((task: string) => (
                           <li
                             key={task}
                             className="text-[#6B635A] text-xs leading-[1.7] flex gap-2"
@@ -251,11 +202,11 @@ export default function CVPage() {
             <div className="space-y-10">
               {/* Compétences */}
               <motion.section variants={fadeIn} custom={12}>
-                <h2 className="cv-section-title">Stack Technique</h2>
+                <h2 className="cv-section-title">{t("cv.stackTitle")}</h2>
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-[var(--primary)]/80 text-[10px] tracking-[0.3em] uppercase mb-3">
-                      Web & Core
+                      {t("cv.webCore")}
                     </h3>
                     <div className="flex flex-wrap gap-1.5">
                       {skills.web.map((s) => (
@@ -270,7 +221,7 @@ export default function CVPage() {
                   </div>
                   <div>
                     <h3 className="text-[var(--primary)]/80 text-[10px] tracking-[0.3em] uppercase mb-3">
-                      Mobile
+                      {t("cv.mobile")}
                     </h3>
                     <div className="flex flex-wrap gap-1.5">
                       {skills.mobile.map((s) => (
@@ -285,7 +236,7 @@ export default function CVPage() {
                   </div>
                   <div>
                     <h3 className="text-[var(--primary)]/80 text-[10px] tracking-[0.3em] uppercase mb-3">
-                      Backend & Infrastructure
+                      {t("cv.backendInfra")}
                     </h3>
                     <div className="flex flex-wrap gap-1.5">
                       {skills.backend.map((s) => (
@@ -300,7 +251,7 @@ export default function CVPage() {
                   </div>
                   <div>
                     <h3 className="text-[var(--primary)]/80 text-[10px] tracking-[0.3em] uppercase mb-3">
-                      Expertise
+                      {t("cv.expertise")}
                     </h3>
                     <div className="flex flex-wrap gap-1.5">
                       {skills.architecture.map((s) => (
@@ -318,43 +269,41 @@ export default function CVPage() {
 
               {/* Formation */}
               <motion.section variants={fadeIn} custom={13}>
-                <h2 className="cv-section-title">Formation</h2>
-                {education.map((edu) => (
-                  <div key={edu.degree} className="mb-4">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="text-foreground text-sm font-medium">
-                        {edu.degree}
-                      </h3>
-                    </div>
-                    <p className="text-[#6B635A] text-xs mt-1">{edu.school}</p>
-                    <p className="text-[#6B635A] text-[10px] tracking-wider font-mono mt-1">
-                      {edu.period}
-                    </p>
+                <h2 className="cv-section-title">{t("cv.educationTitle")}</h2>
+                <div className="mb-4">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-foreground text-sm font-medium">
+                      {t("cv.education.degree")}
+                    </h3>
                   </div>
-                ))}
+                  <p className="text-[#6B635A] text-xs mt-1">{t("cv.education.school")}</p>
+                  <p className="text-[#6B635A] text-[10px] tracking-wider font-mono mt-1">
+                    {t("cv.education.period")}
+                  </p>
+                </div>
               </motion.section>
 
               {/* Langues */}
               <motion.section variants={fadeIn} custom={14}>
-                <h2 className="cv-section-title">Langues</h2>
+                <h2 className="cv-section-title">{t("cv.languagesTitle")}</h2>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-foreground text-sm">Français</span>
-                    <span className="text-[#6B635A] text-xs">Natif</span>
+                    <span className="text-foreground text-sm">{t("cv.french")}</span>
+                    <span className="text-[#6B635A] text-xs">{t("cv.frenchLevel")}</span>
                   </div>
                   <div className="h-[1px] bg-[var(--primary)]/5" />
                   <div className="flex items-center justify-between">
-                    <span className="text-foreground text-sm">Anglais</span>
-                    <span className="text-[#6B635A] text-xs">Technique / Avancé</span>
+                    <span className="text-foreground text-sm">{t("cv.english")}</span>
+                    <span className="text-[#6B635A] text-xs">{t("cv.englishLevel")}</span>
                   </div>
                 </div>
               </motion.section>
 
               {/* Centres d'intérêt */}
               <motion.section variants={fadeIn} custom={15}>
-                <h2 className="cv-section-title">Centres d&apos;intérêt</h2>
+                <h2 className="cv-section-title">{t("cv.interestsTitle")}</h2>
                 <p className="text-[#6B635A] text-xs leading-[1.9]">
-                  Architecture logicielle, Open Source, Intelligence Artificielle, IoT, Cybersécurité
+                  {t("cv.interests")}
                 </p>
               </motion.section>
             </div>

@@ -1,0 +1,323 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "process": "Processus",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "header": {
+    "available": "Disponible"
+  },
+  "footer": {
+    "cta": "Créons quelque chose",
+    "ctaHighlight": "de robuste",
+    "navigation": "Navigation",
+    "social": "Social",
+    "contact": "Contact",
+    "contactMe": "Me contacter",
+    "methodology": "Méthodologie",
+    "engineering": "Ingénierie & Architecture"
+  },
+  "home": {
+    "hero": {
+      "title1": "Développeur de",
+      "titleHighlight1": "solutions",
+      "title2": "qui pense",
+      "titleHighlight2": "architecture",
+      "title3": "avant de coder",
+      "subtitle": "Conception d'applications robustes, scalables et centrées sur la performance.",
+      "subtitleLocation": "Basé à Lomé — disponible pour transformer vos visions techniques en réalité.",
+      "ctaProjects": "Voir les projets",
+      "rotatingBadge": "DEVELOPPEUR WEB & MOBILE • ARCHITECTURE •"
+    },
+    "marquee": {
+      "skills": ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js", "Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"]
+    },
+    "stats": {
+      "projects": "Projets livrés",
+      "sectors": "Secteurs techniques",
+      "experience": "Ans d'expérience",
+      "quality": "Code de qualité"
+    },
+    "selectedProjects": {
+      "label": "Portfolio",
+      "title": "Projets sélectionnés",
+      "viewAll": "Tous les projets"
+    },
+    "designShowcase": {
+      "label": "De l'architecture au déploiement",
+      "title": "Ingénierie Full-Stack & Architecture"
+    },
+    "process": {
+      "label": "Méthodologie",
+      "title": "Approche & cycle de vie",
+      "description": "De la spécification à la maintenance — chaque étape garantit la robustesse et la scalabilité de vos solutions.",
+      "steps": [
+        { "num": "01", "title": "Analyse & Stratégie", "desc": "Comprendre les objectifs business et les contraintes techniques. Définir le périmètre fonctionnel pour bâtir sur des bases solides." },
+        { "num": "02", "title": "Architecture Logicielle", "desc": "Concevoir la structure technique, le schéma de données et le choix des technologies. La scalabilité se décide avant le code." },
+        { "num": "03", "title": "Développement Agile", "desc": "Codage itératif avec un focus sur la qualité, la performance et la maintenabilité. Utilisation des meilleures pratiques (Clean Code, DRY)." },
+        { "num": "04", "title": "Tests & Optimisation", "desc": "Validation rigoureuse des fonctionnalités et optimisation des performances (temps de chargement, SEO, fluidité mobile)." },
+        { "num": "05", "title": "Déploiement & Suivi", "desc": "Mise en production sécurisée et monitoring. Accompagnement technique continu pour garantir la pérennité de la solution." }
+      ]
+    },
+    "strengths": {
+      "label": "Expertise",
+      "title": "Ce que j'apporte techniquement",
+      "items": [
+        { "num": "01", "title": "Architecture Scalable", "desc": "Conception de systèmes capables de supporter la croissance. Choix technologiques pérennes et structures de données optimisées." },
+        { "num": "02", "title": "Performance & Sécurité", "desc": "Développement de solutions rapides et sécurisées. Optimisation du rendu, de la gestion d'état et protection des données." },
+        { "num": "03", "title": "Expérience Utilisateur", "desc": "Bien que développeur, je garde une vision produit. Le code doit servir l'utilisateur final et offrir une navigation fluide." },
+        { "num": "04", "title": "Collaboration Technique", "desc": "Expertise en intégration d'APIs, gestion de bases de données et DevOps. Un pont solide entre le design et l'infrastructure." }
+      ]
+    },
+    "cta": {
+      "label": "Me contacter",
+      "title1": "Vous cherchez un développeur qui",
+      "titleHighlight": "comprend vos enjeux métier",
+      "title2": "avant d'écrire une ligne de code ?",
+      "button": "Discutons"
+    }
+  },
+  "about": {
+    "label": "À propos",
+    "hero": {
+      "title1": "Un ingénieur qui traduit la",
+      "titleHighlight1": "complexité technique",
+      "title2": "en solutions",
+      "titleHighlight2": "scalables",
+      "title3": "."
+    },
+    "bio": {
+      "intro": "Je suis Machaallah ADJIBOGOU, Développeur Web et Mobile spécialisé en Architecture Logicielle basé à Lomé.",
+      "p1": "Ma démarche repose sur la rigueur technique et la compréhension profonde des systèmes. Avant d'écrire la première ligne de code, j'analyse les besoins, je définis l'architecture et je prévois la scalabilité. Pour moi, une application réussie est une application qui dure, performe et reste maintenable.",
+      "p2": "Spécialisé dans les technologies Web modernes (Next.js, Node.js), le développement mobile (Flutter, Dart) et WordPress avancé (custom themes/plugins/elementor), je suis également passionné par l'Intelligence Artificielle et ses applications. J'apporte une vision transverse aux projets : de la gestion de base de données à l'expérience utilisateur finale, en passant par le déploiement cloud et l'intégration de solutions IA.",
+      "statProjects": "Projets",
+      "statExperience": "Ans d'exp.",
+      "statBased": "Basé"
+    },
+    "showcase": {
+      "label": "Ingénierie & Qualité",
+      "title": "Robustesse, performance, maintenabilité"
+    },
+    "experience": {
+      "label": "Parcours",
+      "title": "Expérience",
+      "items": [
+        {
+          "role": "Software Architect & Full-Stack Developer",
+          "company": "Maono",
+          "period": "Oct 2024 — Présent",
+          "desc": "Architecture et développement frontend avec Next.js (SSR/SSG/SEO), intégration Headless WordPress (REST API) et optimisation des performances (Core Web Vitals). Maintenance et évolution de plusieurs plateformes (TogoTech, SIN, ARCEP, etc.)."
+        },
+        {
+          "role": "Développeur Full-Stack",
+          "company": "KIDOLE",
+          "period": "2024",
+          "desc": "Développement d'une application web de gestion de panneaux publicitaires : backend Laravel (API REST sécurisées), frontend Vue.js, gestion des rôles/permissions et tableaux de bord analytiques."
+        },
+        {
+          "role": "Stagiaire Développeur Mobile",
+          "company": "Kimoasoft",
+          "period": "2024",
+          "desc": "Développement d'applications mobiles Flutter, implémentation d'interfaces UI, intégration API et gestion d'état sur des produits comme Kweek et Afrostand."
+        }
+      ]
+    },
+    "cv": {
+      "title": "Consulter mon CV technique",
+      "subtitle": "Parcours détaillé, stack technique et projets — format A4",
+      "button": "Voir le CV"
+    },
+    "skills": {
+      "label": "Expertise",
+      "title": "Stack & compétences",
+      "categories": [
+        {
+          "category": "Développement Web",
+          "items": ["React / Next.js", "TypeScript", "Tailwind CSS", "Redux / Zustand", "Performance Web (SSR, SSG)"]
+        },
+        {
+          "category": "Développement Mobile",
+          "items": ["Flutter", "Dart", "Kotlin", "Gestion de l'état", "Optimisation mobile"]
+        },
+        {
+          "category": "Architecture & Backend",
+          "items": ["Architecture Logicielle", "Node.js / NestJS", "APIs REST & GraphQL", "Bases de données (SQL/NoSQL)", "Design Patterns"]
+        },
+        {
+          "category": "Expertise Technique",
+          "items": ["Clean Code", "Tests Unitaires (Jest)", "CI/CD & DevOps", "Sécurité", "Scalabilité"]
+        }
+      ]
+    },
+    "philosophy": {
+      "label": "Philosophie",
+      "quote1": "« Le code n'est pas une fin en soi, c'est un outil pour bâtir des solutions robustes et durables. »",
+      "quote2": "« La scalabilité commence par une architecture propre et une vision claire des enjeux métier. »"
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title1": "Un projet qui mérite",
+    "titleHighlight1": "une vraie",
+    "title2": "expertise",
+    "titleHighlight2": "technique",
+    "title3": "?",
+    "subtitle": "Parlons technique, architecture et scalabilité. Je reviens vers vous avec une analyse concrète pour votre projet.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-moi de vos défis techniques...",
+      "submit": "Envoyer le message"
+    },
+    "success": {
+      "title": "Message reçu.",
+      "description": "Je reviens vers vous rapidement pour discuter des prochaines étapes techniques de votre projet."
+    },
+    "info": {
+      "networks": "Réseaux",
+      "location": "Localisation"
+    }
+  },
+  "process": {
+    "label": "Processus Technique",
+    "title": "Méthodologie",
+    "subtitle": "Un cycle de développement structuré pour garantir des solutions robustes, scalables et performantes.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Analyse & Stratégie",
+        "desc": "Chaque projet commence par une compréhension profonde des objectifs business et des contraintes techniques. Nous définissons ensemble le périmètre fonctionnel et choisissons la stack technologique la plus adaptée pour garantir la pérennité de la solution.",
+        "methods": ["Cadrage technique", "Analyse des besoins", "Choix de la stack", "Audit de faisabilité"]
+      },
+      {
+        "num": "02",
+        "title": "Architecture & Modélisation",
+        "desc": "L'architecture logicielle est le fondement de la scalabilité. Je conçois le schéma de la base de données, l'architecture des APIs et la structure globale de l'application. Cette phase permet d'anticiper les défis techniques avant l'implémentation.",
+        "methods": ["Modélisation de données", "Architecture API", "Design Patterns", "Schémas techniques"]
+      },
+      {
+        "num": "03",
+        "title": "Développement & Implémentation",
+        "desc": "Le code est écrit avec rigueur, en suivant les principes Clean Code et DRY. Que ce soit pour le Web (Next.js) ou le Mobile (Flutter), l'accent est mis sur la performance, la lisibilité et la maintenabilité du code source.",
+        "methods": ["Code Clean & Modulaire", "Développement itératif", "Gestion d'état complexe", "Intégration UI/UX"]
+      },
+      {
+        "num": "04",
+        "title": "Tests & Assurance Qualité",
+        "desc": "La robustesse d'une solution passe par une validation rigoureuse. Tests unitaires, tests d'intégration et revue de code permettent d'assurer une expérience sans bug et une sécurité optimale dès le premier jour.",
+        "methods": ["Tests Unitaires", "Revues de code", "Optimisation performance", "Tests de sécurité"]
+      },
+      {
+        "num": "05",
+        "title": "Déploiement & Maintenance",
+        "desc": "La mise en production est sécurisée via des pipelines CI/CD. Une fois déployé, le projet entre dans une phase de monitoring et de maintenance évolutive pour s'adapter aux nouveaux besoins et rester à la pointe de la technologie.",
+        "methods": ["CI/CD Pipelines", "Déploiement Cloud", "Monitoring", "Maintenance évolutive"]
+      }
+    ],
+    "philosophyLabel": "Philosophie Technique",
+    "philosophyQuote": "« La rigueur technique n'est pas une option, c'est la condition sine qua non de la réussite d'un produit digital. »"
+  },
+  "projects": {
+    "label": "Portfolio technique",
+    "title": "Projets",
+    "subtitle": "Sélection de projets web et mobiles mettant en œuvre des architectures robustes et des solutions techniques innovantes.",
+    "filters": {
+      "all": "Tous",
+      "web": "Web",
+      "mobile": "Mobile",
+      "fullstack": "Fullstack",
+      "architecture": "Architecture"
+    },
+    "projectCount": "{{count}} projet",
+    "projectCountPlural": "{{count}} projets",
+    "details": "Détails",
+    "inDevelopment": "En développement",
+    "comingSoon": "Prochainement",
+    "comingSoonTitle": "Nouvelle architecture en cours",
+    "comingSoonDesc": "De nouvelles réalisations techniques sont régulièrement ajoutées au portfolio."
+  },
+  "caseStudy": {
+    "allProjects": "Tous les projets",
+    "seeProject": "Voir le projet",
+    "nextProject": "Projet suivant",
+    "discoverProject": "Découvrir le projet",
+    "mobileInterface": "Interface Mobile Native",
+    "mobileViews": "Vues mobiles",
+    "architectureIdentity": "Architecture & Identité",
+    "techTools": "Technologies & Outils",
+    "galleryTitle": "Détails du projet",
+    "system": "système"
+  },
+  "cv": {
+    "back": "Retour",
+    "download": "Télécharger PDF",
+    "role": "Développeur Web & Mobile / Architecte",
+    "profileTitle": "Profil Technique",
+    "profileDesc": "Développeur Web & Architecte applicatif spécialisé en Next.js et architectures Headless (WordPress API, Laravel, Firebase). Je conçois des applications performantes, scalables et orientées expérience utilisateur. Passionné par l'Intelligence Artificielle et les systèmes intelligents, j'explore continuellement les solutions basées sur l'IA pour optimiser les performances, automatiser les processus et créer des produits à forte valeur technologique. Rigoureux sur la qualité du code (Clean Code), la performance et la sécurité applicative.",
+    "experienceTitle": "Expérience technique",
+    "stackTitle": "Stack Technique",
+    "webCore": "Web & Core",
+    "mobile": "Mobile",
+    "backendInfra": "Backend & Infrastructure",
+    "expertise": "Expertise",
+    "educationTitle": "Formation",
+    "education": {
+      "degree": "Ingénierie Logicielle & Systèmes d'Information",
+      "school": "École Supérieure de Gestion d'Informatique et des Sciences (ESGIS)",
+      "period": "2021 — 2024"
+    },
+    "languagesTitle": "Langues",
+    "french": "Français",
+    "frenchLevel": "Natif",
+    "english": "Anglais",
+    "englishLevel": "Technique / Avancé",
+    "interestsTitle": "Centres d'intérêt",
+    "interests": "Architecture logicielle, Open Source, Intelligence Artificielle, IoT, Cybersécurité",
+    "experience": [
+      {
+        "role": "Software Architect & Full-Stack Developer",
+        "company": "Maono",
+        "location": "Lomé, Togo",
+        "period": "Oct 2024 — Présent",
+        "tasks": [
+          "Développement du frontend du site Maono avec Next.js (SSR, SSG, optimisation SEO)",
+          "Intégration Headless WordPress (REST API) pour la gestion dynamique des contenus",
+          "Conception d'interfaces modernes, performantes et responsive",
+          "Optimisation des performances (Core Web Vitals, lazy loading, caching)",
+          "Développement et maintenance des plateformes : Togotech, CNCIA, Palais de Lomé, Lome Data Centre (LDC), SIN, ARCEP",
+          "Développement de l'application Horizon360 (Next.js + Firebase)"
+        ]
+      },
+      {
+        "role": "Développeur Full-Stack",
+        "company": "KIDOLE",
+        "location": "Togo (Sous-région : Togo, Bénin, Ghana, Côte d'Ivoire)",
+        "period": "2024",
+        "tasks": [
+          "Développement d'une application web de gestion des panneaux publicitaires",
+          "Conception du backend avec Laravel (API REST sécurisées)",
+          "Développement du frontend en Vue.js",
+          "Gestion des rôles, permissions et tableaux de bord analytiques",
+          "Optimisation des performances et structuration de la base de données"
+        ]
+      },
+      {
+        "role": "Stagiaire Développeur Mobile",
+        "company": "Kimoasoft",
+        "location": "Togo",
+        "period": "2024",
+        "tasks": [
+          "Développement d'applications mobiles avec Flutter",
+          "Participation au développement des applications Kweek et Afrostand",
+          "Implémentation d'interfaces UI modernes et responsives",
+          "Connexion aux APIs et gestion d'état des applications"
+        ]
+      }
+    ]
+  }
+}

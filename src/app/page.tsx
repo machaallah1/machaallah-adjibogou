@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import {
   SplitText,
   Magnetic,
@@ -25,26 +25,10 @@ import {
   AbstractBlob,
   StatBlock,
   DotsPattern,
-  DesktopWireframe,
-  WireframeMockup,
   ClassDiagramSkeleton,
   MobileClassDiagramSkeleton,
 } from "@/components/visuals";
-
-const processSteps = [
-  { num: "01", title: "Analyse & Stratégie", desc: "Comprendre les objectifs business et les contraintes techniques. Définir le périmètre fonctionnel pour bâtir sur des bases solides." },
-  { num: "02", title: "Architecture Logicielle", desc: "Concevoir la structure technique, le schéma de données et le choix des technologies. La scalabilité se décide avant le code." },
-  { num: "03", title: "Développement Agile", desc: "Codage itératif avec un focus sur la qualité, la performance et la maintenabilité. Utilisation des meilleures pratiques (Clean Code, DRY)." },
-  { num: "04", title: "Tests & Optimisation", desc: "Validation rigoureuse des fonctionnalités et optimisation des performances (temps de chargement, SEO, fluidité mobile)." },
-  { num: "05", title: "Déploiement & Suivi", desc: "Mise en production sécurisée et monitoring. Accompagnement technique continu pour garantir la pérennité de la solution." },
-];
-
-const strengths = [
-  { num: "01", title: "Architecture Scalable", desc: "Conception de systèmes capables de supporter la croissance. Choix technologiques pérennes et structures de données optimisées." },
-  { num: "02", title: "Performance & Sécurité", desc: "Développement de solutions rapides et sécurisées. Optimisation du rendu, de la gestion d'état et protection des données." },
-  { num: "03", title: "Expérience Utilisateur", desc: "Bien que développeur, je garde une vision produit. Le code doit servir l'utilisateur final et offrir une navigation fluide." },
-  { num: "04", title: "Collaboration Technique", desc: "Expertise en intégration d'APIs, gestion de bases de données et DevOps. Un pont solide entre le design et l'infrastructure." },
-];
+import { useLanguage } from "@/lib/i18n";
 
 function HeroSection() {
   const ref = useRef(null);
@@ -52,6 +36,7 @@ function HeroSection() {
   const titleY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const subtitleY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const { t } = useLanguage();
 
   return (
     <section ref={ref} className="relative min-h-[100vh] flex items-center overflow-hidden">
@@ -84,7 +69,7 @@ function HeroSection() {
           <svg viewBox="0 0 120 120" className="w-full h-full">
             <path id="circle-text" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" fill="none" />
             <text className="fill-[var(--primary)]/30 text-[11px] tracking-[0.35em] uppercase">
-              <textPath href="#circle-text">DEVELOPPEUR WEB & MOBILE &#x2022; ARCHITECTURE &#x2022; </textPath>
+              <textPath href="#circle-text">{t("home.hero.rotatingBadge")}</textPath>
             </text>
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -105,25 +90,25 @@ function HeroSection() {
         {/* Main title */}
         <h1 className="font-serif text-5xl md:text-6xl leading-[0.92] tracking-[-0.03em] text-foreground">
           <SplitText delay={0.4} stagger={0.025} type="words">
-            Développeur de
+            {t("home.hero.title1")}
           </SplitText>{" "}
           <span className="italic text-[var(--primary)]">
             <SplitText delay={0.6} stagger={0.025} type="words">
-              solutions
+              {t("home.hero.titleHighlight1")}
             </SplitText>
           </span>
           <br className="hidden md:block" />{" "}
           <SplitText delay={0.7} stagger={0.025} type="words">
-            qui pense
+            {t("home.hero.title2")}
           </SplitText>{" "}
           <span className="italic text-[var(--primary)]">
             <SplitText delay={0.9} stagger={0.025} type="words">
-              architecture
+              {t("home.hero.titleHighlight2")}
             </SplitText>
           </span>
           <br className="hidden md:block" />{" "}
           <SplitText delay={1.0} stagger={0.025} type="words">
-            avant de coder
+            {t("home.hero.title3")}
           </SplitText>
         </h1>
 
@@ -134,9 +119,9 @@ function HeroSection() {
         >
           <MaskReveal delay={1.2}>
             <p className="text-lg md:text-xl text-neutral-600 max-w-md leading-relaxed">
-              Conception d'applications robustes, scalables et centrées sur la performance.
+              {t("home.hero.subtitle")}
               <br />
-              <span className="text-neutral-500">Basé à Lomé — disponible pour transformer vos visions techniques en réalité.</span>
+              <span className="text-neutral-500">{t("home.hero.subtitleLocation")}</span>
             </p>
           </MaskReveal>
 
@@ -147,7 +132,7 @@ function HeroSection() {
                   href="/project"
                   className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[var(--primary)] text-white text-sm font-medium tracking-[0.12em] uppercase overflow-hidden"
                 >
-                  <span className="relative z-10">Voir les projets</span>
+                  <span className="relative z-10">{t("home.hero.ctaProjects")}</span>
                   <ArrowRight size={15} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                   <span className="absolute inset-0 bg-[#068a09] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 </Link>
@@ -180,13 +165,16 @@ function HeroSection() {
 }
 
 function MarqueeStrip() {
-  const skills = ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js", "Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"];
+  const { t, locale } = useLanguage();
+  const skills = (t("home.marquee.skills") as unknown) as string[];
+  // Fallback if t returns a string key instead of array
+  const skillsList = Array.isArray(skills) ? skills : ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js", "Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"];
 
   return (
     <div className="py-8 border-t border-b border-[var(--primary)]/10">
       <Marquee speed={40}>
         <div className="flex items-center gap-12 mr-12">
-          {skills.map((text) => (
+          {skillsList.map((text: string) => (
             <span key={text} className="flex items-center gap-12">
               <span className="text-xs text-neutral-500 tracking-[0.2em] uppercase whitespace-nowrap">
                 {text}
@@ -202,15 +190,16 @@ function MarqueeStrip() {
 
 /* Stats banner between sections */
 function StatsStrip() {
+  const { t } = useLanguage();
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 cross-pattern opacity-20" />
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
-          <StatBlock number="10+" label="Projets livrés" accent />
-          <StatBlock number="6+" label="Secteurs techniques" />
-          <StatBlock number="2+" label="Ans d'expérience" accent />
-          <StatBlock number="100%" label="Code de qualité" />
+          <StatBlock number="10+" label={t("home.stats.projects")} accent />
+          <StatBlock number="6+" label={t("home.stats.sectors")} />
+          <StatBlock number="2+" label={t("home.stats.experience")} accent />
+          <StatBlock number="100%" label={t("home.stats.quality")} />
         </div>
       </div>
     </section>
@@ -281,6 +270,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
 function Selectedproject() {
   const featured = projects.slice(0, 6);
+  const { t } = useLanguage();
 
   return (
     <section className="py-24 md:py-36 relative">
@@ -298,12 +288,12 @@ function Selectedproject() {
           <div>
             <MaskReveal>
               <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                Portfolio
+                {t("home.selectedProjects.label")}
               </span>
             </MaskReveal>
             <div className="mt-3">
               <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
-                <SplitText type="words" stagger={0.05}>Projets sélectionnés</SplitText>
+                <SplitText type="words" stagger={0.05}>{t("home.selectedProjects.title")}</SplitText>
               </h2>
             </div>
           </div>
@@ -313,7 +303,7 @@ function Selectedproject() {
                 href="/project"
                 className="hidden sm:inline-flex items-center gap-3 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.12em] uppercase link-underline"
               >
-                Tous les projets
+                {t("home.selectedProjects.viewAll")}
                 <ArrowUpRight size={14} />
               </Link>
             </Magnetic>
@@ -334,7 +324,7 @@ function Selectedproject() {
               href="/project"
               className="inline-flex items-center gap-3 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.12em] uppercase"
             >
-              Tous les projets
+              {t("home.selectedProjects.viewAll")}
               <ArrowUpRight size={14} />
             </Link>
           </Magnetic>
@@ -346,6 +336,7 @@ function Selectedproject() {
 
 /* Visual showcase between sections — Desktop & Mobile wireframes */
 function DesignShowcase() {
+  const { t } = useLanguage();
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-100 to-transparent" />
@@ -353,12 +344,12 @@ function DesignShowcase() {
         <div className="text-center mb-12 md:mb-16">
           <MaskReveal>
             <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-              De l’architecture au déploiement
+              {t("home.designShowcase.label")}
             </span>
           </MaskReveal>
           <div className="mt-3">
             <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-[0.95]">
-              <SplitText type="words" stagger={0.05}>Ingénierie Full-Stack & Architecture</SplitText>
+              <SplitText type="words" stagger={0.05}>{t("home.designShowcase.title")}</SplitText>
             </h2>
           </div>
         </div>
@@ -388,13 +379,19 @@ function DesignShowcase() {
 }
 
 function ProcessSection() {
+  const { t, locale } = useLanguage();
+  const steps = (t("home.process.steps") as unknown) as Array<{ num: string; title: string; desc: string }>;
+  const stepsList = Array.isArray(steps) ? steps : [];
+
   return (
     <section className="py-32 md:py-48 relative">
       <div className="absolute inset-0 cross-pattern opacity-30" />
 
       {/* Floating wireframe grid decoration */}
       <FloatingElement className="absolute top-32 right-[5%] w-[280px] hidden xl:block opacity-40" speed={15}>
-        <WireframeGrid />
+        <Suspense fallback={null}>
+          <WireframeGrid />
+        </Suspense>
       </FloatingElement>
 
       <LineReveal />
@@ -403,17 +400,17 @@ function ProcessSection() {
           <div>
             <MaskReveal>
               <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                Méthodologie
+                {t("home.process.label")}
               </span>
             </MaskReveal>
             <div className="mt-4 mb-6">
               <h2 className="font-serif text-4xl md:text-6xl text-foreground leading-[0.95]">
-                <SplitText type="words" stagger={0.05}>Approche & cycle de vie</SplitText>
+                <SplitText type="words" stagger={0.05}>{t("home.process.title")}</SplitText>
               </h2>
             </div>
             <Reveal delay={0.3}>
               <p className="text-neutral-600 leading-relaxed max-w-md">
-                De la spécification à la maintenance — chaque étape garantit la robustesse et la scalabilité de vos solutions.
+                {t("home.process.description")}
               </p>
             </Reveal>
 
@@ -424,7 +421,7 @@ function ProcessSection() {
           </div>
 
           <Stagger stagger={0.08} delay={0.2}>
-            {processSteps.map((step) => (
+            {stepsList.map((step) => (
               <StaggerItem key={step.num}>
                 <div className="group flex items-start gap-8 md:gap-12 py-10 border-b border-[var(--primary)]/5 hover:border-[var(--primary)]/20 transition-all duration-700">
                   <span className="text-[var(--primary)]/20 text-2xl md:text-3xl font-serif italic group-hover:text-[var(--primary)]/60 transition-colors duration-700 shrink-0">
@@ -450,6 +447,10 @@ function ProcessSection() {
 }
 
 function StrengthsSection() {
+  const { t } = useLanguage();
+  const items = (t("home.strengths.items") as unknown) as Array<{ num: string; title: string; desc: string }>;
+  const strengthsList = Array.isArray(items) ? items : [];
+
   return (
     <section className="py-32 md:py-48 relative">
       {/* Floating abstract blob */}
@@ -462,36 +463,47 @@ function StrengthsSection() {
         <div className="text-center mb-20 md:mb-28">
           <MaskReveal>
             <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-              Expertise
+              {t("home.strengths.label")}
             </span>
           </MaskReveal>
           <div className="mt-4">
             <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[0.95]">
-              <SplitText type="words" stagger={0.05}>Ce que j'apporte techniquement</SplitText>
+              <SplitText type="words" stagger={0.05}>{t("home.strengths.title")}</SplitText>
             </h2>
           </div>
         </div>
 
         <Stagger stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-0">
-          {strengths.map((s) => (
+          {strengthsList.map((s) => (
             <StaggerItem key={s.title}>
-              <div className="group relative p-10 md:p-14 border border-[var(--primary)]/5 hover:border-[var(--primary)]/15 transition-all duration-700 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="group relative p-10 md:p-14 border border-[var(--primary)]/5 hover:border-[var(--primary)]/20 transition-all duration-700 overflow-hidden hover:-translate-y-1 hover:shadow-[0_8px_40px_-12px_rgba(4,118,7,0.12)]">
+                {/* Background gradient sweep */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/[0.03] via-transparent to-[var(--primary)]/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                {/* Decorative corner dots */}
-                <div className="absolute top-4 right-4 w-1 h-1 rounded-full bg-[var(--primary)]/10 group-hover:bg-[var(--primary)]/30 transition-colors duration-500" />
-                <div className="absolute bottom-4 left-4 w-1 h-1 rounded-full bg-[var(--primary)]/10 group-hover:bg-[var(--primary)]/30 transition-colors duration-500" />
+                {/* Animated accent line — slides in from left */}
+                <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[var(--primary)] to-[var(--primary)]/0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+
+                {/* Shimmer sweep effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/[0.04] to-transparent pointer-events-none" />
+
+                {/* Decorative corner accents */}
+                <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-[var(--primary)]/0 group-hover:border-[var(--primary)]/15 transition-all duration-500 delay-100" />
+                <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-[var(--primary)]/0 group-hover:border-[var(--primary)]/15 transition-all duration-500 delay-100" />
+
+                {/* Glow dot — pulses on hover */}
+                <div className="absolute top-5 right-5 w-1.5 h-1.5 rounded-full bg-[var(--primary)]/0 group-hover:bg-[var(--primary)]/40 transition-all duration-500 group-hover:shadow-[0_0_8px_2px_rgba(4,118,7,0.2)]" />
 
                 <div className="relative z-10">
-                  <span className="text-[var(--primary)]/15 text-5xl md:text-6xl font-serif italic group-hover:text-[var(--primary)]/25 transition-colors duration-700">
+                  <span className="text-[var(--primary)]/15 text-5xl md:text-6xl font-serif italic group-hover:text-[var(--primary)]/35 group-hover:scale-110 inline-block origin-left transition-all duration-700 ease-out">
                     {s.num}
                   </span>
-                  <h3 className="text-foreground text-xl md:text-2xl font-serif mt-6 mb-4 group-hover:text-[var(--primary)] transition-colors duration-500">
+                  <h3 className="text-foreground text-xl md:text-2xl font-serif mt-6 mb-4 group-hover:text-[var(--primary)] group-hover:translate-x-1 transition-all duration-500">
                     {s.title}
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed text-sm max-w-sm">
+                  <p className="text-neutral-600 leading-relaxed text-sm max-w-sm group-hover:text-neutral-500 transition-colors duration-500">
                     {s.desc}
                   </p>
+
                 </div>
               </div>
             </StaggerItem>
@@ -506,6 +518,7 @@ function CTASection() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
+  const { t } = useLanguage();
 
   return (
     <section ref={ref} className="py-40 md:py-56 relative">
@@ -524,16 +537,16 @@ function CTASection() {
 
         <MaskReveal>
           <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-            Me contacter
+            {t("home.cta.label")}
           </span>
         </MaskReveal>
         <div className="mt-6">
           <h2 className="font-serif text-[clamp(2rem,6vw,5rem)] text-foreground leading-[0.95] max-w-5xl mx-auto">
-            <SplitText type="words" stagger={0.04}>Vous cherchez un développeur qui</SplitText>{" "}
+            <SplitText type="words" stagger={0.04}>{t("home.cta.title1")}</SplitText>{" "}
             <span className="italic text-[var(--primary)]">
-              <SplitText type="words" delay={0.5} stagger={0.04}>comprend vos enjeux métier</SplitText>
+              <SplitText type="words" delay={0.5} stagger={0.04}>{t("home.cta.titleHighlight")}</SplitText>
             </span>{" "}
-            <SplitText type="words" delay={0.6} stagger={0.04}>avant d'écrire une ligne de code ?</SplitText>
+            <SplitText type="words" delay={0.6} stagger={0.04}>{t("home.cta.title2")}</SplitText>
           </h2>
         </div>
 
@@ -544,7 +557,7 @@ function CTASection() {
                 href="/contact"
                 className="group relative inline-flex items-center gap-4 px-12 py-6 bg-[var(--primary)] text-white text-sm font-semibold tracking-[0.15em] uppercase overflow-hidden"
               >
-                <span className="relative z-10">Discutons</span>
+                <span className="relative z-10">{t("home.cta.button")}</span>
                 <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                 <span className="absolute inset-0 bg-[#068a09] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </Link>
