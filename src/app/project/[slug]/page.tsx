@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     return {
       title: project
         ? `${project.title} — Machaallah ADJIBOGOU`
-        : "Projet non trouvé",
+        : "Project not found",
       description: project?.description,
     };
   });
@@ -24,11 +24,7 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-  if (!project) return notFound();
 
-  const idx = projects.findIndex((p) => p.slug === slug);
-  const next = projects[(idx + 1) % projects.length];
-
-  return <CaseStudyContent project={project} next={next} />;
+  // Pass slug to client component — localization happens there
+  return <CaseStudyContent slug={slug} />;
 }

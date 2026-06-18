@@ -4,7 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Code, Smartphone, Server, Globe } from "lucide-react";
-import { projects } from "@/lib/projects";
+import { useLocalizedProjects } from "@/lib/use-localized-projects";
+import type { Project } from "@/lib/projects";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -22,7 +23,7 @@ import {
 } from "@/components/visuals";
 import { useLanguage } from "@/lib/i18n";
 
-function ProjectItem({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectItem({ project, index }: { project: Project; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const { t } = useLanguage();
@@ -92,6 +93,8 @@ export default function ProjectPage() {
     { key: "Fullstack", label: t("projects.filters.fullstack") },
     { key: "Architecture", label: t("projects.filters.architecture") },
   ];
+
+  const projects = useLocalizedProjects();
 
   const [active, setActive] = useState("all");
 

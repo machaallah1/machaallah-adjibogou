@@ -260,7 +260,7 @@ export function Header() {
                 {/* Social links */}
                 <div className="flex items-center gap-8">
                   <a 
-                    href="www.linkedin.com/in/adjibogou-machaallah-32937126a" 
+                    href="https://www.linkedin.com/in/adjibogou-machaallah-32937126a" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-xs text-black tracking-[0.15em] uppercase hover:text-[var(--primary)] transition-colors font-medium relative group"

@@ -67,7 +67,7 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <Magnetic strength={0.2}>
                 <a
-                  href="www.linkedin.com/in/adjibogou-machaallah-32937126a"
+                  href="https://www.linkedin.com/in/adjibogou-machaallah-32937126a"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-[var(--primary)] transition-colors duration-300 font-medium"

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { projects } from "@/lib/projects";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Suspense, useRef } from "react";
 import {
@@ -29,6 +28,8 @@ import {
   MobileClassDiagramSkeleton,
 } from "@/components/visuals";
 import { useLanguage } from "@/lib/i18n";
+import { useLocalizedProjects } from "@/lib/use-localized-projects";
+import type { Project } from "@/lib/projects";
 
 function HeroSection() {
   const ref = useRef(null);
@@ -206,7 +207,7 @@ function StatsStrip() {
   );
 }
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -269,7 +270,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 }
 
 function Selectedproject() {
-  const featured = projects.slice(0, 6);
+  const localizedProjects = useLocalizedProjects();
+  const featured = localizedProjects.slice(0, 6);
   const { t } = useLanguage();
 
   return (

@@ -390,8 +390,8 @@ export const projects: Project[] = [
       "/images/projects/togotech/01.png",
     gallery: [
       "/images/projects/togotech/01.png",
-      "/images/projects/togotech/02.png",
-      "/images/projects/togotech/03.png",
+      "/images/projects/togotech/06.png",
+      "/images/projects/togotech/08.png",
     ],
     tools: ["Next.js", "TypeScript", "Tailwind CSS"],
     metrics: [
@@ -568,8 +568,8 @@ export const projects: Project[] = [
       "/images/projects/sin/01.png",
     gallery: [
       "/images/projects/sin/01.png",
-      "/images/projects/sin/02.png",
-      "/images/projects/sin/03.png",
+      "/images/projects/sin/10.png",
+      "/images/projects/sin/14.png",
     ],
     tools: ["Next.js", "TypeScript", "Tailwind CSS"],
       metrics: [

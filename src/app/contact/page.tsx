@@ -180,7 +180,7 @@ export default function ContactPage() {
                         <Mail size={12} /> Email
                       </span>
                       <a
-                        href="machdev02@gmail.com"
+                        href="mailto:machdev02@gmail.com"
                         className="text-foreground text-lg link-underline"
                       >
                         machdev02@gmail.com
@@ -193,7 +193,7 @@ export default function ContactPage() {
                       </span>
                       <div className="space-y-4">
                         <a
-                          href="www.linkedin.com/in/adjibogou-machaallah-32937126a"
+                          href="https://www.linkedin.com/in/adjibogou-machaallah-32937126a"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-foreground block link-underline w-fit"

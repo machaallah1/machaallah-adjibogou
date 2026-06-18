@@ -22,6 +22,8 @@ import {
   LogicSequence,
 } from "@/components/visuals";
 import type { Project, ProjectSection } from "@/lib/projects";
+import { useLanguage } from "@/lib/i18n";
+import { useLocalizedProjects } from "@/lib/use-localized-projects";
 
 /* ── Animated wrapper ── */
 function AnimSection({
@@ -536,12 +538,16 @@ function Divider() {
    ══════════════════════════════════════════════════════ */
 
 export function CaseStudyContent({
-  project,
-  next,
+  slug,
 }: {
-  project: Project;
-  next: Project;
+  slug: string;
 }) {
+  const localizedProjects = useLocalizedProjects();
+  const project = localizedProjects.find((p) => p.slug === slug);
+  const idx = localizedProjects.findIndex((p) => p.slug === slug);
+  const next = localizedProjects[(idx + 1) % localizedProjects.length];
+  const { t } = useLanguage();
+
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -557,6 +563,8 @@ export function CaseStudyContent({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (!project || !next) return null;
 
   const g = project.gallery;
   const sections = project.sections;
@@ -797,8 +805,8 @@ export function CaseStudyContent({
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
             <SectionLabel num="Gallerie" title="Détails du projet" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {g.slice(1, 4).map((src, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {g.slice(1, 3).map((src, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
@@ -811,7 +819,7 @@ export function CaseStudyContent({
                     src={src}
                     alt={`${project.title} — Detail ${i + 1}`}
                     fill
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    className="object-cover transition-all duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
