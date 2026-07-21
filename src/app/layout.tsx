@@ -48,6 +48,18 @@ export default function RootLayout({
         className={`${inter.variable} ${crimson.variable} antialiased font-sans`}
       >
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J0SRRQCRET"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-J0SRRQCRET');
+          `}
+        </Script>
+        <Script
           id="orchids-browser-logs"
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
           strategy="afterInteractive"
