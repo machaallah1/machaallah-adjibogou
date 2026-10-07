@@ -21,29 +21,109 @@
   },
   "home": {
     "hero": {
-      "title1": "Développeur de",
-      "titleHighlight1": "solutions",
-      "title2": "qui pense",
-      "titleHighlight2": "architecture",
-      "title3": "avant de coder",
-      "subtitle": "Conception d'applications robustes, scalables et centrées sur la performance.",
-      "subtitleLocation": "Basé à Lomé — disponible pour transformer vos visions techniques en réalité.",
-      "ctaProjects": "Voir les projets",
-      "rotatingBadge": "DEVELOPPEUR WEB & MOBILE • ARCHITECTURE •"
+      "systemTag": "",
+      "locationTag": "",
+      "title1": "Développeur Full Stack,",
+      "titleHighlight1": "interfaces & expériences",
+      "title2": "web",
+      "titleHighlight2": ".",
+      "title3": "",
+      "tagline": "Architecture Logicielle • Ingénierie Front-End • Design Systèmes",
+      "subtitle": "Conception d'architectures robustes et d'applications web d'exception.",
+      "subtitleLocation": "Basé à Lomé — disponible pour projets d'exception & collaborations ambitieuses.",
+      "ctaProjects": "Découvrir mes projets",
+      "ctaContact": "Me contacter",
+      "rotatingBadge": "FRONT-END SENIOR • ARCHITECTURE LOGICIELLE • DESIGN SYSTEMS •",
+      "statProjects": "Projets livrés",
+      "statDegree": "Licence Architecture Logicielle",
+      "statSpecialty": "Spécialité Front-End & UI",
+      "statQuality": "Exigence Clean Code"
     },
     "marquee": {
-      "skills": ["Architecture Logicielle", "Développement Web", "Développement Mobile", "React / Next.js", "Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalabilité"]
+      "skills": ["Next.js & React 19", "Creative Front-End", "Architecture Logicielle", "Design Systems & Intégration", "Design Systems", "TypeScript", "Performance & Core Web Vitals", "Flutter & Mobile", "Node.js & APIs", "Tailwind CSS", "Clean Architecture"]
     },
     "stats": {
       "projects": "Projets livrés",
-      "sectors": "Secteurs techniques",
-      "experience": "Ans d'expérience",
-      "quality": "Code de qualité"
+      "sectors": "Secteurs d'impact",
+      "experience": "Ans d'expérience active",
+      "quality": "Rigueur & Performance"
     },
     "selectedProjects": {
-      "label": "Portfolio",
-      "title": "Projets sélectionnés",
-      "viewAll": "Tous les projets"
+      "label": "02 // SÉLECTION DE PROJETS",
+      "title": "Travaux sélectionnés",
+      "subtitle": "Conception d'expériences web et d'architectures applicatives sur mesure.",
+      "viewAll": "Explorer tous les projets",
+      "filters": {
+        "all": "Tous",
+        "web": "Web & Plateformes",
+        "infra": "Infrastructures & Tech",
+        "creative": "Design & Créatif"
+      },
+      "spotlightLabel": "PROJET EN VEDETTE",
+      "viewLive": "Voir en direct",
+      "viewCase": "Étude de cas détaillée",
+      "role": "Rôle",
+      "technologies": "Stack",
+      "objective": "Objectif"
+    },
+    "expertise": {
+      "label": "03 // EXPERTISE & MÉTIER",
+      "title": "Ce que j'apporte à vos projets",
+      "subtitle": "De la conception de l'interface jusqu'à la robustesse des systèmes sous-jacents.",
+      "pillars": [
+        {
+          "num": "01",
+          "tag": "FRONT-END & INTERACTION",
+          "title": "Ingénierie Front-End & Expériences Web",
+          "desc": "Conception d'interfaces fluides, dynamiques et réactives. Maîtrise avancée de Next.js (App Router, SSR, SSG), React 19, Framer Motion, animations chorégraphiées et optimisation stricte des Core Web Vitals (temps de chargement, fluidité, accessibilité)."
+        },
+        {
+          "num": "02",
+          "tag": "DESIGN & EXPÉRIENCE UTILISATEUR",
+          "title": "Sens du Design & Craft d'Interface",
+          "desc": "Au-delà du code, je pense l'interface comme un produit vivant. Typographie expressive, grilles harmonieuses, micro-interactions soignées, accessibilité et création de design systems modulaires et cohérents."
+        },
+        {
+          "num": "03",
+          "tag": "STRUCTURE & SCALABILITÉ",
+          "title": "Architecture Logicielle & Rigueur Systèmes",
+          "desc": "Titulaire d'une Licence en Ingénierie Logicielle & Systèmes d'Information (ESGIS). Modélisation de schémas de données, structuration du code (Clean Code, modularité), design patterns et conception d'APIs prévues pour supporter la montée en charge."
+        },
+        {
+          "num": "04",
+          "tag": "VISION TRANSVERSE",
+          "title": "Compétences Full Stack & Déploiement",
+          "desc": "Capacité à piloter le projet de bout en bout : intégrations backend (Node.js, Laravel, WordPress Headless), gestion des états complexes, persistance des données et pipelines de déploiement sécurisés sur le cloud."
+        }
+      ]
+    },
+    "aboutSection": {
+      "label": "04 // PROFIL & VISION",
+      "title": "L'exigence technique au service de l'utilisateur",
+      "subtitle": "Développeur full stack, passionné par les interfaces ciselées et l'architecture logicielle.",
+      "p1": "Je suis Machaallah ADJIBOGOU, basé à Lomé. Diplômé d'une Licence en Ingénierie Logicielle & Systèmes d'Information à l'ESGIS, j'ai développé une double culture : la rigueur de l'architecture logicielle et l'obsession du détail dans l'expérience utilisateur.",
+      "p2": "Actuellement Software Architect & Full-Stack Developer chez Maono, je conçois et fais évoluer les plateformes numériques de référence dans la sous-région (TogoTech, SIN, Lomé Data Centre, Palais de Lomé). Avant cela, j'ai forgé mon expertise full-stack chez KIDOLE et le développement mobile chez Kimoasoft.",
+      "p3": "Mon crédo : une application remarquable ne fait aucun compromis entre la beauté de son interface et la robustesse de son socle technique.",
+      "degreeLabel": "Formation",
+      "degree": "Licence en Ingénierie Logicielle & Systèmes d'Information (ESGIS)",
+      "currentRole": "Poste actuel",
+      "currentCompany": "Software Architect & Full-Stack Developer chez Maono",
+      "cvButton": "Consulter mon CV technique (A4)"
+    },
+    "contactSection": {
+      "label": "05 // COLLABORATION & CONTACT",
+      "title": "Prêt à donner vie à votre prochaine interface ?",
+      "subtitle": "Vous avez un projet ambitieux, une plateforme à structurer ou une expérience web à concevoir ? Échangeons directement.",
+      "formName": "Votre nom complet",
+      "formEmail": "Votre adresse email",
+      "formMessage": "Parlez-moi de votre projet ou défi technique...",
+      "formSubmit": "Envoyer via WhatsApp / Email",
+      "timeZone": "Heure locale à Lomé :",
+      "emailLabel": "Email direct",
+      "whatsappLabel": "WhatsApp & Téléphone",
+      "linkedinLabel": "Profil LinkedIn",
+      "githubLabel": "Code & Repositories GitHub",
+      "location": "Localisation : Lomé, TOGO"
     },
     "designShowcase": {
       "label": "De l'architecture au déploiement",
@@ -204,7 +284,7 @@
         "num": "03",
         "title": "Développement & Implémentation",
         "desc": "Le code est écrit avec rigueur, en suivant les principes Clean Code et DRY. Que ce soit pour le Web (Next.js) ou le Mobile (Flutter), l'accent est mis sur la performance, la lisibilité et la maintenabilité du code source.",
-        "methods": ["Code Clean & Modulaire", "Développement itératif", "Gestion d'état complexe", "Intégration UI/UX"]
+        "methods": ["Code Clean & Modulaire", "Développement itératif", "Gestion d'état complexe", "Intégration Pixel-Perfect"]
       },
       {
         "num": "04",

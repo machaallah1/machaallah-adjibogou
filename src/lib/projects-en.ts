@@ -573,7 +573,7 @@ export const projectsEn: Record<
           "The visual universe rests on:",
         bullets: [
           "Deep dark background to reinforce the strategic dimension",
-          "Green accents symbolizing growth and innovation",
+          "Amber accents symbolizing growth and innovation",
           "Immersive technological visuals — data centers, networks, cartographies",
           "Elegant and institutional typography",
         ],

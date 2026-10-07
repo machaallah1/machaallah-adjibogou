@@ -47,7 +47,7 @@ export function CustomCursor() {
     <>
       {/* Dot */}
       <motion.div
-        className="fixed top-0 left-0 z-[9998] pointer-events-none mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 z-[9998] pointer-events-none hidden md:block"
         animate={{
           x: pos.x - 4,
           y: pos.y - 4,
@@ -56,26 +56,26 @@ export function CustomCursor() {
         }}
         transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
       >
-        <div className="w-2 h-2 rounded-full bg-white" />
+        <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b]" />
       </motion.div>
 
       {/* Outer ring / label */}
       <motion.div
         className="fixed top-0 left-0 z-[9998] pointer-events-none hidden md:flex items-center justify-center"
         animate={{
-          x: pos.x - (hovered ? 40 : 16),
-          y: pos.y - (hovered ? 40 : 16),
-          width: hovered ? 80 : 32,
-          height: hovered ? 80 : 32,
+          x: pos.x - (hovered ? 42 : 16),
+          y: pos.y - (hovered ? 42 : 16),
+          width: hovered ? 84 : 32,
+          height: hovered ? 84 : 32,
           opacity: visible ? 1 : 0,
         }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.8 }}
+        transition={{ type: "spring", stiffness: 220, damping: 22, mass: 0.7 }}
       >
         <div
           className={`w-full h-full rounded-full border transition-all duration-300 flex items-center justify-center ${
             hovered
-              ? "border-[#047607] bg-[#047607]/10 backdrop-blur-sm"
-              : "border-[#047607]"
+              ? "border-[#f59e0b] bg-[#f59e0b]/15 backdrop-blur-md shadow-[0_0_25px_rgba(245,158,11,0.35)]"
+              : "border-white/20 bg-white/[0.02]"
           }`}
         >
           <AnimatePresence>
@@ -84,7 +84,7 @@ export function CustomCursor() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="text-[10px] text-white tracking-[0.15em] uppercase font-medium text-center whitespace-nowrap"
+                className="text-[10px] font-mono font-bold text-white tracking-[0.2em] uppercase text-center whitespace-nowrap"
               >
                 {label}
               </motion.span>

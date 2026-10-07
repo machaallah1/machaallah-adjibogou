@@ -83,15 +83,15 @@ function MetricCard({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }}
-      className="relative group p-8 md:p-10 border border-neutral-100 hover:border-[var(--primary)]/30 transition-all duration-700 overflow-hidden bg-white hover:shadow-[0_20px_40px_rgba(4,118,7,0.05)] text-center"
-      whileHover={{ y: -8 }}
+      className="relative group p-8 md:p-10 border border-white/10 hover:border-[#f59e0b]/40 transition-all duration-700 overflow-hidden bg-[#111318] hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] text-center rounded-xl"
+      whileHover={{ y: -6 }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      <div className="absolute top-4 right-6 text-[9px] text-[var(--primary)] font-mono opacity-20 font-black">VAL_NODE::{index}</div>
-      <span className="relative block font-serif text-4xl md:text-5xl text-[var(--primary-dark)] mb-4 leading-none font-bold">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b]/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute top-4 right-6 text-[9px] text-[#f59e0b] font-mono opacity-40 font-bold">VAL_NODE::{index}</div>
+      <span className="relative block font-serif text-4xl md:text-5xl text-[#f59e0b] mb-4 leading-none font-bold">
         {value}
       </span>
-      <span className="relative block text-[10px] text-neutral-900 tracking-[0.3em] uppercase font-mono font-black">
+      <span className="relative block text-[10px] text-neutral-300 tracking-[0.3em] uppercase font-mono font-bold">
         {label}
       </span>
     </motion.div>

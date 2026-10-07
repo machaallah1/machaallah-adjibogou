@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Crimson_Text } from "next/font/google";
+import { Poppins, JetBrains_Mono, Jacquard_12, DotGothic16 } from "next/font/google";
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 import { Header } from "@/components/header";
@@ -9,21 +9,34 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { LanguageProvider } from "@/lib/i18n";
 import Script from "next/script";
 
-const inter = Inter({
-  variable: "--font-inter",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const crimson = Crimson_Text({
-  variable: "--font-crimson",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600"],
+});
+
+const jacquard12 = Jacquard_12({
+  variable: "--font-blindy",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const dotGothic = DotGothic16({
+  variable: "--font-dotgothic",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
-  title: "Machaallah ADJIBOGOU — Développeur Web et Mobile",
+  title: "Machaallah ADJIBOGOU — Développeur Full Stack | Interfaces & Expériences Web",
   description:
-    "Développeur Web et Mobile (Architecture Logicielle) basé à Lomé. Conception de solutions digitales robustes et scalables. Portfolio de projets, méthodologie et expertise technique.",
+    "Développeur full stack spécialisé dans les interfaces et les expériences web, avec une licence en architecture logicielle. Création de produits digitaux performants, scalables et mémorables.",
   icons: {
     icon: [
       { url: "/mach.png" },
@@ -43,9 +56,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className="dark">
       <body
-        className={`${inter.variable} ${crimson.variable} antialiased font-sans`}
+        className={`${poppins.variable} ${jetbrainsMono.variable} ${jacquard12.variable} ${dotGothic.variable} antialiased font-sans`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J0SRRQCRET"

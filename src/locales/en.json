@@ -21,29 +21,109 @@
   },
   "home": {
     "hero": {
-      "title1": "Solution developer",
-      "titleHighlight1": "who thinks",
-      "title2": "architecture",
-      "titleHighlight2": "before",
-      "title3": "writing code",
-      "subtitle": "Building robust, scalable and performance-focused applications.",
-      "subtitleLocation": "Based in Lomé — available to turn your technical visions into reality.",
-      "ctaProjects": "View projects",
-      "rotatingBadge": "WEB & MOBILE DEVELOPER • ARCHITECTURE •"
+      "systemTag": "",
+      "locationTag": "",
+      "title1": "Full Stack Developer,",
+      "titleHighlight1": "interfaces & web",
+      "title2": "experiences",
+      "titleHighlight2": ".",
+      "title3": "",
+      "tagline": "Software Architecture • Front-End Engineering • Design Systems",
+      "subtitle": "Engineering robust software architectures and exceptional digital experiences.",
+      "subtitleLocation": "Based in Lomé — available for exceptional projects & global collaboration.",
+      "ctaProjects": "Explore my projects",
+      "ctaContact": "Get in touch",
+      "rotatingBadge": "SENIOR FRONT-END • SOFTWARE ARCHITECTURE • DESIGN SYSTEMS •",
+      "statProjects": "Delivered Projects",
+      "statDegree": "BSc in Software Architecture",
+      "statSpecialty": "Front-End & UI Focus",
+      "statQuality": "Clean Code Standards"
     },
     "marquee": {
-      "skills": ["Software Architecture", "Web Development", "Mobile Development", "React / Next.js", "Vue.js", "Flutter", "Node.js", "Clean Code", "API Design", "Performance", "Scalability"]
+      "skills": ["Next.js & React 19", "Creative Front-End", "Software Architecture", "Design Systems & Integration", "TypeScript", "Performance & Core Web Vitals", "Flutter & Mobile", "Node.js & APIs", "Tailwind CSS", "Clean Architecture"]
     },
     "stats": {
       "projects": "Projects delivered",
-      "sectors": "Technical sectors",
+      "sectors": "High-impact sectors",
       "experience": "Years of experience",
-      "quality": "Quality code"
+      "quality": "Rigor & Performance"
     },
     "selectedProjects": {
-      "label": "Portfolio",
-      "title": "Selected projects",
-      "viewAll": "All projects"
+      "label": "02 // SELECTED WORKS",
+      "title": "Selected Projects",
+      "subtitle": "Engineering tailored web experiences and resilient software architectures.",
+      "viewAll": "Explore all projects",
+      "filters": {
+        "all": "All",
+        "web": "Web & Platforms",
+        "infra": "Infrastructures & Tech",
+        "creative": "Design & Creative"
+      },
+      "spotlightLabel": "FEATURED PROJECT",
+      "viewLive": "Visit Live Site",
+      "viewCase": "Detailed Case Study",
+      "role": "Role",
+      "technologies": "Stack",
+      "objective": "Objective"
+    },
+    "expertise": {
+      "label": "03 // EXPERTISE & CRAFT",
+      "title": "What I bring to your engineering",
+      "subtitle": "From pixel-level user interactions to scalable distributed backends.",
+      "pillars": [
+        {
+          "num": "01",
+          "tag": "FRONT-END & INTERACTION",
+          "title": "Front-End Engineering & Web Experiences",
+          "desc": "Architecting fluid, responsive and expressive web applications. Deep expertise in Next.js (App Router, SSR, SSG), React 19, Framer Motion choreography, and rigorous Core Web Vitals optimization."
+        },
+        {
+          "num": "02",
+          "tag": "DESIGN & USER EXPERIENCE",
+          "title": "Design Empathy & UI Craftsmanship",
+          "desc": "Approaching interfaces as living digital products. Expressive typography, harmonious spatial rhythm, micro-interactions, accessibility (a11y), and scalable design systems."
+        },
+        {
+          "num": "03",
+          "tag": "STRUCTURE & SCALABILITY",
+          "title": "Software Architecture & System Rigor",
+          "desc": "Bachelor's Degree in Software Engineering & Information Systems (ESGIS). Robust data modeling, SOLID and Clean Architecture principles, design patterns, and high-concurrency API structures."
+        },
+        {
+          "num": "04",
+          "tag": "END-TO-END VERSATILITY",
+          "title": "Full Stack Capabilities & Cloud",
+          "desc": "Full lifecycle execution: backend integrations (Node.js, Laravel, Headless WordPress), robust state management, SQL/NoSQL databases, and automated cloud deployments."
+        }
+      ]
+    },
+    "aboutSection": {
+      "label": "04 // PROFILE & VISION",
+      "title": "Technical rigor serving user experience",
+      "subtitle": "Full stack developer passionate about sculpted interfaces and software architecture.",
+      "p1": "I am Machaallah ADJIBOGOU, based in Lomé. Holding a Bachelor's Degree in Software Engineering & Information Systems from ESGIS, I cultivate a dual passion: engineering architecture and obsessive attention to UX detail.",
+      "p2": "Currently Software Architect & Full-Stack Developer at Maono, I build and scale benchmark digital platforms across West Africa (TogoTech, SIN, Lomé Data Centre, Palais de Lomé). Prior to that, I honed full-stack skills at KIDOLE and mobile apps at Kimoasoft.",
+      "p3": "My philosophy: an exceptional digital product never compromises between aesthetic excellence and architectural resilience.",
+      "degreeLabel": "Education",
+      "degree": "BSc in Software Engineering & Information Systems (ESGIS)",
+      "currentRole": "Current Position",
+      "currentCompany": "Software Architect & Full-Stack Developer at Maono",
+      "cvButton": "View Technical CV (A4)"
+    },
+    "contactSection": {
+      "label": "05 // COLLABORATION & INQUIRY",
+      "title": "Ready to build your next memorable interface?",
+      "subtitle": "Looking for an engineer to architect a high-performing web application or design a distinctive digital experience? Let's talk.",
+      "formName": "Your Full Name",
+      "formEmail": "Your Email Address",
+      "formMessage": "Tell me about your project or technical challenge...",
+      "formSubmit": "Send via WhatsApp / Email",
+      "timeZone": "Local time in Lomé:",
+      "emailLabel": "Direct Email",
+      "whatsappLabel": "WhatsApp & Phone",
+      "linkedinLabel": "LinkedIn Profile",
+      "githubLabel": "GitHub Repositories",
+      "location": "Location: Lomé, TOGO"
     },
     "designShowcase": {
       "label": "From architecture to deployment",
@@ -204,7 +284,7 @@
         "num": "03",
         "title": "Development & Implementation",
         "desc": "Code is written with rigor, following Clean Code and DRY principles. Whether for Web (Next.js) or Mobile (Flutter), the focus is on performance, readability and maintainability.",
-        "methods": ["Clean & Modular Code", "Iterative development", "Complex state management", "UI/UX Integration"]
+        "methods": ["Clean & Modular Code", "Iterative development", "Complex state management", "Pixel-Perfect Integration"]
       },
       {
         "num": "04",

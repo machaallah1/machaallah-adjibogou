@@ -74,7 +74,7 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
           <h3 className="font-serif text-2xl md:text-3xl text-foreground group-hover:text-[var(--primary)] transition-colors duration-500 mb-2">
             {project.title}
           </h3>
-          <p className="text-sm text-neutral-600 leading-relaxed max-w-sm font-medium">
+          <p className="text-sm text-neutral-400 leading-relaxed max-w-sm font-normal">
             {project.description}
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function ProjectPage() {
                 </h1>
               </div>
               <MaskReveal delay={0.3}>
-                <p className="text-neutral-600 max-w-lg text-lg leading-relaxed font-medium">
+                <p className="text-neutral-400 max-w-lg text-lg leading-relaxed font-normal">
                   {t("projects.subtitle")}
                 </p>
               </MaskReveal>
