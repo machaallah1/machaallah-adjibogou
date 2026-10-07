@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { href: "/#top", targetId: "top", label: "Accueil", enLabel: "Home" },
@@ -20,13 +21,13 @@ function LanguageToggle({ className = "" }: { className?: string }) {
   const { locale, setLocale } = useLanguage();
 
   return (
-    <div className={`flex items-center gap-1.5 p-1 rounded-full bg-[#12141a] border border-white/10 ${className}`}>
+    <div className={`flex items-center gap-1.5 p-1 rounded-full bg-neutral-100 dark:bg-[#12141a] border border-black/5 dark:border-white/10 ${className}`}>
       <button
         onClick={() => setLocale("fr")}
         className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-1 rounded-full transition-all duration-300 ${
           locale === "fr"
             ? "bg-[#f59e0b] text-[#08090b] font-bold shadow-[0_0_10px_rgba(245,158,11,0.4)]"
-            : "text-neutral-400 hover:text-white"
+            : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
         }`}
         aria-label="Français"
       >
@@ -37,7 +38,7 @@ function LanguageToggle({ className = "" }: { className?: string }) {
         className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-1 rounded-full transition-all duration-300 ${
           locale === "en"
             ? "bg-[#f59e0b] text-[#08090b] font-bold shadow-[0_0_10px_rgba(245,158,11,0.4)]"
-            : "text-neutral-400 hover:text-white"
+            : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
         }`}
         aria-label="English"
       >
@@ -91,7 +92,7 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#08090b]/85 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+          ? "bg-background/85 dark:bg-[#08090b]/85 backdrop-blur-2xl border-b border-black/5 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -99,14 +100,14 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="group font-serif text-2xl md:text-[1.7rem] tracking-[-0.02em] text-white transition-colors duration-300"
+          className="group font-serif font-bold text-2xl md:text-[1.7rem] tracking-[-0.02em] text-foreground dark:text-white transition-colors duration-300"
         >
-          <span className="group-hover:text-[#f59e0b] transition-colors">Machaallah</span>
-          <span className="text-[#f59e0b]">.A</span>
+          <span className="group-hover:text-[var(--primary)] transition-colors">Machaallah</span>
+          <span className="text-[var(--primary)]">.A</span>
         </Link>
 
         {/* Desktop Nav Items */}
-        <ul className="hidden md:flex items-center gap-8 lg:gap-10 p-1.5 rounded-full bg-[#111317]/80 backdrop-blur-md border border-white/10">
+        <ul className="hidden md:flex items-center gap-8 lg:gap-10 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/80 backdrop-blur-md border border-black/5 dark:border-white/10">
           {navItems.map((item) => {
             const isActive = pathname === "/" && activeSection === item.targetId;
             return (
@@ -116,13 +117,13 @@ export function Header() {
                   onClick={(e) => handleNavClick(e, item.targetId)}
                   className={`relative px-4 py-2 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-300 ${
                     isActive
-                      ? "text-white bg-white/10"
-                      : "text-neutral-400 hover:text-white hover:bg-white/5"
+                      ? "text-foreground dark:text-white bg-black/5 dark:bg-white/10 font-bold"
+                      : "text-neutral-600 dark:text-neutral-400 hover:text-foreground dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                   }`}
                 >
                   {locale === "en" ? item.enLabel : item.label}
                   {isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#f59e0b]" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--primary)]" />
                   )}
                 </a>
               </li>
@@ -130,23 +131,16 @@ export function Header() {
           })}
         </ul>
 
-        {/* Desktop: Language toggle + Availability Pill */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Desktop: Theme toggle + Language toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <LanguageToggle />
-          <a
-            href="/#contact"
-            onClick={(e) => handleNavClick(e, "contact")}
-            className="inline-flex items-center gap-2 text-[11px] font-mono tracking-wider uppercase text-[#f59e0b] bg-[#f59e0b]/10 border border-[#f59e0b]/30 px-4 py-2 rounded-full hover:bg-[#f59e0b] hover:text-[#08090b] transition-all duration-300"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] animate-pulse" />
-            <span>DISPONIBLE</span>
-          </a>
         </div>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground w-10 h-10 flex items-center justify-center"
+          className="md:hidden text-foreground w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
           aria-label="Toggle menu"
         >
           <AnimatePresence mode="wait">
@@ -165,7 +159,7 @@ export function Header() {
                 key="menu"
                 initial={{ rotate: 90, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
+                exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
                 <Menu size={20} />
@@ -183,12 +177,12 @@ export function Header() {
             animate={{ clipPath: "circle(150% at calc(100% - 40px) 40px)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 40px) 40px)" }}
             transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
-            className="md:hidden fixed inset-0 bg-[#08090b]/98 backdrop-blur-2xl z-40"
+            className="md:hidden fixed inset-0 bg-background/98 dark:bg-[#08090b]/98 backdrop-blur-2xl z-40 text-foreground"
           >
             {/* Close button overlay */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white transition-colors"
+              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-foreground transition-colors"
               aria-label="Close menu"
             >
               <X size={20} />
@@ -210,7 +204,7 @@ export function Header() {
                     <a
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.targetId)}
-                      className="block font-serif text-3xl sm:text-4xl py-3 text-white hover:text-[#f59e0b] transition-colors"
+                      className="block font-serif font-bold text-3xl sm:text-4xl py-3 text-foreground hover:text-[var(--primary)] transition-colors"
                     >
                       {locale === "en" ? item.enLabel : item.label}
                     </a>
@@ -218,14 +212,17 @@ export function Header() {
                 ))}
               </ul>
 
-              <div className="mt-12 pt-8 border-t border-white/10 space-y-6">
-                <LanguageToggle />
+              <div className="mt-12 pt-8 border-t border-black/10 dark:border-white/10 space-y-6">
+                <div className="flex items-center gap-3">
+                  <ThemeToggle />
+                  <LanguageToggle />
+                </div>
                 <a
                   href="/#contact"
                   onClick={(e) => handleNavClick(e, "contact")}
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#f59e0b] text-[#08090b] text-xs font-mono font-bold tracking-wider uppercase"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] text-xs font-mono font-bold tracking-wider uppercase"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#08090b]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-current" />
                   <span>DISPONIBLE POUR PROJETS</span>
                 </a>
 
@@ -235,16 +232,16 @@ export function Header() {
                     href="https://www.linkedin.com/in/adjibogou-machaallah-32937126a"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-neutral-400 hover:text-[#f59e0b] uppercase"
+                    className="text-xs font-mono text-neutral-600 dark:text-neutral-400 hover:text-[var(--primary)] uppercase"
                   >
                     LinkedIn ↗
                   </a>
-                  <span className="w-1 h-1 rounded-full bg-white/20" />
+                  <span className="w-1 h-1 rounded-full bg-black/20 dark:bg-white/20" />
                   <a
                     href="https://github.com/machaallah1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-neutral-400 hover:text-[#f59e0b] uppercase"
+                    className="text-xs font-mono text-neutral-600 dark:text-neutral-400 hover:text-[var(--primary)] uppercase"
                   >
                     GitHub ↗
                   </a>

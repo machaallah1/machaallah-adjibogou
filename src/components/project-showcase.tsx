@@ -54,19 +54,19 @@ export function ProjectShowcase() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20">
           <div>
-            <span className="font-mono text-xs text-[#f59e0b] tracking-[0.2em] uppercase block mb-3 font-semibold">
+            <span className="font-mono text-xs text-[var(--primary)] tracking-[0.2em] uppercase block mb-3 font-bold">
               01 // TRAVAUX SÉLECTIONNÉS
             </span>
-            <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl text-white font-bold tracking-[-0.03em] leading-[0.96]">
+            <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl text-foreground font-bold tracking-[-0.03em] leading-[0.96]">
               {t("home.selectedProjects.title")}
             </h2>
-            <p className="mt-4 text-base md:text-lg text-neutral-400 max-w-xl font-normal">
+            <p className="mt-4 text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl font-normal">
               {t("home.selectedProjects.subtitle")}
             </p>
           </div>
 
           {/* Category Filter Pills (clean single-row layout) */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-[#111317]/90 border border-white/10 backdrop-blur-md overflow-x-auto scrollbar-none max-w-full">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md overflow-x-auto scrollbar-none max-w-full">
             {[
               { id: "all", label: t("home.selectedProjects.filters.all") },
               { id: "web", label: t("home.selectedProjects.filters.web") },
@@ -78,8 +78,8 @@ export function ProjectShowcase() {
                 onClick={() => setFilter(f.id)}
                 className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider whitespace-nowrap shrink-0 transition-all duration-300 ${
                   filter === f.id
-                    ? "bg-[#f59e0b] text-[#08090b] font-semibold shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    : "text-neutral-400 hover:text-white hover:bg-white/5"
+                    ? "bg-[var(--primary)] text-white dark:text-[#08090b] font-bold shadow-[0_0_15px_rgba(217,119,6,0.3)]"
+                    : "text-neutral-600 dark:text-neutral-400 hover:text-foreground dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
               >
                 {f.label}
@@ -107,7 +107,7 @@ export function ProjectShowcase() {
           <Magnetic>
             <Link
               href="/project"
-              className="inline-flex items-center gap-3 px-9 py-4 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-md text-neutral-200 text-xs font-mono tracking-widest uppercase hover:border-[#f59e0b] hover:text-[#f59e0b] hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] transition-all duration-300"
+              className="inline-flex items-center gap-3 px-9 py-4 rounded-full border border-black/15 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.03] backdrop-blur-md text-foreground text-xs font-mono font-bold tracking-widest uppercase hover:border-[var(--primary)] hover:text-[var(--primary)] hover:shadow-[0_0_30px_rgba(217,119,6,0.2)] transition-all duration-300"
             >
               <span>{t("home.selectedProjects.viewAll")}</span>
               <ArrowUpRight size={16} />
@@ -157,39 +157,39 @@ function ProjectScrollCard({
         className="w-full relative group"
       >
         <TiltCard maxTilt={1.5}>
-          <div className="relative rounded-3xl bg-[#0d0f14]/98 border border-white/10 hover:border-[#f59e0b]/40 transition-all duration-500 overflow-hidden p-6 sm:p-8 md:p-12 shadow-[0_-15px_50px_rgba(0,0,0,0.8),0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+          <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-500 overflow-hidden p-6 sm:p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_-15px_50px_rgba(0,0,0,0.8),0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl">
             {/* Top Accent Horizon Line */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#f59e0b]/40 to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent pointer-events-none" />
 
             {/* Subtle Ambient Glow within card */}
-            <div className="absolute -top-32 right-1/4 w-[350px] h-[350px] bg-[#f59e0b]/[0.025] rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-32 right-1/4 w-[350px] h-[350px] bg-[var(--primary)]/[0.03] rounded-full blur-3xl pointer-events-none" />
 
             {/* Top Architectural Metadata Strip */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 md:mb-10 border-b border-white/5 text-xs font-mono">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 md:mb-10 border-b border-black/5 dark:border-white/5 text-xs font-mono">
               {/* Project Index Counter & Sector */}
               <div className="flex items-center gap-3">
-                <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/25 text-[#f59e0b] font-semibold tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b]" />
+                <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/25 text-[var(--primary)] font-bold tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)]" />
                   {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                 </span>
-                <span className="text-neutral-400 tracking-wider uppercase font-medium">
+                <span className="text-neutral-600 dark:text-neutral-400 tracking-wider uppercase font-semibold">
                   {project.sector}
                 </span>
               </div>
 
               {/* Year & Live Site Indicator */}
-              <div className="flex items-center gap-4 text-neutral-400">
-                <span className="text-neutral-500 font-medium">{project.year}</span>
+              <div className="flex items-center gap-4 text-neutral-500">
+                <span className="font-semibold">{project.year}</span>
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Visiter le site en ligne"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 text-neutral-300 hover:text-[#f59e0b] hover:border-[#f59e0b]/40 hover:bg-[#f59e0b]/10 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:text-[var(--primary)] hover:border-[var(--primary)]/40 hover:bg-[var(--primary)]/10 transition-colors"
                   >
                     <Globe size={13} />
-                    <span className="text-[11px] tracking-wide">Live</span>
+                    <span className="text-[11px] tracking-wide font-medium">Live</span>
                     <ArrowUpRight size={12} />
                   </a>
                 )}
@@ -206,7 +206,7 @@ function ProjectScrollCard({
               <div className="lg:col-span-7">
                 <Link
                   href={`/project/${project.slug}`}
-                  className="block relative overflow-hidden rounded-2xl bg-[#060709] border border-white/10 group/preview transition-all duration-500 hover:border-[#f59e0b]/40 hover:shadow-[0_20px_50px_rgba(245,158,11,0.15)]"
+                  className="block relative overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[#060709] border border-black/8 dark:border-white/10 group/preview transition-all duration-500 hover:border-[var(--primary)]/40 hover:shadow-[0_20px_50px_rgba(217,119,6,0.15)]"
                   data-cursor="DÉCOUVRIR"
                 >
                   <div className="relative overflow-hidden aspect-[16/10]">
@@ -220,11 +220,11 @@ function ProjectScrollCard({
                     />
 
                     {/* Gradient Depth Vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#08090b]/80 via-transparent to-transparent opacity-50 group-hover/preview:opacity-20 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-[#08090b]/80 via-transparent to-transparent opacity-40 group-hover/preview:opacity-10 transition-opacity duration-500 pointer-events-none" />
 
                     {/* Hover Floating Action Badge */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="px-6 py-3 rounded-full bg-[#f59e0b] text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase shadow-2xl flex items-center gap-2.5">
+                      <div className="px-6 py-3 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase shadow-2xl flex items-center gap-2.5">
                         <span>VOIR L&apos;ÉTUDE COMPLÈTE</span>
                         <ArrowRight size={14} />
                       </div>
@@ -237,31 +237,31 @@ function ProjectScrollCard({
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
                   {/* Title */}
-                  <h3 className="font-sans text-3xl sm:text-4xl lg:text-5xl text-white font-bold tracking-tight mb-3 group-hover:text-[#f59e0b] transition-colors duration-300">
+                  <h3 className="font-sans text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight mb-3 group-hover:text-[var(--primary)] transition-colors duration-300">
                     <Link href={`/project/${project.slug}`}>
                       {project.title}
                     </Link>
                   </h3>
 
                   {/* Subtitle / Punchy Editorial Summary */}
-                  <p className="font-sans text-sm sm:text-base text-neutral-300 font-medium mb-5 leading-snug">
+                  <p className="font-sans text-sm sm:text-base text-neutral-700 dark:text-neutral-300 font-semibold mb-5 leading-snug">
                     {project.subtitle}
                   </p>
 
                   {/* Description */}
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-8 font-normal line-clamp-4">
+                  <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-8 font-normal line-clamp-4">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Stack & CTAs */}
-                <div className="pt-6 border-t border-white/5 space-y-6">
+                <div className="pt-6 border-t border-black/5 dark:border-white/5 space-y-6">
                   {/* Tech Tools Pills */}
                   <div className="flex flex-wrap gap-2">
                     {project.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="px-3 py-1 rounded-md bg-[#13151b] border border-white/5 text-neutral-300 font-mono text-[11px] tracking-wider hover:border-[#f59e0b]/30 hover:text-[#f59e0b] transition-colors"
+                        className="px-3 py-1 rounded-md bg-neutral-100 dark:bg-[#13151b] border border-black/5 dark:border-white/5 text-neutral-700 dark:text-neutral-300 font-mono text-[11px] tracking-wider hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-colors"
                       >
                         {tool}
                       </span>
@@ -273,7 +273,7 @@ function ProjectScrollCard({
                     <Magnetic>
                       <Link
                         href={`/project/${project.slug}`}
-                        className="group/btn inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#f59e0b] text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:shadow-[0_0_30px_rgba(245,158,11,0.45)] transition-all duration-300"
+                        className="group/btn inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(217,119,6,0.2)] hover:shadow-[0_0_30px_rgba(217,119,6,0.4)] transition-all duration-300"
                       >
                         <span>Étude de cas</span>
                         <ArrowRight size={14} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -286,7 +286,7 @@ function ProjectScrollCard({
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-white/15 bg-white/[0.02] text-neutral-300 hover:text-white hover:border-[#f59e0b] font-mono text-xs tracking-wider uppercase transition-colors"
+                          className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-black/15 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.02] text-neutral-700 dark:text-neutral-300 hover:text-foreground dark:hover:text-white hover:border-[var(--primary)] font-mono text-xs font-bold tracking-wider uppercase transition-colors"
                         >
                           <span>Visiter</span>
                           <ArrowUpRight size={14} />

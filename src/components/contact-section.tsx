@@ -60,14 +60,14 @@ export function ContactSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="mb-16 md:mb-24">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/25 text-[#f59e0b] font-mono text-[11px] tracking-wider mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/25 text-[var(--primary)] font-mono text-[11px] tracking-wider mb-4 font-bold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
             <span>05 // COLLABORATION & CONTACT</span>
           </div>
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white tracking-[-0.03em] leading-[0.95] max-w-4xl">
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground font-bold tracking-[-0.03em] leading-[0.95] max-w-4xl">
             Donnons vie à votre prochaine interface
           </h2>
-          <p className="mt-4 text-base md:text-lg text-neutral-400 max-w-2xl">
+          <p className="mt-4 text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl font-normal">
             Une idée de projet, une refonte d&apos;application web ou un besoin d&apos;expertise front-end & architecture ? Échangeons directement.
           </p>
         </div>
@@ -80,22 +80,22 @@ export function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 bg-[#0f1115] border border-white/10 rounded-2xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            className="lg:col-span-7 bg-white dark:bg-[#0f1115] border border-black/8 dark:border-white/10 rounded-2xl p-8 md:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
           >
             {submitted ? (
               <div className="py-12 text-center">
-                <div className="w-16 h-16 rounded-full bg-[#f59e0b]/20 border border-[#f59e0b]/40 text-[#f59e0b] flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 rounded-full bg-[var(--primary)]/20 border border-[var(--primary)]/40 text-[var(--primary)] flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 size={32} />
                 </div>
-                <h3 className="font-serif text-2xl md:text-3xl text-white mb-3">
+                <h3 className="font-serif text-2xl md:text-3xl text-foreground font-bold mb-3">
                   Message préparé avec succès !
                 </h3>
-                <p className="text-neutral-400 text-sm max-w-md mx-auto mb-8">
-                  Votre message a été transmis vers WhatsApp. Vous pouvez également m&apos;écrire directement à <strong className="text-white">machdev02@gmail.com</strong>.
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm max-w-md mx-auto mb-8 font-normal">
+                  Votre message a été transmis vers WhatsApp. Vous pouvez également m&apos;écrire directement à <strong className="text-foreground font-bold">machdev02@gmail.com</strong>.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="px-6 py-3 rounded-full bg-[#181b22] text-xs font-mono text-neutral-300 hover:text-white border border-white/10 transition-colors"
+                  className="px-6 py-3 rounded-full bg-neutral-100 dark:bg-[#181b22] text-xs font-mono font-bold text-neutral-700 dark:text-neutral-300 hover:text-foreground border border-black/10 dark:border-white/10 transition-colors"
                 >
                   Envoyer un autre message
                 </button>
@@ -103,7 +103,7 @@ export function ContactSection() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                  <label htmlFor="name" className="block font-mono text-xs text-neutral-400 uppercase tracking-wider mb-3">
+                  <label htmlFor="name" className="block font-mono text-xs text-neutral-600 dark:text-neutral-400 uppercase tracking-wider mb-3 font-bold">
                     VOTRE NOM // CONTACT
                   </label>
                   <input
@@ -112,12 +112,12 @@ export function ContactSection() {
                     type="text"
                     required
                     placeholder="ex. Jean Dupont"
-                    className="w-full bg-[#141720] border border-white/10 focus:border-[#f59e0b] rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none transition-colors text-sm"
+                    className="w-full bg-neutral-50 dark:bg-[#141720] border border-black/10 dark:border-white/10 focus:border-[var(--primary)] rounded-xl px-5 py-4 text-foreground dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none transition-colors text-sm"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block font-mono text-xs text-neutral-400 uppercase tracking-wider mb-3">
+                  <label htmlFor="email" className="block font-mono text-xs text-neutral-600 dark:text-neutral-400 uppercase tracking-wider mb-3 font-bold">
                     VOTRE ADRESSE EMAIL
                   </label>
                   <input
@@ -126,12 +126,12 @@ export function ContactSection() {
                     type="email"
                     required
                     placeholder="ex. contact@entreprise.com"
-                    className="w-full bg-[#141720] border border-white/10 focus:border-[#f59e0b] rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none transition-colors text-sm"
+                    className="w-full bg-neutral-50 dark:bg-[#141720] border border-black/10 dark:border-white/10 focus:border-[var(--primary)] rounded-xl px-5 py-4 text-foreground dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none transition-colors text-sm"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block font-mono text-xs text-neutral-400 uppercase tracking-wider mb-3">
+                  <label htmlFor="message" className="block font-mono text-xs text-neutral-600 dark:text-neutral-400 uppercase tracking-wider mb-3 font-bold">
                     DÉTAIL DU PROJET OU BESOIN TECHNIQUE
                   </label>
                   <textarea
@@ -140,14 +140,14 @@ export function ContactSection() {
                     required
                     rows={4}
                     placeholder="Décrivez votre vision, votre planning ou les défis d'interface à relever..."
-                    className="w-full bg-[#141720] border border-white/10 focus:border-[#f59e0b] rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none transition-colors text-sm resize-none"
+                    className="w-full bg-neutral-50 dark:bg-[#141720] border border-black/10 dark:border-white/10 focus:border-[var(--primary)] rounded-xl px-5 py-4 text-foreground dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none transition-colors text-sm resize-none"
                   />
                 </div>
 
                 <Magnetic>
                   <button
                     type="submit"
-                    className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#f59e0b] text-[#08090b] text-xs font-mono font-semibold tracking-wider uppercase hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] transition-all duration-300"
+                    className="group w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] text-xs font-mono font-bold tracking-wider uppercase hover:shadow-[0_0_30px_rgba(217,119,6,0.35)] transition-all duration-300"
                   >
                     <span>Démarrer la discussion</span>
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -166,37 +166,37 @@ export function ContactSection() {
             className="lg:col-span-5 space-y-6"
           >
             {/* Live Lomé Status Card */}
-            <div className="p-6 rounded-2xl bg-[#0f1115] border border-white/10">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#0f1115] border border-black/8 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-none">
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest flex items-center gap-2">
-                  <Clock size={13} className="text-[#f59e0b]" />
+                <span className="font-mono text-xs text-neutral-600 dark:text-neutral-400 uppercase tracking-widest flex items-center gap-2 font-bold">
+                  <Clock size={13} className="text-[var(--primary)]" />
                   HEURE LOCALE // LOMÉ
                 </span>
-                <span className="px-2.5 py-1 rounded bg-[#f59e0b]/10 text-[#f59e0b] font-mono text-xs font-semibold">
+                <span className="px-2.5 py-1 rounded bg-[var(--primary)]/10 text-[var(--primary)] font-mono text-xs font-bold">
                   GMT+0
                 </span>
               </div>
-              <div className="font-mono text-3xl font-bold text-white tracking-wider mb-2">
+              <div className="font-mono text-3xl font-bold text-foreground tracking-wider mb-2">
                 {lomeTime || "12:00:00"}
               </div>
-              <p className="text-xs text-neutral-400">
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 font-normal">
                 Disponible pour des missions à distance et des projets internationaux.
               </p>
             </div>
 
             {/* Direct Email Card */}
-            <div className="p-6 rounded-2xl bg-[#0f1115] border border-white/10 flex items-center justify-between gap-4">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#0f1115] border border-black/8 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 min-w-0">
-                <div className="w-12 h-12 rounded-xl bg-[#141720] flex items-center justify-center text-[#f59e0b] shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-neutral-100 dark:bg-[#141720] flex items-center justify-center text-[var(--primary)] shrink-0">
                   <Mail size={20} />
                 </div>
                 <div className="min-w-0">
-                  <span className="block font-mono text-[10px] tracking-wider text-neutral-400 uppercase">
+                  <span className="block font-mono text-[10px] tracking-wider text-neutral-500 uppercase font-bold">
                     EMAIL PERSONNEL
                   </span>
                   <a
                     href="mailto:machdev02@gmail.com"
-                    className="text-sm font-medium text-white hover:text-[#f59e0b] transition-colors truncate block"
+                    className="text-sm font-bold text-foreground hover:text-[var(--primary)] transition-colors truncate block"
                   >
                     machdev02@gmail.com
                   </a>
@@ -205,27 +205,27 @@ export function ContactSection() {
               <button
                 onClick={handleCopyEmail}
                 title="Copier l'email"
-                className="p-3 rounded-xl bg-[#141720] text-neutral-400 hover:text-white transition-colors shrink-0"
+                className="p-3 rounded-xl bg-neutral-100 dark:bg-[#141720] text-neutral-600 dark:text-neutral-400 hover:text-foreground transition-colors shrink-0"
               >
-                {copied ? <Check size={16} className="text-[#f59e0b]" /> : <Copy size={16} />}
+                {copied ? <Check size={16} className="text-[var(--primary)]" /> : <Copy size={16} />}
               </button>
             </div>
 
             {/* WhatsApp & Phone Card */}
-            <div className="p-6 rounded-2xl bg-[#0f1115] border border-white/10 flex items-center justify-between gap-4">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#0f1115] border border-black/8 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[#141720] flex items-center justify-center text-[#f59e0b] shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-neutral-100 dark:bg-[#141720] flex items-center justify-center text-[var(--primary)] shrink-0">
                   <MessageSquare size={20} />
                 </div>
                 <div>
-                  <span className="block font-mono text-[10px] tracking-wider text-neutral-400 uppercase">
+                  <span className="block font-mono text-[10px] tracking-wider text-neutral-500 uppercase font-bold">
                     WHATSAPP & TÉLÉPHONE
                   </span>
                   <a
                     href="https://wa.me/22892218207"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-white hover:text-[#f59e0b] transition-colors block"
+                    className="text-sm font-bold text-foreground hover:text-[var(--primary)] transition-colors block"
                   >
                     +228 92 21 82 07
                   </a>
@@ -235,7 +235,7 @@ export function ContactSection() {
                 href="https://wa.me/22892218207"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-[#f59e0b]/10 text-[#f59e0b] hover:bg-[#f59e0b] hover:text-[#08090b] transition-colors text-xs font-mono font-semibold"
+                className="p-3 rounded-xl bg-[var(--primary)]/10 text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white dark:hover:text-[#08090b] transition-colors text-xs font-mono font-bold"
               >
                 DISCUTER
               </a>
@@ -247,12 +247,12 @@ export function ContactSection() {
                 href="https://www.linkedin.com/in/adjibogou-machaallah-32937126a"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 rounded-2xl bg-[#0f1115] border border-white/10 hover:border-[#f59e0b]/40 transition-all duration-300 block group"
+                className="p-5 rounded-2xl bg-white dark:bg-[#0f1115] border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/40 shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-none transition-all duration-300 block group"
               >
-                <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block mb-1">
+                <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-wider block mb-1 font-bold">
                   RÉSEAU PROFESSIONNEL
                 </span>
-                <span className="text-sm font-medium text-white group-hover:text-[#f59e0b] transition-colors flex items-center justify-between">
+                <span className="text-sm font-bold text-foreground group-hover:text-[var(--primary)] transition-colors flex items-center justify-between">
                   LinkedIn ↗
                 </span>
               </a>
@@ -261,12 +261,12 @@ export function ContactSection() {
                 href="https://github.com/machaallah1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 rounded-2xl bg-[#0f1115] border border-white/10 hover:border-[#f59e0b]/40 transition-all duration-300 block group"
+                className="p-5 rounded-2xl bg-white dark:bg-[#0f1115] border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/40 shadow-[0_4px_20px_rgba(0,0,0,0.02)] dark:shadow-none transition-all duration-300 block group"
               >
-                <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-wider block mb-1">
+                <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-wider block mb-1 font-bold">
                   CODE & REPOSITORIES
                 </span>
-                <span className="text-sm font-medium text-white group-hover:text-[#f59e0b] transition-colors flex items-center justify-between">
+                <span className="text-sm font-bold text-foreground group-hover:text-[var(--primary)] transition-colors flex items-center justify-between">
                   GitHub ↗
                 </span>
               </a>

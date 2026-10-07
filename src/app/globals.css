@@ -50,6 +50,42 @@
 
 :root {
   --radius: 0.625rem;
+  --background: #f8fafc;
+  --foreground: #090a0f;
+  --card: #ffffff;
+  --card-foreground: #090a0f;
+  --popover: #ffffff;
+  --popover-foreground: #090a0f;
+  --primary: #d97706;
+  --primary-dark: #b45309;
+  --primary-glow: rgba(217, 119, 6, 0.22);
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #d97706;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.05);
+  --ring: #d97706;
+  --chart-1: #d97706;
+  --chart-2: #0284c7;
+  --chart-3: #6366f1;
+  --chart-4: #9333ea;
+  --chart-5: #e11d48;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #090a0f;
+  --sidebar-primary: #d97706;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #090a0f;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-ring: #d97706;
+}
+
+.dark {
   --background: #08090b;
   --foreground: #f8fafc;
   --card: #0f1115;
@@ -89,16 +125,23 @@
   * {
     @apply border-border outline-ring/50;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700 !important;
+  }
   body {
     @apply bg-background text-foreground;
     cursor: default;
-    background-color: #08090b;
-    color: #f8fafc;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
   html {
     scroll-behavior: auto; /* lenis handles smooth scroll */
-    color-scheme: dark;
     font-family: var(--font-poppins), "Poppins", sans-serif;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  html.light, html:not(.dark) {
+    color-scheme: light;
   }
   body {
     font-family: var(--font-poppins), "Poppins", sans-serif;
@@ -141,12 +184,19 @@ body::before {
 
 /* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #f59e0b 50%, #ffffff 100%);
+  background: linear-gradient(135deg, #090a0f 0%, #d97706 50%, #090a0f 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 6s ease-in-out infinite;
+}
+.dark .gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #f59e0b 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @keyframes shimmer {
@@ -159,19 +209,23 @@ body::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #f59e0b;
+  background: var(--primary);
   box-shadow: 0 0 12px 3px rgba(245, 158, 11, 0.6), 0 0 30px 6px rgba(245, 158, 11, 0.2);
 }
 
 /* ── Glass card ── */
 .glass-card {
-  background: rgba(15, 17, 21, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.dark .glass-card {
+  background: rgba(15, 17, 21, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .glass-card:hover {
-  border-color: rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.35);
 }
 
 /* ── Rotating text badge ── */
@@ -195,16 +249,25 @@ body::before {
 /* ── Grid pattern background ── */
 .grid-pattern {
   background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.dark .grid-pattern {
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
 }
 
 /* ── Cross pattern ── */
 .cross-pattern {
   background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
+}
+.dark .cross-pattern {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
 }
 
 /* ── Radial gradient orbs ── */

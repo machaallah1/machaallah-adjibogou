@@ -277,12 +277,10 @@ export function InteractivePixelPortrait({
 
       {/* ═══ LAYER D: Name in Retro Blindy (Jacquard 12) Typography Across Bottom ═══ */}
       <div className="absolute bottom-6 left-0 right-0 z-25 text-center pointer-events-none px-4">
-        <h2 className="font-blindy text-5xl sm:text-6xl md:text-7xl text-[#ffe2b0] tracking-wide leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] [text-shadow:_3px_3px_0_#08090b,_0_0_25px_rgba(245,158,11,0.6)]">
+        <h2 className="font-bold text-5xl sm:text-6xl md:text-7xl text-[#ffe2b0] tracking-wide leading-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] [text-shadow:_3px_3px_0_#08090b,_0_0_25px_rgba(245,158,11,0.6)]">
           {name}
         </h2>
-        <p className="font-mono text-[9px] tracking-[0.35em] uppercase text-[#f59e0b]/90 mt-1.5 bg-[#08090b]/80 backdrop-blur-sm inline-block px-3 py-0.5 rounded-full border border-[#f59e0b]/30">
-          SURVOLEZ POUR RÉVÉLER LA PHOTO
-        </p>
+        
       </div>
     </div>
   );

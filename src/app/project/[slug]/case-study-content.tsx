@@ -681,7 +681,7 @@ export function CaseStudyContent({
             </div>
           </MaskReveal>
 
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-[10rem] text-primary leading-[0.85] mb-6">
+          <h1 className="font-serif font-bold text-6xl md:text-8xl lg:text-[10rem] text-primary leading-[0.85] mb-6">
             <SplitText type="words" delay={0.2} stagger={0.08}>
               {project.title}
             </SplitText>
@@ -860,7 +860,7 @@ export function CaseStudyContent({
               scroll={false}
               onClick={() => window.scrollTo({ top: 0 })}
             >
-              <span className="font-serif text-5xl md:text-7xl lg:text-9xl text-foreground group-hover:text-[var(--primary)] transition-colors duration-700 leading-none">
+              <span className="font-serif font-bold text-5xl md:text-7xl lg:text-9xl text-foreground group-hover:text-[var(--primary)] transition-colors duration-700 leading-none">
                 <SplitText type="words" stagger={0.06}>
                   {next.title}
                 </SplitText>

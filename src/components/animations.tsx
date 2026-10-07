@@ -362,32 +362,32 @@ export function SectionDivider({
   return (
     <div className="relative py-10 md:py-14 overflow-hidden pointer-events-none select-none">
       {/* Clean, Sharp Architectural Divider */}
-      <div className="relative w-full h-[1px] bg-white/[0.06]">
-        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-r from-transparent via-[#f59e0b]/40 to-transparent" />
+      <div className="relative w-full h-[1px] bg-black/5 dark:bg-white/[0.06]">
+        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent" />
       </div>
 
       {/* Act Telemetry Banner */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mt-5 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px]">
         {/* Left: Act Index + Beacon */}
         <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-[0_0_8px_#f59e0b]" />
-          <span className="px-2.5 py-0.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[#f59e0b] font-semibold tracking-widest uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)]" />
+          <span className="px-2.5 py-0.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30 text-[var(--primary)] font-bold tracking-widest uppercase">
             ACTE // {actNumber}
           </span>
-          <span className="text-white/90 font-medium tracking-wider uppercase hidden sm:inline">
+          <span className="text-foreground font-bold tracking-wider uppercase hidden sm:inline">
             {title}
           </span>
         </div>
 
         {/* Right: Technical Tags & Subtitle */}
-        <div className="flex items-center gap-4 text-neutral-400">
+        <div className="flex items-center gap-4 text-neutral-500 dark:text-neutral-400">
           {subtitle && (
-            <span className="tracking-widest uppercase text-[10px] hidden md:inline text-neutral-400">
+            <span className="tracking-widest uppercase text-[10px] hidden md:inline text-neutral-500 dark:text-neutral-400 font-medium">
               {subtitle}
             </span>
           )}
           {tag && (
-            <span className="px-2 py-0.5 rounded bg-white/[0.03] border border-white/5 text-[#f59e0b] text-[10px] tracking-wider">
+            <span className="px-2 py-0.5 rounded bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-[var(--primary)] text-[10px] tracking-wider font-semibold">
               {tag}
             </span>
           )}
@@ -525,15 +525,15 @@ export function SectionRail() {
             className="group flex items-center gap-3 py-1 cursor-pointer"
           >
             <span
-              className="font-mono text-[10px] tracking-widest uppercase transition-all duration-300 text-neutral-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0"
+              className="font-mono text-[10px] tracking-widest uppercase transition-all duration-300 text-neutral-600 dark:text-neutral-400 font-bold opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0"
             >
               {act.name}
             </span>
             <div
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 isActive
-                  ? "bg-[#f59e0b] scale-125 shadow-[0_0_10px_#f59e0b]"
-                  : "bg-white/20 group-hover:bg-white/60 scale-75 group-hover:scale-100"
+                  ? "bg-[var(--primary)] scale-125 shadow-[0_0_10px_var(--primary)]"
+                  : "bg-black/20 dark:bg-white/20 group-hover:bg-black/60 dark:group-hover:bg-white/60 scale-75 group-hover:scale-100"
               }`}
             />
           </a>

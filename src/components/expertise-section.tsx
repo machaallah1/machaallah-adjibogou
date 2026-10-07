@@ -77,13 +77,13 @@ export function ExpertiseSection() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         {/* Section Header */}
         <div className="mb-14 md:mb-20">
-          <span className="font-mono text-xs text-[#f59e0b] tracking-[0.2em] uppercase block mb-3 font-semibold">
+          <span className="font-mono text-xs text-[var(--primary)] tracking-[0.2em] uppercase block mb-3 font-bold">
             02 / EXPERTISE & ARCHITECTURE
           </span>
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white tracking-[-0.03em] leading-[0.95] max-w-4xl">
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground font-bold tracking-[-0.03em] leading-[0.95] max-w-4xl">
             De la modélisation logicielle à l&apos;interaction pixel-perfect
           </h2>
-          <p className="mt-4 text-base text-neutral-400 max-w-2xl">
+          <p className="mt-4 text-base text-neutral-600 dark:text-neutral-400 max-w-2xl font-normal">
             Une pratique alliant intégration fidèle d&apos;interfaces, rigueur front-end et principes d&apos;architecture logicielle.
           </p>
         </div>
@@ -100,37 +100,37 @@ export function ExpertiseSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: pillar.id * 0.08 }}
-                className="rounded-2xl p-7 md:p-8 border border-white/10 bg-[#0e1014] hover:border-[#f59e0b]/40 hover:bg-[#12141a] transition-all duration-500 flex flex-col justify-between"
+                className="rounded-2xl p-7 md:p-8 border border-black/8 dark:border-white/10 bg-white dark:bg-[#0e1014] hover:border-[var(--primary)]/40 hover:bg-neutral-50 dark:hover:bg-[#12141a] shadow-[0_4px_25px_rgba(0,0,0,0.03)] dark:shadow-none transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
                   {/* Top Bar */}
                   <div className="flex items-center justify-between mb-8">
-                    <span className="font-mono text-xs text-[#f59e0b] font-semibold">
+                    <span className="font-mono text-xs text-[var(--primary)] font-bold">
                       {pillar.num}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#161820] flex items-center justify-center text-neutral-300">
+                    <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-[#161820] flex items-center justify-center text-neutral-800 dark:text-neutral-300">
                       <Icon size={18} />
                     </div>
                   </div>
 
-                  <span className="block font-mono text-[10px] tracking-widest text-neutral-500 uppercase mb-2">
+                  <span className="block font-mono text-[10px] tracking-widest text-neutral-500 uppercase mb-2 font-semibold">
                     {pillar.tag}
                   </span>
-                  <h3 className="font-serif text-xl md:text-2xl text-white mb-3 leading-tight font-bold">
+                  <h3 className="font-serif text-xl md:text-2xl text-foreground font-bold mb-3 leading-tight">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs text-neutral-400 leading-relaxed mb-6 font-normal">
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 font-normal">
                     {pillar.summary}
                   </p>
                 </div>
 
                 {/* Tech Stack Pills */}
-                <div className="pt-5 border-t border-white/5">
+                <div className="pt-5 border-t border-black/5 dark:border-white/5">
                   <div className="flex flex-wrap gap-1.5">
                     {pillar.stack.slice(0, 3).map((st) => (
                       <span
                         key={st}
-                        className="px-2.5 py-1 rounded text-[10px] font-mono bg-[#161820] text-neutral-400"
+                        className="px-2.5 py-1 rounded text-[10px] font-mono bg-neutral-100 dark:bg-[#161820] text-neutral-700 dark:text-neutral-400 font-medium"
                       >
                         {st}
                       </span>

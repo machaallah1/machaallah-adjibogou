@@ -1,244 +1,539 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Code, Smartphone, Server, Globe } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  ArrowLeft,
+  Globe,
+  Code2,
+  Search,
+  Sparkles,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
 import { useLocalizedProjects } from "@/lib/use-localized-projects";
 import type { Project } from "@/lib/projects";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   SplitText,
   MaskReveal,
-  LineReveal,
   PageTransition,
   ScrollProgress,
+  Magnetic,
+  TiltCard,
 } from "@/components/animations";
-import {
-  FloatingElement,
-  AbstractBlob,
-  DotsPattern,
-  ProcessFlowDiagram,
-} from "@/components/visuals";
 import { useLanguage } from "@/lib/i18n";
 
-function ProjectItem({ project, index }: { project: Project; index: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const { t } = useLanguage();
+function ProjectCard({
+  project,
+  index,
+  total,
+}: {
+  project: Project;
+  index: number;
+  total: number;
+}) {
+  const { locale, t } = useLanguage();
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.05 }}
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.3) }}
+      className="h-full"
     >
-      <Link href={`/project/${project.slug}`} className="group block project-card" data-cursor="Voir">
-        <div className="relative overflow-hidden bg-[#111110] aspect-[16/10] rounded-sm">
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            fill
-            className="object-cover project-img transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-[#080808]/10 to-transparent" />
-          <div className="absolute inset-0 bg-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <TiltCard maxTilt={1.5} className="h-full">
+        <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-500 overflow-hidden p-6 sm:p-8 md:p-9 flex flex-col justify-between h-full shadow-[0_10px_40px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl group hover:-translate-y-1.5">
+          {/* Top Horizon Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent pointer-events-none" />
 
-          <div className="absolute top-5 left-5 flex items-center gap-3">
-            <span className="text-[10px] text-white/25 tracking-[0.3em] font-mono">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+          {/* Subtle Ambient Glow within card */}
+          <div className="absolute -top-32 right-1/4 w-[300px] h-[300px] bg-[var(--primary)]/[0.035] rounded-full blur-3xl pointer-events-none" />
+
+          <div>
+            {/* Top Architectural Metadata Strip */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-black/5 dark:border-white/5 text-xs font-mono">
+              <div className="flex items-center gap-2.5">
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/25 text-[var(--primary)] font-bold tracking-wider text-[11px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)]" />
+                  {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                </span>
+                <span className="text-neutral-600 dark:text-neutral-400 tracking-wider uppercase font-semibold text-[11px]">
+                  {project.sector}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-neutral-500 text-[11px]">
+                <span className="font-semibold">{project.year}</span>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={locale === "en" ? "Visit live website" : "Visiter le site en ligne"}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:text-[var(--primary)] hover:border-[var(--primary)]/40 hover:bg-[var(--primary)]/10 transition-colors"
+                  >
+                    <Globe size={12} />
+                    <span>Live</span>
+                    <ArrowUpRight size={11} />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Visual Preview Side (High-Res, Clean, Hover Zoom) */}
+            <Link
+              href={`/project/${project.slug}`}
+              className="block relative overflow-hidden rounded-2xl bg-neutral-100 dark:bg-[#060709] border border-black/8 dark:border-white/10 group/preview transition-all duration-500 my-5"
+            >
+              <div className="relative overflow-hidden aspect-[16/10]">
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  priority={index < 2}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover/preview:scale-105"
+                />
+
+                {/* Vignette Gradient Depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-[#08090b]/80 via-transparent to-transparent opacity-40 group-hover/preview:opacity-10 transition-opacity duration-500 pointer-events-none" />
+
+                {/* Hover Action Badge */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="px-5 py-2.5 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase shadow-2xl flex items-center gap-2">
+                    <span>{locale === "en" ? "VIEW CASE STUDY" : "VOIR L'ÉTUDE"}</span>
+                    <ArrowRight size={13} />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Title & Editorial Summary */}
+            <h3 className="font-sans text-2xl sm:text-3xl text-foreground font-bold tracking-tight mb-2 group-hover:text-[var(--primary)] transition-colors duration-300">
+              <Link href={`/project/${project.slug}`}>
+                {project.title}
+              </Link>
+            </h3>
+
+            <p className="font-sans text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-semibold mb-3 leading-snug line-clamp-1">
+              {project.subtitle}
+            </p>
+
+            <p className="text-neutral-600 dark:text-neutral-400 text-xs sm:text-sm leading-relaxed mb-6 font-normal line-clamp-3">
+              {project.description}
+            </p>
           </div>
 
-          {/* View indicator */}
-          <div className="absolute bottom-5 right-5 flex items-center gap-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-            <span className="text-[10px] text-white/50 tracking-[0.2em] uppercase">{t("projects.details")}</span>
-            <div className="w-7 h-7 rounded-full border border-[var(--primary)]/30 flex items-center justify-center group-hover:bg-[var(--primary)]/10 transition-colors duration-300">
-              <ArrowUpRight size={11} className="text-[var(--primary)]" />
+          {/* Stack & CTAs */}
+          <div className="pt-5 border-t border-black/5 dark:border-white/5 space-y-5">
+            {/* Tech Tools Pills */}
+            <div className="flex flex-wrap gap-1.5">
+              {project.tools.map((tool) => (
+                <span
+                  key={tool}
+                  className="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-[#13151b] border border-black/5 dark:border-white/5 text-neutral-700 dark:text-neutral-300 font-mono text-[10px] tracking-wider hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-colors"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+
+            {/* Direct Action Links */}
+            <div className="flex items-center gap-3 pt-1">
+              <Magnetic>
+                <Link
+                  href={`/project/${project.slug}`}
+                  className="group/btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(217,119,6,0.2)] hover:shadow-[0_0_30px_rgba(217,119,6,0.4)] transition-all duration-300"
+                >
+                  <span>{locale === "en" ? "Case Study" : "Étude de cas"}</span>
+                  <ArrowRight size={13} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </Link>
+              </Magnetic>
+
+              {project.url && (
+                <Magnetic>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/15 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.02] text-neutral-700 dark:text-neutral-300 hover:text-foreground dark:hover:text-white hover:border-[var(--primary)] font-mono text-xs font-bold tracking-wider uppercase transition-colors"
+                  >
+                    <span>{locale === "en" ? "Visit" : "Visiter"}</span>
+                    <ArrowUpRight size={13} />
+                  </a>
+                </Magnetic>
+              )}
             </div>
           </div>
         </div>
+      </TiltCard>
+    </motion.div>
+  );
+}
 
-        <div className="mt-5">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-[10px] text-[var(--primary)] tracking-[0.25em] uppercase font-medium">
-              {project.type}
+function ComingSoonCard() {
+  const { locale, t } = useLanguage();
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.5 }}
+      className="h-full"
+    >
+      <div className="relative rounded-3xl bg-neutral-100/50 dark:bg-[#0d0f14]/50 border border-dashed border-[var(--primary)]/25 p-8 sm:p-10 flex flex-col justify-between backdrop-blur-md min-h-[460px] h-full group hover:border-[var(--primary)]/50 transition-colors">
+        <div>
+          <div className="flex items-center justify-between pb-5 border-b border-black/5 dark:border-white/5">
+            <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-mono text-xs font-bold tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
+              {t("projects.comingSoon") || "Prochainement"}
             </span>
-            <span className="w-5 h-[1px] bg-[var(--primary)]/20" />
-            <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase font-medium">
-              {project.sector}
+            <span className="text-[11px] font-mono text-neutral-400 uppercase">
+              Pipeline R&D
             </span>
           </div>
-          <h3 className="font-serif text-2xl md:text-3xl text-foreground group-hover:text-[var(--primary)] transition-colors duration-500 mb-2">
-            {project.title}
-          </h3>
-          <p className="text-sm text-neutral-400 leading-relaxed max-w-sm font-normal">
-            {project.description}
-          </p>
+
+          <div className="my-12 flex flex-col items-center justify-center text-center">
+            <div className="w-16 h-16 rounded-2xl bg-[var(--primary)]/10 border border-[var(--primary)]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Code2 size={28} className="text-[var(--primary)]" />
+            </div>
+            <h3 className="font-serif text-2xl sm:text-3xl text-foreground font-bold mb-3">
+              {t("projects.comingSoonTitle") || "Nouvelle architecture en cours"}
+            </h3>
+            <p className="text-neutral-600 dark:text-neutral-400 text-sm max-w-sm leading-relaxed font-normal">
+              {t("projects.comingSoonDesc") || "De nouvelles réalisations techniques sont régulièrement ajoutées au portfolio."}
+            </p>
+          </div>
         </div>
-      </Link>
+
+        <div className="pt-6 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-mono text-neutral-500">
+          <span>{locale === "en" ? "Production status: Active" : "Statut : En cours d'intégration"}</span>
+          <span className="text-[var(--primary)] font-bold">2026</span>
+        </div>
+      </div>
     </motion.div>
+  );
+}
+
+function ProjectPageCTA() {
+  const { locale } = useLanguage();
+
+  return (
+    <div className="mt-28 md:mt-36">
+      <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 p-8 sm:p-12 md:p-16 overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+        {/* Top horizon gradient */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary)]/50 to-transparent pointer-events-none" />
+
+        {/* Ambient glow */}
+        <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--primary)]/[0.05] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[var(--primary)]/[0.03] rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-2xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--primary)] font-mono text-xs font-bold tracking-widest uppercase mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)]" />
+            <span>02 // {locale === "en" ? "START A PROJECT" : "COLLABORATION & IMPACT"}</span>
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight leading-tight mb-4">
+            {locale === "en"
+              ? "Have a project or system to build?"
+              : "Un projet ambitieux à concevoir ou restructurer ?"}
+          </h2>
+
+          <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-8 font-normal">
+            {locale === "en"
+              ? "From architecture and performance optimization to polished UI engineering, let's create a scalable and memorable digital solution."
+              : "De l'architecture logicielle à l'intégration d'interfaces ciselées, concevons ensemble une solution performante, maintenable et mémorable."}
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Magnetic>
+              <Link
+                href="/#contact"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] text-xs font-mono font-bold tracking-wider uppercase shadow-[0_0_25px_rgba(217,119,6,0.3)] hover:shadow-[0_0_35px_rgba(217,119,6,0.5)] transition-all duration-300"
+              >
+                <span>{locale === "en" ? "Contact me" : "Me contacter"}</span>
+                <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </Magnetic>
+
+            <Magnetic>
+              <Link
+                href="/cv"
+                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full border border-black/15 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.04] text-foreground text-xs font-mono font-bold tracking-wider uppercase hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300"
+              >
+                <span>{locale === "en" ? "View technical CV" : "Consulter mon CV"}</span>
+                <ArrowUpRight size={14} />
+              </Link>
+            </Magnetic>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default function ProjectPage() {
   const { t, locale } = useLanguage();
+  const allProjects = useLocalizedProjects();
 
-  const filterKeys = [
-    { key: "all", label: t("projects.filters.all") },
-    { key: "Web", label: t("projects.filters.web") },
-    { key: "Mobile", label: t("projects.filters.mobile") },
-    { key: "Fullstack", label: t("projects.filters.fullstack") },
-    { key: "Architecture", label: t("projects.filters.architecture") },
-  ];
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const projects = useLocalizedProjects();
+  const filterTabs = useMemo(() => [
+    { id: "all", label: locale === "en" ? "All" : "Tous" },
+    { id: "web", label: locale === "en" ? "Web & Platforms" : "Web & Plateformes" },
+    { id: "infra", label: locale === "en" ? "Infrastructures & Tech" : "Infrastructures & Tech" },
+    { id: "creative", label: locale === "en" ? "Design & Creative" : "Design & Créatif" },
+  ], [locale]);
 
-  const [active, setActive] = useState("all");
+  const filteredProjects = useMemo(() => {
+    return allProjects.filter((p) => {
+      // Category filter matching
+      let matchesFilter = true;
+      if (activeFilter === "web") {
+        matchesFilter =
+          p.type.toLowerCase().includes("web") ||
+          p.sector.toLowerCase().includes("digital") ||
+          p.tags.some((tag) => ["Web", "SaaS", "Plateforme"].includes(tag));
+      } else if (activeFilter === "infra") {
+        matchesFilter =
+          p.sector.toLowerCase().includes("infrastructures") ||
+          p.sector.toLowerCase().includes("technologie") ||
+          p.sector.toLowerCase().includes("data") ||
+          p.sector.toLowerCase().includes("institutionnel") ||
+          p.tags.some((tag) => ["Institutionnel", "Architecture", "Fullstack"].includes(tag));
+      } else if (activeFilter === "creative") {
+        matchesFilter =
+          p.tags.some((tag) => ["Product", "UI", "Design", "Culturel", "Portfolio"].includes(tag)) ||
+          p.sector.toLowerCase().includes("sport") ||
+          p.sector.toLowerCase().includes("art") ||
+          p.sector.toLowerCase().includes("culture") ||
+          p.sector.toLowerCase().includes("loisirs");
+      }
 
-  const filtered =
-    active === "all"
-      ? projects
-      : projects.filter((p) => p.tags.includes(active) || p.type.includes(active));
+      if (!matchesFilter) return false;
 
-  const projectCountText = filtered.length !== 1
-    ? t("projects.projectCountPlural", { count: String(filtered.length) })
-    : t("projects.projectCount", { count: String(filtered.length) });
+      // Search keyword filter matching
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase().trim();
+        const inTitle = p.title.toLowerCase().includes(query);
+        const inSubtitle = p.subtitle?.toLowerCase().includes(query);
+        const inDesc = p.description?.toLowerCase().includes(query);
+        const inSector = p.sector?.toLowerCase().includes(query);
+        const inTools = p.tools?.some((t) => t.toLowerCase().includes(query));
+        const inTags = p.tags?.some((t) => t.toLowerCase().includes(query));
+        return inTitle || inSubtitle || inDesc || inSector || inTools || inTags;
+      }
+
+      return true;
+    });
+  }, [allProjects, activeFilter, searchQuery]);
+
+  const countSummary = filteredProjects.length !== 1
+    ? (locale === "en" ? `${filteredProjects.length} projects` : `${filteredProjects.length} projets`)
+    : (locale === "en" ? "1 project" : "1 projet");
 
   return (
     <PageTransition>
-      <div className="min-h-screen pt-24 md:pt-32 relative overflow-hidden">
+      <div className="min-h-screen pt-28 md:pt-36 pb-24 relative overflow-hidden">
         <ScrollProgress />
 
-        {/* Floating decorative elements */}
-        <FloatingElement className="absolute top-32 right-[5%] w-[200px] h-[200px] hidden lg:block" speed={20}>
-          <AbstractBlob variant={1} className="w-full h-full opacity-25" />
-        </FloatingElement>
-        <FloatingElement className="absolute bottom-[30%] left-[3%] w-[160px] h-[160px] hidden lg:block" speed={15} direction="down">
-          <AbstractBlob variant={3} className="w-full h-full opacity-20" />
-        </FloatingElement>
+        {/* Ambient background lighting matching new design */}
+        <div className="absolute top-20 right-0 w-[550px] h-[550px] bg-[#f59e0b]/[0.035] rounded-full blur-[180px] pointer-events-none" />
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#f59e0b]/[0.025] rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute inset-0 grid-pattern opacity-25 pointer-events-none" />
 
-        <section className="py-20 md:py-32">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-            {/* Header */}
-            <div className="mb-20 md:mb-28 relative">
-              <MaskReveal>
-                <span className="text-[var(--primary)] text-xs tracking-[0.35em] uppercase font-medium">
-                  {t("projects.label")}
-                </span>
-              </MaskReveal>
-              <div className="mt-4 mb-6">
-                <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-foreground leading-[0.9]">
-                  <SplitText type="words" stagger={0.06}>{t("projects.title")}</SplitText>
-                </h1>
-              </div>
-              <MaskReveal delay={0.3}>
-                <p className="text-neutral-400 max-w-lg text-lg leading-relaxed font-normal">
-                  {t("projects.subtitle")}
-                </p>
-              </MaskReveal>
+        <div className="max-w-[1360px] mx-auto px-6 md:px-10 relative z-10">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-8">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-[var(--primary)] transition-colors group"
+            >
+              <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+              <span>{locale === "en" ? "Back to home" : "Retour à l'accueil"}</span>
+            </Link>
+          </div>
 
-              {/* Dots decoration */}
-              <div className="absolute top-4 right-0 hidden xl:block opacity-30">
-                <DotsPattern cols={5} rows={5} />
-              </div>
-            </div>
-
-            {/* Filters */}
-            <MaskReveal delay={0.4}>
-              <div className="flex flex-wrap gap-3 mb-16 md:mb-24">
-                {filterKeys.map((f) => (
-                  <button
-                    key={f.key}
-                    onClick={() => setActive(f.key)}
-                    className={`relative px-6 py-2.5 text-[11px] tracking-[0.15em] uppercase transition-all duration-500 z-10 ${active === f.key
-                        ? "text-white"
-                        : "text-neutral-500 border border-[var(--primary)]/15 hover:border-[var(--primary)]/30 hover:text-foreground font-medium"
-                      }`}
-                  >
-                    {f.label}
-                    {active === f.key && (
-                      <motion.div
-                        layoutId="filter-active"
-                        className="absolute inset-0 bg-[var(--primary)] -z-10"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </button>
-                ))}
-                <span className="text-[10px] text-neutral-400 tracking-wider self-center ml-2">
-                  {projectCountText}
+          {/* Monumental Header Section */}
+          <div className="mb-14 md:mb-20">
+            <MaskReveal>
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)] animate-pulse" />
+                <span className="font-mono text-xs text-[var(--primary)] tracking-[0.25em] uppercase font-bold">
+                  01 // {t("projects.label") || "ARCHIVE DES TRAVAUX"}
                 </span>
               </div>
             </MaskReveal>
 
-            <LineReveal delay={0.2} className="mb-16" />
+            <h1 className="font-serif font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground tracking-[-0.035em] leading-[0.98]">
+              <SplitText type="words" stagger={0.05}>
+                {t("projects.title")}
+              </SplitText>
+              <span className="text-[var(--primary)]">.</span>
+            </h1>
 
-            {/* Grid */}
-            <AnimatePresence mode="wait">
+            <MaskReveal delay={0.25}>
+              <p className="mt-5 text-base md:text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl leading-relaxed font-normal">
+                {t("projects.subtitle")}
+              </p>
+            </MaskReveal>
+
+            {/* Quick Metrics Strip */}
+            <MaskReveal delay={0.35}>
+              <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-mono">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-[#111317] border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
+                  <Sparkles size={12} className="text-[var(--primary)]" />
+                  <span>{allProjects.length} {locale === "en" ? "Case Studies Documented" : "Études de cas documentées"}</span>
+                </div>
+                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-[#111317] border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>100% {locale === "en" ? "Production Quality" : "Qualité Production"}</span>
+                </div>
+              </div>
+            </MaskReveal>
+          </div>
+
+          {/* Interactive Filter & Search Capsule Strip */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-12 md:mb-16 pb-6 border-b border-black/5 dark:border-white/5">
+            {/* Filter Pills Bar */}
+            <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md overflow-x-auto scrollbar-none max-w-full">
+              {filterTabs.map((f) => {
+                const count = f.id === "all"
+                  ? allProjects.length
+                  : allProjects.filter((p) => {
+                      if (f.id === "web") {
+                        return p.type.toLowerCase().includes("web") || p.sector.toLowerCase().includes("digital") || p.tags.some((t) => ["Web", "SaaS", "Plateforme"].includes(t));
+                      }
+                      if (f.id === "infra") {
+                        return p.sector.toLowerCase().includes("infrastructures") || p.sector.toLowerCase().includes("technologie") || p.sector.toLowerCase().includes("data") || p.sector.toLowerCase().includes("institutionnel") || p.tags.some((t) => ["Institutionnel", "Architecture", "Fullstack"].includes(t));
+                      }
+                      if (f.id === "creative") {
+                        return p.tags.some((t) => ["Product", "UI", "Design", "Culturel", "Portfolio"].includes(t)) || p.sector.toLowerCase().includes("sport") || p.sector.toLowerCase().includes("art") || p.sector.toLowerCase().includes("culture") || p.sector.toLowerCase().includes("loisirs");
+                      }
+                      return true;
+                    }).length;
+
+                return (
+                  <button
+                    key={f.id}
+                    onClick={() => setActiveFilter(f.id)}
+                    className={`flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-mono tracking-wider whitespace-nowrap shrink-0 transition-all duration-300 ${
+                      activeFilter === f.id
+                        ? "bg-[var(--primary)] text-white dark:text-[#08090b] font-bold shadow-[0_0_15px_rgba(217,119,6,0.3)]"
+                        : "text-neutral-600 dark:text-neutral-400 hover:text-foreground dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 font-medium"
+                    }`}
+                  >
+                    <span>{f.label}</span>
+                    <span
+                      className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                        activeFilter === f.id
+                          ? "bg-black/20 text-white dark:bg-black/25 dark:text-[#08090b]"
+                          : "bg-black/5 dark:bg-white/10 text-neutral-500 dark:text-neutral-400"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Keyword Search & Summary Count */}
+            <div className="flex items-center gap-4">
+              <div className="relative flex-1 sm:w-64">
+                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={locale === "en" ? "Filter by stack, keyword..." : "Filtrer par stack, mot-clé..."}
+                  className="w-full pl-9 pr-8 py-2 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 text-xs font-mono text-foreground placeholder:text-neutral-400 focus:outline-none focus:border-[var(--primary)]/60 transition-colors"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-foreground"
+                  >
+                    <X size={13} />
+                  </button>
+                )}
+              </div>
+
+              <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-neutral-500 shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+                <span>{countSummary}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Projects Balanced Grid Layout */}
+          <AnimatePresence mode="wait">
+            {filteredProjects.length === 0 ? (
               <motion.div
-                key={active}
+                key="empty"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="py-20 text-center rounded-3xl bg-neutral-100/30 dark:bg-[#0d0f14]/30 border border-black/5 dark:border-white/5 p-8"
+              >
+                <SlidersHorizontal size={32} className="mx-auto text-neutral-400 mb-4 opacity-50" />
+                <h3 className="font-serif text-2xl text-foreground font-bold mb-2">
+                  {locale === "en" ? "No projects match your criteria" : "Aucun projet ne correspond à vos critères"}
+                </h3>
+                <p className="text-sm text-neutral-500 max-w-md mx-auto mb-6">
+                  {locale === "en"
+                    ? "Try adjusting your search query or selecting a different category."
+                    : "Essayez de modifier votre mot-clé de recherche ou sélectionnez une autre catégorie."}
+                </p>
+                <button
+                  onClick={() => {
+                    setActiveFilter("all");
+                    setSearchQuery("");
+                  }}
+                  className="px-6 py-2.5 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase"
+                >
+                  {locale === "en" ? "Reset filters" : "Réinitialiser les filtres"}
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={activeFilter + searchQuery}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 md:gap-y-28"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10"
               >
-                {filtered.map((project, i) => (
-                  <ProjectItem key={project.slug} project={project} index={i} />
+                {filteredProjects.map((project, idx) => (
+                  <ProjectCard
+                    key={project.slug}
+                    project={project}
+                    index={idx}
+                    total={filteredProjects.length}
+                  />
                 ))}
-                {/* Carte "À venir" — visible uniquement sur le filtre All */}
-                {active === "all" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: filtered.length * 0.05 }}
-                  >
-                    <div className="block project-card opacity-40 cursor-default select-none">
-                      <div className="relative overflow-hidden bg-[#111110] aspect-[16/10] rounded-sm border border-dashed border-[var(--primary)]/15 flex flex-col items-center justify-center gap-4">
-                        {/* Subtle grid pattern */}
-                        <div className="absolute inset-0 grid-pattern opacity-10" />
-                        {/* Number */}
-                        <div className="absolute top-5 left-5">
-                          <span className="text-[10px] text-white/20 tracking-[0.3em] font-mono">
-                            {String(filtered.length + 1).padStart(2, "0")}
-                          </span>
-                        </div>
-                        {/* Plus icon */}
-                        <div className="w-10 h-10 border border-[var(--primary)]/20 flex items-center justify-center relative z-10">
-                          <Code size={20} className="text-[var(--primary)]/40" />
-                        </div>
-                        <span className="text-[10px] text-[#6B635A] tracking-[0.35em] uppercase font-medium relative z-10">
-                          {t("projects.inDevelopment")}
-                        </span>
-                      </div>
-                      <div className="mt-5">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-[10px] text-[var(--primary)]/30 tracking-[0.25em] uppercase font-medium">
-                            {t("projects.comingSoon")}
-                          </span>
-                        </div>
-                        <h3 className="font-serif text-2xl md:text-3xl text-foreground/20 mb-2">
-                          {t("projects.comingSoonTitle")}
-                        </h3>
-                        <p className="text-sm text-[#6B635A]/40 leading-relaxed max-w-sm">
-                          {t("projects.comingSoonDesc")}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
+
+                {/* Coming Soon R&D Card on "all" filter */}
+                {activeFilter === "all" && !searchQuery && (
+                  <ComingSoonCard />
                 )}
               </motion.div>
-            </AnimatePresence>
+            )}
+          </AnimatePresence>
 
-            {/* Bottom flow diagram */}
-            <div className="mt-24 md:mt-36">
-              <ProcessFlowDiagram />
-            </div>
-          </div>
-        </section>
+          {/* Modern Bottom Collaboration CTA */}
+          <ProjectPageCTA />
+        </div>
       </div>
     </PageTransition>
   );

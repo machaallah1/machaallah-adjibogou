@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { CustomCursor } from "@/components/custom-cursor";
 import { LanguageProvider } from "@/lib/i18n";
+import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 
 const poppins = Poppins({
@@ -21,12 +22,6 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
 });
 
-const jacquard12 = Jacquard_12({
-  variable: "--font-blindy",
-  subsets: ["latin"],
-  weight: "400",
-});
-
 const dotGothic = DotGothic16({
   variable: "--font-dotgothic",
   subsets: ["latin"],
@@ -39,12 +34,13 @@ export const metadata: Metadata = {
     "Développeur full stack spécialisé dans les interfaces et les expériences web, avec une licence en architecture logicielle. Création de produits digitaux performants, scalables et mémorables.",
   icons: {
     icon: [
-      { url: "/mach.png" },
-      { url: "/mach.png", sizes: "16x16", type: "image/png" },
-      { url: "/mach.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/mach.png", sizes: "192x192", type: "image/png" },
     ],
     apple: [
-      { url: "/mach.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/site.webmanifest",
@@ -56,9 +52,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="dark">
+    <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} ${jacquard12.variable} ${dotGothic.variable} antialiased font-sans`}
+        className={`${poppins.variable} ${jetbrainsMono.variable} ${dotGothic.variable} antialiased font-sans`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J0SRRQCRET"
@@ -78,13 +74,20 @@ export default function RootLayout({
           strategy="afterInteractive"
           data-orchids-project-id="f7a6d986-f3fc-456c-93c3-073515ba32e2"
         />
-        <LanguageProvider>
-          <SmoothScroll />
-          <CustomCursor />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange={false}
+        >
+          <LanguageProvider>
+            <SmoothScroll />
+            <CustomCursor />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
         <VisualEditsMessenger />
       </body>
     </html>
