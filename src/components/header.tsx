@@ -96,11 +96,11 @@ export function Header() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <nav className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-10 h-20 md:h-24">
+      <nav className="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-6 md:px-10 h-16 sm:h-20 md:h-24">
         {/* Logo */}
         <Link
           href="/"
-          className="group font-serif font-bold text-2xl md:text-[1.7rem] tracking-[-0.02em] text-foreground dark:text-white transition-colors duration-300"
+          className="group font-serif font-bold text-xl sm:text-2xl md:text-[1.7rem] tracking-[-0.02em] text-foreground dark:text-white transition-colors duration-300"
         >
           <span className="group-hover:text-[var(--primary)] transition-colors">Machaallah</span>
           <span className="text-[var(--primary)]">.A</span>
@@ -137,39 +137,42 @@ export function Header() {
           <LanguageToggle />
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-          aria-label="Toggle menu"
-        >
-          <AnimatePresence mode="wait">
-            {open ? (
-              <motion.div
-                key="close"
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X size={20} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="menu"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Menu size={20} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
+        {/* Mobile controls */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-foreground w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors border border-black/5 dark:border-white/10"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait">
+              {open ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={20} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={20} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </nav>
 
-      {/* Mobile fullscreen menu */}
+      {/* Mobile fullscreen menu with scroll support */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -177,18 +180,18 @@ export function Header() {
             animate={{ clipPath: "circle(150% at calc(100% - 40px) 40px)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 40px) 40px)" }}
             transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
-            className="md:hidden fixed inset-0 bg-background/98 dark:bg-[#08090b]/98 backdrop-blur-2xl z-40 text-foreground"
+            className="md:hidden fixed inset-0 bg-background/98 dark:bg-[#08090b]/98 backdrop-blur-2xl z-40 text-foreground overflow-y-auto overscroll-contain"
           >
             {/* Close button overlay */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-foreground transition-colors"
+              className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-foreground transition-colors"
               aria-label="Close menu"
             >
               <X size={20} />
             </button>
 
-            <div className="flex flex-col justify-center h-full px-10 max-w-2xl mx-auto">
+            <div className="flex flex-col justify-center min-h-full px-6 sm:px-10 py-20 max-w-2xl mx-auto">
               <ul className="space-y-1">
                 {navItems.map((item, i) => (
                   <motion.li
@@ -204,7 +207,7 @@ export function Header() {
                     <a
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.targetId)}
-                      className="block font-serif font-bold text-3xl sm:text-4xl py-3 text-foreground hover:text-[var(--primary)] transition-colors"
+                      className="block font-serif font-bold text-2xl sm:text-4xl py-2.5 sm:py-3 text-foreground hover:text-[var(--primary)] transition-colors"
                     >
                       {locale === "en" ? item.enLabel : item.label}
                     </a>

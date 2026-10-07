@@ -140,7 +140,7 @@ export function Footer() {
               &copy; {new Date().getFullYear()} Machaallah ADJIBOGOU
             </span>
           </div>
-          <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase font-medium">
+          <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase font-medium text-center sm:text-right">
             Full Stack Developer • Interfaces & Web Experiences • ESGIS Architecture
           </span>
         </div>

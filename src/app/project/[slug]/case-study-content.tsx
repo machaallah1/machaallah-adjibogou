@@ -132,19 +132,19 @@ function BrowserMockup({ src, alt }: { src: string; alt: string }) {
       transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
       className="py-12 md:py-20"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="bg-[#111110] border border-[var(--primary)]/20 rounded-t-xl overflow-hidden shadow-2xl">
           {/* Chrome bar */}
-          <div className="flex items-center gap-2 px-5 py-3.5 border-b border-[var(--primary)]/10 bg-[#1a1a19]">
-            <div className="flex gap-1.5">
+          <div className="flex items-center justify-between gap-2 px-3 sm:px-5 py-2.5 sm:py-3.5 border-b border-[var(--primary)]/10 bg-[#1a1a19]">
+            <div className="flex gap-1.5 shrink-0">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
             </div>
-            <div className="flex justify-center">
-              <div className="bg-[#0a0a09] border border-white/5 rounded-md px-16 py-1.5 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-                <span className="text-[9px] text-[#8A817A] tracking-[0.2em] uppercase font-mono">
+            <div className="flex justify-center max-w-full">
+              <div className="bg-[#0a0a09] border border-white/5 rounded-md px-3 sm:px-8 md:px-16 py-1.5 flex items-center gap-2 max-w-full">
+                <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse shrink-0" />
+                <span className="text-[9px] text-[#8A817A] tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono truncate">
                   PRODUCTION_STABLE::v1.0.4
                 </span>
               </div>

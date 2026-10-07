@@ -209,6 +209,26 @@ export function InteractivePixelPortrait({
     };
   };
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || e.touches.length === 0) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    targetRef.current = {
+      x,
+      y,
+      radius: 80,
+      active: true,
+    };
+  };
+
+  const handleTouchEnd = () => {
+    targetRef.current.radius = 0;
+    targetRef.current.active = false;
+  };
+
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     handleMouseMove(e);
   };
@@ -225,7 +245,10 @@ export function InteractivePixelPortrait({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative w-full aspect-[4/5] max-w-[460px] mx-auto select-none cursor-crosshair group ${className}`}
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className={`relative w-full aspect-[4/5] max-w-[320px] sm:max-w-[400px] md:max-w-[460px] mx-auto select-none cursor-crosshair group ${className}`}
       style={{
         maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
         WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",

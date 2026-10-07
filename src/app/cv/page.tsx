@@ -100,7 +100,7 @@ export default function CVPage() {
         <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-[var(--primary)]/20 print:border-[var(--primary)]/30" />
         <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-[var(--primary)]/20 print:border-[var(--primary)]/30" />
 
-        <div className="px-10 md:px-16 py-12 md:py-16">
+        <div className="px-5 sm:px-10 md:px-16 py-8 sm:py-12 md:py-16">
           {/* Header */}
           <motion.div variants={fadeIn} custom={0} className="mb-12">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -108,14 +108,14 @@ export default function CVPage() {
                 <motion.h1
                   variants={fadeIn}
                   custom={1}
-                  className="font-serif text-4xl md:text-5xl text-neutral-900 tracking-[-0.02em] leading-[1.1] font-bold"
+                  className="font-serif text-3xl sm:text-4xl md:text-5xl text-neutral-900 tracking-[-0.02em] leading-[1.1] font-bold"
                 >
                   Machaallah<span className="text-[var(--primary)]">.</span>
                 </motion.h1>
                 <motion.h1
                   variants={fadeIn}
                   custom={2}
-                  className="font-serif text-4xl md:text-5xl text-neutral-900 tracking-[-0.02em] leading-[1.1] font-bold"
+                  className="font-serif text-3xl sm:text-4xl md:text-5xl text-neutral-900 tracking-[-0.02em] leading-[1.1] font-bold"
                 >
                   ADJIBOGOU
                 </motion.h1>
@@ -131,7 +131,7 @@ export default function CVPage() {
               <motion.div
                 variants={fadeIn}
                 custom={4}
-                className="text-right text-[#6B635A] text-xs leading-[2] tracking-wide"
+                className="text-left md:text-right text-[#6B635A] text-xs leading-[2] tracking-wide"
               >
                 <p>Lomé, TOGO - Agoe-Assiyéyé</p>
                 <p>+228 92 21 82 07</p>

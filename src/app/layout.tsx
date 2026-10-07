@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins, JetBrains_Mono, Jacquard_12, DotGothic16 } from "next/font/google";
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
@@ -28,17 +28,29 @@ const dotGothic = DotGothic16({
   weight: "400",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#08090b" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Machaallah ADJIBOGOU — Développeur Full Stack | Interfaces & Expériences Web",
   description:
     "Développeur full stack spécialisé dans les interfaces et les expériences web, avec une licence en architecture logicielle. Création de produits digitaux performants, scalables et mémorables.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/mach.png", sizes: "192x192", type: "image/png" },
     ],
+    shortcut: "/favicon.ico",
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
@@ -54,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="dark" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} ${dotGothic.variable} antialiased font-sans`}
+        className={`${poppins.variable} ${jetbrainsMono.variable} ${dotGothic.variable} antialiased font-sans overflow-x-hidden min-h-screen`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J0SRRQCRET"

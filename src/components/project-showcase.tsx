@@ -65,8 +65,8 @@ export function ProjectShowcase() {
             </p>
           </div>
 
-          {/* Category Filter Pills (clean single-row layout) */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md">
+          {/* Category Filter Pills (clean single-row layout with mobile scroll) */}
+          <div className="flex flex-nowrap overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-1.5 p-1.5 rounded-2xl sm:rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md max-w-full">
             {[
               { id: "all", label: t("home.selectedProjects.filters.all") },
               { id: "web", label: t("home.selectedProjects.filters.web") },
@@ -144,7 +144,7 @@ function ProjectScrollCard({
   return (
     <div
       ref={cardRef}
-      className="sticky top-20 md:top-28 mb-16 md:mb-24 last:mb-0 transition-all"
+      className="relative md:sticky top-20 md:top-28 mb-10 sm:mb-16 md:mb-24 last:mb-0 transition-all"
       style={{
         top: `calc(72px + ${Math.min(index, 6) * 16}px)`,
         zIndex: index + 1,
@@ -157,7 +157,7 @@ function ProjectScrollCard({
         className="w-full relative group"
       >
         <TiltCard maxTilt={1.5}>
-          <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-500 overflow-hidden p-6 sm:p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_-15px_50px_rgba(0,0,0,0.8),0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+          <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-500 overflow-hidden p-5 sm:p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_-15px_50px_rgba(0,0,0,0.8),0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl">
             {/* Top Accent Horizon Line */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent pointer-events-none" />
 

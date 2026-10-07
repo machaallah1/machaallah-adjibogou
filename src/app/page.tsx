@@ -33,7 +33,7 @@ function HeroSection() {
     <section
       ref={ref}
       id="top"
-      className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden"
+      className="relative min-h-[90vh] flex items-center pt-24 sm:pt-28 pb-14 sm:pb-20 overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-[#f59e0b]/[0.035] rounded-full blur-[160px] pointer-events-none" />
@@ -43,21 +43,21 @@ function HeroSection() {
       {/* Hero 2-Column Content: Text on Left, Interactive Pixel Portrait on Right */}
       <motion.div
         style={{ opacity, y }}
-        className="max-w-[1360px] mx-auto px-6 md:px-10 w-full relative z-10"
+        className="max-w-[1360px] mx-auto px-4 sm:px-6 md:px-10 w-full relative z-10"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* ═══ LEFT COLUMN: TYPOGRAPHY, STORY & CTAs ═══ */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Retro Blindy Signature Kicker */}
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-4 sm:mb-5">
               <span className="w-2 h-2 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)] animate-pulse" />
-              <span className="font-bold text-3xl sm:text-4xl text-[#b45309] dark:text-[#ffe2b0] tracking-wider leading-none drop-shadow-[0_2px_10px_rgba(245,158,11,0.3)]">
+              <span className="font-bold text-2xl sm:text-3xl md:text-4xl text-[#b45309] dark:text-[#ffe2b0] tracking-wider leading-none drop-shadow-[0_2px_10px_rgba(245,158,11,0.3)]">
                 Machaallah Adjibogou
               </span>
             </div>
 
             {/* Main Monumental Headline */}
-            <h1 className="font-serif font-bold text-[clamp(2.4rem,4.8vw,4.6rem)] leading-[0.98] tracking-[-0.035em] text-foreground">
+            <h1 className="font-serif font-bold text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.02] sm:leading-[0.98] tracking-[-0.035em] text-foreground break-words">
               <SplitText delay={0.15} stagger={0.02} type="words">
                 {t("home.hero.title1")}
               </SplitText>{" "}
@@ -75,18 +75,18 @@ function HeroSection() {
 
             {/* Subtitle */}
             <MaskReveal delay={0.7}>
-              <p className="mt-6 text-base md:text-lg text-neutral-600 dark:text-neutral-300 max-w-xl leading-relaxed font-normal">
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-neutral-600 dark:text-neutral-300 max-w-xl leading-relaxed font-normal">
                 {t("home.hero.subtitle")}
               </p>
             </MaskReveal>
 
             {/* High-Impact Actions */}
             <MaskReveal delay={0.85}>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
                 <Magnetic>
                   <a
                     href="#projets"
-                    className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] text-xs font-mono font-bold tracking-wider uppercase overflow-hidden shadow-[0_0_30px_rgba(217,119,6,0.3)] hover:shadow-[0_0_40px_rgba(217,119,6,0.5)] transition-all duration-300"
+                    className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] text-xs font-mono font-bold tracking-wider uppercase overflow-hidden shadow-[0_0_30px_rgba(217,119,6,0.3)] hover:shadow-[0_0_40px_rgba(217,119,6,0.5)] transition-all duration-300"
                   >
                     <span className="relative z-10">{t("home.hero.ctaProjects")}</span>
                     <ArrowDown size={14} className="relative z-10 transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -95,7 +95,7 @@ function HeroSection() {
                 <Magnetic>
                   <a
                     href="#contact"
-                    className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-full border border-black/15 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.04] backdrop-blur-md text-foreground text-xs font-mono font-bold tracking-wider uppercase hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/10 transition-all duration-300"
+                    className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-black/15 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.04] backdrop-blur-md text-foreground text-xs font-mono font-bold tracking-wider uppercase hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/10 transition-all duration-300"
                   >
                     <span>{t("home.hero.ctaContact")}</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/60 group-hover:bg-[var(--primary)] transition-colors" />
@@ -105,7 +105,7 @@ function HeroSection() {
             </MaskReveal>
 
             {/* Editorial Status Note */}
-            <div className="mt-10 flex flex-wrap items-center gap-3 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-mono text-neutral-500 dark:text-neutral-400">
               <span className="text-foreground font-bold">Lomé, Togo</span>
               <span className="text-neutral-400 dark:text-neutral-600">•</span>
               <span className="text-[var(--primary)] font-semibold">Disponible pour projets & collaborations</span>

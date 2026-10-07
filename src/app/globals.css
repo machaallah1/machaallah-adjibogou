@@ -132,10 +132,15 @@
     @apply bg-background text-foreground;
     cursor: default;
     transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+    max-width: 100%;
+    font-family: var(--font-poppins), "Poppins", sans-serif;
   }
   html {
     scroll-behavior: auto; /* lenis handles smooth scroll */
     font-family: var(--font-poppins), "Poppins", sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
   }
   html.dark {
     color-scheme: dark;
@@ -143,9 +148,15 @@
   html.light, html:not(.dark) {
     color-scheme: light;
   }
-  body {
-    font-family: var(--font-poppins), "Poppins", sans-serif;
-  }
+}
+
+/* ── Utility: no scrollbar for horizontal responsive pill tabs ── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ── Selection ── */

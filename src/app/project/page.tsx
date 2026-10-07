@@ -45,7 +45,7 @@ function ProjectCard({
       className="h-full"
     >
       <TiltCard maxTilt={1.5} className="h-full">
-        <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-500 overflow-hidden p-6 sm:p-8 md:p-9 flex flex-col justify-between h-full shadow-[0_10px_40px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl group hover:-translate-y-1.5">
+        <div className="relative rounded-3xl bg-white/95 dark:bg-[#0d0f14]/98 border border-black/8 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-500 overflow-hidden p-5 sm:p-7 md:p-9 flex flex-col justify-between h-full shadow-[0_10px_40px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl group hover:-translate-y-1.5">
           {/* Top Horizon Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent pointer-events-none" />
 
@@ -376,8 +376,8 @@ export default function ProjectPage() {
 
           {/* Clean Category Filter Strip */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-12 md:mb-16 pb-6 border-b border-black/5 dark:border-white/5">
-            {/* Filter Pills Bar */}
-            <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md">
+            {/* Filter Pills Bar (horizontal scroll on mobile) */}
+            <div className="flex flex-nowrap overflow-x-auto no-scrollbar sm:flex-wrap items-center gap-1.5 p-1.5 rounded-2xl sm:rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md max-w-full">
               {filterTabs.map((f) => {
                 const count = f.id === "all"
                   ? allProjects.length
