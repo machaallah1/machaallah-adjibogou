@@ -54,11 +54,11 @@ function AnimSection({
 function SectionLabel({ num, title }: { num: string; title: string }) {
   return (
     <div className="flex items-center gap-4 mb-8 md:mb-12">
-      <span className="text-[11px] text-[var(--primary-dark)] tracking-[0.4em] uppercase font-mono font-black">
+      <span className="text-[11px] text-[var(--primary)] tracking-[0.4em] uppercase font-mono font-bold">
         SECTION::{num}
       </span>
       <span className="w-12 h-[1px] bg-[var(--primary)]/30" />
-      <span className="text-[11px] text-neutral-500 tracking-[0.2em] uppercase font-bold">
+      <span className="text-[11px] text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase font-bold">
         {title}
       </span>
     </div>
@@ -83,15 +83,15 @@ function MetricCard({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: index * 0.1 }}
-      className="relative group p-8 md:p-10 border border-white/10 hover:border-[#f59e0b]/40 transition-all duration-700 overflow-hidden bg-[#111318] hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] text-center rounded-xl"
+      className="relative group p-8 md:p-10 border border-black/10 dark:border-white/10 hover:border-[var(--primary)]/50 transition-all duration-700 overflow-hidden bg-neutral-100/80 dark:bg-[#111318] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] text-center rounded-2xl"
       whileHover={{ y: -6 }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b]/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      <div className="absolute top-4 right-6 text-[9px] text-[#f59e0b] font-mono opacity-40 font-bold">VAL_NODE::{index}</div>
-      <span className="relative block font-serif text-4xl md:text-5xl text-[#f59e0b] mb-4 leading-none font-bold">
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute top-4 right-6 text-[9px] text-[var(--primary)] font-mono opacity-60 font-bold">VAL_NODE::{index}</div>
+      <span className="relative block font-serif text-3xl md:text-5xl text-[var(--primary)] mb-4 leading-tight font-bold">
         {value}
       </span>
-      <span className="relative block text-[10px] text-neutral-300 tracking-[0.3em] uppercase font-mono font-bold">
+      <span className="relative block text-[10px] text-neutral-600 dark:text-neutral-400 tracking-[0.3em] uppercase font-mono font-bold">
         {label}
       </span>
     </motion.div>
@@ -176,7 +176,7 @@ function PhoneMockup({ src, alt }: { src: string; alt: string }) {
           <Image src={src} alt={alt} fill className="object-cover object-top" sizes="320px" />
         </div>
       </div>
-      <p className="text-[11px] text-[#4a4a4a] tracking-[0.15em] uppercase mt-6 text-center font-medium">
+      <p className="text-[11px] text-neutral-500 dark:text-neutral-400 tracking-[0.15em] uppercase mt-6 text-center font-medium font-mono">
         Interface Mobile Native
       </p>
     </motion.div>
@@ -289,7 +289,7 @@ function DuoPhones({ leftSrc, rightSrc, alt }: { leftSrc: string; rightSrc: stri
             </div>
           </div>
         </div>
-        <p className="text-[11px] text-[#6B635A] tracking-[0.15em] uppercase mt-12 text-center">
+        <p className="text-[11px] text-neutral-500 dark:text-neutral-400 tracking-[0.15em] uppercase mt-12 text-center font-mono">
           Vues mobiles
         </p>
       </div>
@@ -372,13 +372,13 @@ function ArchitectureTokens({ colors }: { colors: { name: string; hex: string }[
               className="group"
             >
               <div
-                className="aspect-[3/2] rounded-sm mb-4 border border-black/5 transition-transform duration-500 group-hover:scale-[1.02]"
+                className="aspect-[3/2] rounded-xl mb-4 border border-black/10 dark:border-white/10 shadow-sm transition-transform duration-500 group-hover:scale-[1.02]"
                 style={{ backgroundColor: c.hex }}
               />
-              <p className="text-[11px] text-[#1a1a1a] tracking-[0.2em] uppercase font-mono font-bold">
+              <p className="text-[11px] text-foreground tracking-[0.2em] uppercase font-mono font-bold">
                 {c.hex}
               </p>
-              <p className="text-[9px] text-[#8A817A] tracking-wider font-mono">COLOR_ID::{i}</p>
+              <p className="text-[9px] text-neutral-500 dark:text-neutral-400 tracking-wider font-mono">COLOR_ID::{i}</p>
             </motion.div>
           ))}
         </div>
@@ -401,14 +401,14 @@ function ToolsList({ tools }: { tools: string[] }) {
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <SectionLabel num="Stack" title="Technologies & Outils" />
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2.5">
           {tools.map((tool, i) => (
             <motion.span
               key={tool}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="px-6 py-3 border border-[var(--primary)]/10 text-sm text-[#8A817A] tracking-[0.1em] uppercase hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-all duration-500 cursor-default"
+              className="px-5 py-2.5 rounded-full border border-black/10 dark:border-white/10 bg-neutral-100/70 dark:bg-[#111317]/80 text-xs font-mono text-neutral-700 dark:text-neutral-300 tracking-[0.1em] uppercase hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300 cursor-default"
             >
               {tool}
             </motion.span>
@@ -441,15 +441,15 @@ function RichSection({ section }: { section: ProjectSection }) {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             className="flex items-start gap-6"
           >
-            <span className="text-[var(--primary)] opacity-[0.08] text-6xl md:text-8xl font-serif italic leading-none select-none">
+            <span className="text-[var(--primary)] opacity-[0.08] dark:opacity-[0.18] text-6xl md:text-8xl font-serif italic leading-none select-none">
               {section.num}
             </span>
-            <h2 className="font-serif text-2xl md:text-3xl text-neutral-900 pt-3 font-bold leading-tight">
+            <h2 className="font-serif text-2xl md:text-3xl text-foreground pt-3 font-bold leading-tight">
               {section.title}
             </h2>
           </motion.div>
           {/* Right */}
-          <div className="max-w-2xl bg-white/50 relative">
+          <div className="max-w-2xl relative">
             {section.content && (
               <motion.p
                 variants={{
@@ -457,7 +457,7 @@ function RichSection({ section }: { section: ProjectSection }) {
                   visible: { opacity: 1, y: 0 }
                 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-neutral-800 leading-[1.9] text-base md:text-lg mb-10 font-medium"
+                className="text-neutral-700 dark:text-neutral-300 leading-[1.9] text-base md:text-lg mb-10 font-normal"
               >
                 {section.content}
               </motion.p>
@@ -472,30 +472,30 @@ function RichSection({ section }: { section: ProjectSection }) {
                       visible: { opacity: 1, x: 0 }
                     }}
                     transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                    className="flex items-start gap-4 text-neutral-700 leading-[1.8] text-base"
+                    className="flex items-start gap-4 text-neutral-700 dark:text-neutral-300 leading-[1.8] text-base"
                   >
-                    <span className="w-2 h-2 rounded-full bg-[var(--primary)]/40 mt-2 shrink-0 border border-[var(--primary)]/10" />
+                    <span className="w-2 h-2 rounded-full bg-[var(--primary)]/60 mt-2 shrink-0 border border-[var(--primary)]/20" />
                     {b}
                   </motion.li>
                 ))}
               </ul>
             )}
             {section.subsections?.map((sub, i) => (
-              <div key={i} className="mb-10 last:mb-0 border-l border-neutral-100 pl-10 relative">
-                <div className="absolute top-0 left-0 w-2 h-[1px] bg-[var(--primary)]/30 -translate-x-full" />
-                <h3 className="text-neutral-900 text-sm md:text-base font-black tracking-widest mb-4 uppercase">
+              <div key={i} className="mb-10 last:mb-0 border-l border-black/10 dark:border-white/10 pl-10 relative">
+                <div className="absolute top-0 left-0 w-2 h-[1px] bg-[var(--primary)]/40 -translate-x-full" />
+                <h3 className="text-foreground text-sm md:text-base font-bold tracking-widest mb-4 uppercase">
                   {sub.title}
                 </h3>
                 {sub.content && (
-                  <p className="text-neutral-700 leading-[1.9] text-base mb-4 font-medium">
+                  <p className="text-neutral-700 dark:text-neutral-300 leading-[1.9] text-base mb-4 font-normal">
                     {sub.content}
                   </p>
                 )}
                 {sub.bullets && sub.bullets.length > 0 && (
                   <ul className="space-y-3">
                     {sub.bullets.map((b, j) => (
-                      <li key={j} className="flex items-start gap-3 text-neutral-600 leading-[1.8] text-sm md:text-base">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/20 mt-2.5 shrink-0" />
+                      <li key={j} className="flex items-start gap-3 text-neutral-600 dark:text-neutral-400 leading-[1.8] text-sm md:text-base">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]/30 mt-2.5 shrink-0" />
                         {b}
                       </li>
                     ))}
@@ -510,9 +510,9 @@ function RichSection({ section }: { section: ProjectSection }) {
                   visible: { opacity: 1, scale: 1 }
                 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="mt-12 pl-8 border-l-2 border-[var(--primary)]/30 py-4 bg-[var(--primary)]/[0.01]"
+                className="mt-12 pl-8 border-l-2 border-[var(--primary)]/40 py-4 bg-[var(--primary)]/[0.03] rounded-r-xl"
               >
-                <p className="text-neutral-800 italic font-serif text-lg md:text-xl leading-relaxed">
+                <p className="text-neutral-800 dark:text-neutral-200 italic font-serif text-lg md:text-xl leading-relaxed">
                   {section.quote}
                 </p>
               </motion.div>
@@ -609,7 +609,7 @@ export function CaseStudyContent({
   const secondBatch = sections.slice(4);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <ScrollProgress />
 
       {/* ═══ STICKY CTA ═══ */}
@@ -627,7 +627,7 @@ export function CaseStudyContent({
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--primary)] border border-white/10 text-[11px] text-white tracking-[0.2em] uppercase hover:bg-neutral-900 transition-all duration-500 group shadow-2xl shadow-black/40"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-[var(--primary)] text-white dark:text-[#08090b] text-[11px] font-mono font-bold tracking-[0.2em] uppercase hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black transition-all duration-500 group shadow-2xl shadow-black/40 rounded-full"
               >
                 {project.urlLabel ?? "Voir le projet"}
                 <ArrowUpRight
@@ -719,15 +719,15 @@ export function CaseStudyContent({
       </section>
 
       {/* ═══ VISION QUOTE ═══ */}
-      <section className="py-20 md:py-32 relative overflow-hidden bg-white border-y border-neutral-100">
-        <div className="absolute inset-0 grid-pattern opacity-[0.02]" />
+      <section className="py-20 md:py-32 relative overflow-hidden bg-neutral-100/50 dark:bg-[#0c0e12]/60 border-y border-black/5 dark:border-white/5">
+        <div className="absolute inset-0 grid-pattern opacity-[0.03] dark:opacity-[0.06]" />
         <div className="relative max-w-[1000px] mx-auto px-6 md:px-10 text-center">
           <AnimSection>
             <div className="relative">
-              <span className="text-neutral-100 text-8xl md:text-9xl font-serif absolute -top-10 left-1/2 -translate-x-1/2 select-none opacity-50">
+              <span className="text-neutral-300 dark:text-neutral-800 text-8xl md:text-9xl font-serif absolute -top-10 left-1/2 -translate-x-1/2 select-none opacity-40">
                 &ldquo;
               </span>
-              <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-neutral-800 italic leading-relaxed pt-8">
+              <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-neutral-800 dark:text-neutral-200 italic leading-relaxed pt-8">
                 {project.vision}
               </p>
             </div>
@@ -736,7 +736,7 @@ export function CaseStudyContent({
       </section>
 
       {/* ═══ KEY METRICS ═══ */}
-      <section className="py-12 md:py-20 relative overflow-hidden bg-white">
+      <section className="py-12 md:py-20 relative overflow-hidden bg-transparent">
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
             <SectionLabel num="Système" title="Performance & Impact" />
@@ -753,25 +753,25 @@ export function CaseStudyContent({
       <section className="py-8 md:py-12">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-t border-b border-[var(--primary)]/15">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-t border-b border-black/10 dark:border-white/10">
               <div>
-                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-mono font-bold">RÔLE_DEV</span>
-                <span className="text-sm text-[#1a1a1a] font-medium">{project.role}</span>
+                <span className="text-[10px] text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase block mb-2 font-mono font-bold">RÔLE_DEV</span>
+                <span className="text-sm text-foreground font-medium">{project.role}</span>
               </div>
               <div>
-                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-mono font-bold">ARCHITECTURE</span>
-                <span className="text-sm text-[#1a1a1a] font-medium">{project.scope}</span>
+                <span className="text-[10px] text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase block mb-2 font-mono font-bold">ARCHITECTURE</span>
+                <span className="text-sm text-foreground font-medium">{project.scope}</span>
               </div>
               <div>
-                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-mono font-bold">TAGS</span>
-                <div className="flex gap-1 overflow-hidden opacity-40">
-                  <span className="text-[9px] font-mono">#TS</span>
-                  <span className="text-[9px] font-mono">#NODE</span>
+                <span className="text-[10px] text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase block mb-2 font-mono font-bold">TAGS</span>
+                <div className="flex gap-1 overflow-hidden opacity-70">
+                  <span className="text-[9px] font-mono text-neutral-700 dark:text-neutral-300">#TS</span>
+                  <span className="text-[9px] font-mono text-neutral-700 dark:text-neutral-300">#NODE</span>
                 </div>
               </div>
               <div>
-                <span className="text-[10px] text-[#4a4a4a] tracking-[0.2em] uppercase block mb-2 font-mono font-bold">LOCATION</span>
-                <span className="text-sm text-[#1a1a1a] font-medium">Remote/On-site</span>
+                <span className="text-[10px] text-neutral-500 dark:text-neutral-400 tracking-[0.2em] uppercase block mb-2 font-mono font-bold">LOCATION</span>
+                <span className="text-sm text-foreground font-medium">Remote/On-site</span>
               </div>
             </div>
           </AnimSection>
@@ -801,7 +801,7 @@ export function CaseStudyContent({
       ))}
 
       {/* ═══ FINAL IMAGE GALLERY ═══ */}
-      <div className="py-20 md:py-32 bg-white">
+      <div className="py-20 md:py-32 bg-transparent">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <AnimSection>
             <SectionLabel num="Gallerie" title="Détails du projet" />
@@ -813,7 +813,7 @@ export function CaseStudyContent({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.7, delay: i * 0.1 }}
-                  className="relative overflow-hidden aspect-[4/3] bg-neutral-100 group"
+                  className="relative overflow-hidden aspect-[4/3] bg-neutral-100 dark:bg-[#111317] border border-black/5 dark:border-white/5 rounded-2xl group shadow-sm"
                 >
                   <Image
                     src={src}
@@ -822,7 +822,7 @@ export function CaseStudyContent({
                     className="object-cover transition-all duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
               ))}
             </div>
@@ -844,10 +844,10 @@ export function CaseStudyContent({
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-32 md:pt-48 text-center relative">
           <AnimSection>
-            <span className="text-[10px] text-[#6B635A] tracking-[0.35em] uppercase block mb-4">
+            <span className="text-[10px] text-neutral-500 dark:text-neutral-400 tracking-[0.35em] uppercase block mb-4 font-mono">
               Projet suivant
             </span>
-            <span className="text-[11px] text-[var(--primary)]/40 tracking-[0.2em] uppercase block mb-10">
+            <span className="text-[11px] text-[var(--primary)] tracking-[0.2em] uppercase block mb-10 font-mono font-semibold">
               {next.type} / {next.sector}
             </span>
           </AnimSection>
@@ -865,7 +865,7 @@ export function CaseStudyContent({
                   {next.title}
                 </SplitText>
               </span>
-              <span className="inline-flex items-center gap-3 text-sm text-[#6B635A] group-hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.15em] uppercase">
+              <span className="inline-flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400 group-hover:text-[var(--primary)] transition-colors duration-500 tracking-[0.15em] uppercase font-mono">
                 Découvrir le projet
                 <ArrowUpRight
                   size={14}

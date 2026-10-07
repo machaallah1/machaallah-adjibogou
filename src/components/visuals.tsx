@@ -870,7 +870,7 @@ export function SystemArchitecture({ className = "" }: { className?: string }) {
   return (
     <motion.div
       ref={ref}
-      className={`relative p-8 md:p-12 border border-[var(--primary)]/5 bg-neutral-50/30 overflow-hidden group/arch ${className}`}
+      className={`relative p-8 md:p-12 border border-black/5 dark:border-white/10 bg-neutral-100/50 dark:bg-[#0c0e12] overflow-hidden group/arch rounded-2xl ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1 }}
@@ -892,7 +892,7 @@ export function SystemArchitecture({ className = "" }: { className?: string }) {
                 fill="none"
                 stroke="var(--primary)"
                 strokeWidth="1.5"
-                strokeOpacity="0.08"
+                strokeOpacity="0.12"
                 initial={{ pathLength: 0 }}
                 animate={isInView ? { pathLength: 1 } : {}}
                 transition={{ duration: 1.5, delay: 0.5 + i * 0.2 }}
@@ -910,7 +910,7 @@ export function SystemArchitecture({ className = "" }: { className?: string }) {
                 }}
                 style={{ 
                   offsetPath: `path('M ${fromNode.x} ${fromNode.y} L ${toNode.x} ${toNode.y}')`,
-                  opacity: 0.4 
+                  opacity: 0.5 
                 }}
               />
             </React.Fragment>
@@ -932,23 +932,18 @@ export function SystemArchitecture({ className = "" }: { className?: string }) {
               y={node.y - 30}
               width="120"
               height="60"
-              rx="2"
-              fill="white"
-              stroke="var(--primary)"
-              strokeWidth="1.5"
-              strokeOpacity="0.1"
-              whileHover={{ strokeOpacity: 0.4 }}
-              style={{ filter: "drop-shadow(0 4px 12px rgba(4, 118, 7, 0.05))" }}
+              rx="4"
+              className="fill-white dark:fill-[#13151b] stroke-[var(--primary)]"
+              strokeOpacity="0.25"
+              whileHover={{ strokeOpacity: 0.6 }}
+              style={{ filter: "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08))" }}
             />
             <text
               x={node.x}
               y={node.y}
               textAnchor="middle"
               dominantBaseline="middle"
-              fill="#0a0a09"
-              fontSize="10"
-              fontFamily="monospace"
-              className="uppercase tracking-widest font-bold select-none"
+              className="fill-neutral-900 dark:fill-neutral-100 uppercase tracking-widest font-bold select-none text-[10px] font-mono"
             >
               {node.label}
             </text>
@@ -977,13 +972,13 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
   return (
     <motion.div
       ref={ref}
-      className={`relative py-16 px-6 md:px-10 border border-[var(--primary)]/5 bg-white shadow-sm overflow-hidden group/usecase rounded-sm ${className}`}
+      className={`relative py-16 px-6 md:px-10 border border-black/5 dark:border-white/10 bg-white dark:bg-[#0c0e12] shadow-sm overflow-hidden group/usecase rounded-2xl ${className}`}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 1 }}
     >
       <div className="absolute inset-0 cross-pattern opacity-[0.03] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--primary)]/[0.01] opacity-0 group-hover/usecase:opacity-100 transition-opacity duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--primary)]/[0.02] opacity-0 group-hover/usecase:opacity-100 transition-opacity duration-700" />
       
       <div className="relative flex justify-between items-center mb-16">
         <div className="flex items-center gap-4">
@@ -993,9 +988,9 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
             animate={isInView ? { width: 40 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
           />
-          <h4 className="text-[10px] text-[var(--primary-dark)] tracking-[0.4em] uppercase font-mono font-black">USE_CASE::DYNAMICS</h4>
+          <h4 className="text-[10px] text-[var(--primary)] tracking-[0.4em] uppercase font-mono font-bold">USE_CASE::DYNAMICS</h4>
         </div>
-        <span className="text-[9px] text-neutral-400 font-mono tracking-tighter bg-neutral-50 px-3 py-1 border border-neutral-100 uppercase overflow-hidden relative">
+        <span className="text-[9px] text-neutral-500 dark:text-neutral-400 font-mono tracking-tighter bg-neutral-100 dark:bg-[#151821] px-3 py-1 border border-black/5 dark:border-white/10 uppercase overflow-hidden relative rounded-md">
           <span className="relative z-10">modeling.layer_v2</span>
           <motion.div 
             className="absolute inset-0 bg-[var(--primary)]/10"
@@ -1011,10 +1006,10 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
            initial={{ opacity: 0, y: 20 }}
            animate={isInView ? { opacity: 1, y: 0 } : {}}
            transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
-           className="p-8 border border-neutral-100 bg-neutral-50/50 relative group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-[0_8px_30px_rgb(4,118,7,0.06)]"
+           className="p-8 border border-black/5 dark:border-white/10 bg-neutral-50/80 dark:bg-[#13151b]/80 relative group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/30 hover:bg-white dark:hover:bg-[#1a1d26] rounded-xl"
         >
           <motion.div 
-            className="w-20 h-20 mx-auto mb-6 flex items-center justify-center border border-[var(--primary)]/10 rounded-full bg-white relative"
+            className="w-20 h-20 mx-auto mb-6 flex items-center justify-center border border-[var(--primary)]/15 rounded-full bg-white dark:bg-[#0c0e12] relative"
             whileHover={{ scale: 1.05, rotate: 90 }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
           >
@@ -1027,15 +1022,15 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                />
             </motion.svg>
-            <div className="w-6 h-6 rounded-full bg-[var(--primary)]/60 animate-pulse relative z-10 shadow-[0_0_15px_rgba(4,118,7,0.3)]" />
+            <div className="w-6 h-6 rounded-full bg-[var(--primary)]/60 animate-pulse relative z-10 shadow-[0_0_15px_rgba(217,119,6,0.3)]" />
           </motion.div>
-          <p className="text-[10px] text-neutral-900 font-mono uppercase tracking-[0.2em] font-black group-hover:text-[var(--primary)] transition-colors">ENTREE_ACTEUR</p>
+          <p className="text-[10px] text-foreground font-mono uppercase tracking-[0.2em] font-bold group-hover:text-[var(--primary)] transition-colors">ENTREE_ACTEUR</p>
         </motion.div>
 
         {/* Path with kinetic flow */}
         <div className="hidden md:flex flex-col items-center justify-center gap-6">
            <div className="relative w-full h-px overflow-hidden">
-              <div className="absolute inset-0 bg-neutral-100" />
+              <div className="absolute inset-0 bg-neutral-200 dark:bg-white/10" />
               <motion.div 
                 className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent"
                 animate={{ x: ['-200%', '300%'] }}
@@ -1043,13 +1038,13 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
               />
            </div>
            <motion.div 
-             className="px-5 py-2.5 border border-neutral-100 text-[9px] text-neutral-500 font-mono uppercase tracking-widest bg-white z-10 shadow-sm"
+             className="px-5 py-2.5 border border-black/5 dark:border-white/10 text-[9px] text-neutral-600 dark:text-neutral-400 font-mono uppercase tracking-widest bg-white dark:bg-[#13151b] z-10 shadow-sm rounded-md"
              whileHover={{ scale: 1.05, borderColor: "var(--primary)" }}
            >
              FLUX_LOGIQUE
            </motion.div>
            <div className="relative w-full h-px overflow-hidden">
-              <div className="absolute inset-0 bg-neutral-100" />
+              <div className="absolute inset-0 bg-neutral-200 dark:bg-white/10" />
               <motion.div 
                 className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-transparent via-[var(--primary)] to-transparent"
                 animate={{ x: ['200%', '-300%'] }}
@@ -1063,9 +1058,9 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
            initial={{ opacity: 0, y: 20 }}
            animate={isInView ? { opacity: 1, y: 0 } : {}}
            transition={{ delay: 0.6, type: "spring", stiffness: 100 }}
-           className="relative p-8 border border-[var(--primary)]/5 bg-[var(--primary)]/[0.015] overflow-hidden group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/20 hover:bg-white hover:shadow-[0_8px_30px_rgb(4,118,7,0.06)]"
+           className="relative p-8 border border-black/5 dark:border-white/10 bg-[var(--primary)]/[0.02] dark:bg-[#13151b]/80 overflow-hidden group cursor-pointer transition-all duration-500 hover:border-[var(--primary)]/30 hover:bg-white dark:hover:bg-[#1a1d26] rounded-xl"
         >
-          <div className="absolute top-0 right-0 p-2 text-[8px] font-mono text-[var(--primary)] opacity-30 font-bold tracking-widest group-hover:opacity-60 transition-opacity">PROCESS_MODULE</div>
+          <div className="absolute top-0 right-0 p-2 text-[8px] font-mono text-[var(--primary)] opacity-40 font-bold tracking-widest group-hover:opacity-80 transition-opacity">PROCESS_MODULE</div>
           
           <div className="flex flex-col gap-5 mt-6">
              {[
@@ -1081,7 +1076,7 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
                  >
                    <div className="w-full h-full bg-[var(--primary)]/60" />
                  </motion.div>
-                 <div className="h-1 flex-1 bg-neutral-100 rounded-full overflow-hidden">
+                 <div className="h-1 flex-1 bg-neutral-200 dark:bg-white/10 rounded-full overflow-hidden">
                     <motion.div 
                       className="h-full bg-[var(--primary)]/30 group-hover:bg-[var(--primary)]/60 transition-colors"
                       initial={{ width: 0 }}
@@ -1097,7 +1092,7 @@ export function UseCaseModeling({ className = "" }: { className?: string }) {
                </div>
              ))}
           </div>
-          <p className="text-[10px] text-neutral-900 font-mono uppercase tracking-[0.2em] mt-8 font-black group-hover:text-[var(--primary)] transition-colors">TRAITEMENT_NOEUD</p>
+          <p className="text-[10px] text-foreground font-mono uppercase tracking-[0.2em] mt-8 font-bold group-hover:text-[var(--primary)] transition-colors">TRAITEMENT_NOEUD</p>
         </motion.div>
       </div>
     </motion.div>
@@ -1121,11 +1116,11 @@ export function LogicSequence({ className = "" }: { className?: string }) {
   return (
     <motion.div
       ref={ref}
-      className={`relative py-24 px-12 border border-neutral-100 bg-white flex items-center justify-center overflow-hidden ${className}`}
+      className={`relative py-24 px-12 border border-black/5 dark:border-white/10 bg-white dark:bg-[#0c0e12] flex items-center justify-center overflow-hidden rounded-2xl ${className}`}
     >
       <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--primary)]/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--primary)]/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--primary)]/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--primary)]/20 to-transparent" />
       
       <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0">
         {steps.map((step, i) => (
@@ -1136,18 +1131,18 @@ export function LogicSequence({ className = "" }: { className?: string }) {
               transition={{ delay: i * 0.15, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
               className="flex flex-col items-center group/step"
             >
-              <div className="w-40 h-40 rounded-sm border border-neutral-100 flex flex-col items-center justify-center p-6 transition-all duration-700 bg-neutral-50/20 group-hover/step:bg-white group-hover/step:border-[var(--primary)]/40 group-hover/step:scale-105 group-hover/step:shadow-[0_8px_30px_rgb(4,118,7,0.05)]">
-                <span className="text-[10px] text-neutral-400 font-mono mb-4 group-hover/step:text-[var(--primary)] transition-colors tracking-widest uppercase">STP_SEQUENCE::0{i+1}</span>
-                <span className="text-[13px] text-neutral-900 font-black tracking-[0.05em] text-center uppercase leading-tight">{step.label}</span>
+              <div className="w-40 h-40 rounded-xl border border-black/5 dark:border-white/10 flex flex-col items-center justify-center p-6 transition-all duration-700 bg-neutral-50/50 dark:bg-[#13151b]/50 group-hover/step:bg-white dark:group-hover/step:bg-[#1a1d26] group-hover/step:border-[var(--primary)]/40 group-hover/step:scale-105 group-hover/step:shadow-lg">
+                <span className="text-[10px] text-neutral-500 dark:text-neutral-400 font-mono mb-4 group-hover/step:text-[var(--primary)] transition-colors tracking-widest uppercase">STP_SEQUENCE::0{i+1}</span>
+                <span className="text-[13px] text-foreground font-bold tracking-[0.05em] text-center uppercase leading-tight font-mono">{step.label}</span>
                 <motion.div 
-                  className="mt-6 w-5 h-[1.5px] bg-neutral-200 group-hover/step:bg-[var(--primary)] group-hover/step:w-10 transition-all duration-500"
+                  className="mt-6 w-5 h-[1.5px] bg-neutral-200 dark:bg-neutral-700 group-hover/step:bg-[var(--primary)] group-hover/step:w-10 transition-all duration-500"
                 />
               </div>
             </motion.div>
 
             {i < steps.length - 1 && (
               <div className="relative w-12 md:w-20 h-px hidden md:block overflow-hidden">
-                <div className="absolute inset-0 bg-neutral-100" />
+                <div className="absolute inset-0 bg-neutral-200 dark:bg-white/10" />
                 <motion.div 
                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent"
                    animate={{ x: ['-100%', '200%'] }}
