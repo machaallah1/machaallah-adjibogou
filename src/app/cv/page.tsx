@@ -80,7 +80,7 @@ export default function CVPage() {
         </Link>
         <button
           onClick={handlePrint}
-          className="inline-flex items-center gap-2.5 px-6 py-3 bg-[var(--primary)] text-white text-xs font-semibold tracking-[0.15em] uppercase hover:bg-[#068a09] transition-colors duration-300"
+          className="inline-flex items-center gap-2.5 px-6 py-3 bg-[var(--primary)] text-white dark:text-[#08090b] text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#b45309] shadow-[0_0_20px_rgba(217,119,6,0.25)] transition-all duration-300 rounded-full"
         >
           <Download size={14} />
           {t("cv.download")}
@@ -92,7 +92,7 @@ export default function CVPage() {
         ref={cvRef}
         initial="hidden"
         animate="visible"
-        className="cv-page max-w-[900px] mx-auto bg-white border border-[var(--primary)]/10 relative overflow-hidden"
+        className="cv-page max-w-[900px] mx-auto bg-white border border-[var(--primary)]/10 relative overflow-hidden rounded-xl shadow-2xl"
       >
         {/* Subtle corner accents */}
         <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-[var(--primary)]/20 print:border-[var(--primary)]/30" />
@@ -108,21 +108,21 @@ export default function CVPage() {
                 <motion.h1
                   variants={fadeIn}
                   custom={1}
-                  className="font-serif text-4xl md:text-5xl text-foreground tracking-[-0.02em] leading-[1.1]"
+                  className="font-serif text-4xl md:text-5xl text-neutral-900 tracking-[-0.02em] leading-[1.1] font-bold"
                 >
                   Machaallah<span className="text-[var(--primary)]">.</span>
                 </motion.h1>
                 <motion.h1
                   variants={fadeIn}
                   custom={2}
-                  className="font-serif text-4xl md:text-5xl text-foreground tracking-[-0.02em] leading-[1.1]"
+                  className="font-serif text-4xl md:text-5xl text-neutral-900 tracking-[-0.02em] leading-[1.1] font-bold"
                 >
                   ADJIBOGOU
                 </motion.h1>
                 <motion.p
                   variants={fadeIn}
                   custom={3}
-                  className="mt-3 text-[var(--primary)] text-sm uppercase font-medium"
+                  className="mt-3 text-[var(--primary)] text-sm uppercase font-semibold"
                 >
                   {t("cv.role")}
                 </motion.p>
@@ -135,7 +135,7 @@ export default function CVPage() {
               >
                 <p>Lomé, TOGO - Agoe-Assiyéyé</p>
                 <p>+228 92 21 82 07</p>
-                <p className="text-primary">machdev02@gmail.com</p>
+                <p className="text-[var(--primary)] font-semibold">machdev02@gmail.com</p>
                 <p>linkedin.com/in/machaallah-adjibogou</p>
                 <p>github.com/machaallah1</p>
               </motion.div>
@@ -148,7 +148,7 @@ export default function CVPage() {
           {/* Profile summary */}
           <motion.section variants={fadeIn} custom={5} className="mb-12">
             <h2 className="cv-section-title">{t("cv.profileTitle")}</h2>
-            <p className="text-[#8A817A] text-sm leading-[1.9] max-w-[680px]">
+            <p className="text-[#333333] text-sm leading-[1.9] max-w-[680px]">
               {t("cv.profileDesc")}
             </p>
           </motion.section>
@@ -165,13 +165,13 @@ export default function CVPage() {
                       key={exp.company + i}
                       variants={fadeIn}
                       custom={7 + i}
-                      className="relative pl-5 border-l border-[var(--primary)]/10"
+                      className="relative pl-5 border-l border-[var(--primary)]/20"
                     >
                       {/* Timeline dot */}
-                      <div className="absolute left-[-3px] top-[6px] w-[5px] h-[5px] rounded-full bg-[var(--primary)]/60" />
+                      <div className="absolute left-[-3px] top-[6px] w-[5px] h-[5px] rounded-full bg-[var(--primary)] shadow-[0_0_6px_var(--primary)]" />
 
                       <div className="flex items-baseline justify-between gap-4 mb-1.5">
-                        <h3 className="text-foreground text-sm font-medium">
+                        <h3 className="text-neutral-900 text-sm font-bold">
                           {exp.role}
                         </h3>
                         <span className="text-[#6B635A] text-[10px] tracking-wider font-mono whitespace-nowrap">
@@ -272,7 +272,7 @@ export default function CVPage() {
                 <h2 className="cv-section-title">{t("cv.educationTitle")}</h2>
                 <div className="mb-4">
                   <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-foreground text-sm font-medium">
+                    <h3 className="text-neutral-900 text-sm font-bold">
                       {t("cv.education.degree")}
                     </h3>
                   </div>
@@ -288,12 +288,12 @@ export default function CVPage() {
                 <h2 className="cv-section-title">{t("cv.languagesTitle")}</h2>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-foreground text-sm">{t("cv.french")}</span>
+                    <span className="text-neutral-900 text-sm font-medium">{t("cv.french")}</span>
                     <span className="text-[#6B635A] text-xs">{t("cv.frenchLevel")}</span>
                   </div>
                   <div className="h-[1px] bg-[var(--primary)]/5" />
                   <div className="flex items-center justify-between">
-                    <span className="text-foreground text-sm">{t("cv.english")}</span>
+                    <span className="text-neutral-900 text-sm font-medium">{t("cv.english")}</span>
                     <span className="text-[#6B635A] text-xs">{t("cv.englishLevel")}</span>
                   </div>
                 </div>

@@ -340,9 +340,18 @@ body::before {
 /* ── Hide Next.js error overlay portal ── */
 nextjs-portal { display: none !important; }
 
+/* ── Hide scrollbar utility ── */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Focus visible ── */
 :focus-visible {
-  outline: 2px solid rgba(4,118,7,0.5);
+  outline: 2px solid rgba(245, 158, 11, 0.5);
   outline-offset: 2px;
 }
 
@@ -355,7 +364,7 @@ nextjs-portal { display: none !important; }
   font-weight: 500;
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(4, 118, 7, 0.08);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
 }
 
 .cv-tag {
@@ -363,12 +372,12 @@ nextjs-portal { display: none !important; }
   padding: 4px 10px;
   font-size: 11px;
   color: #525252;
-  border: 1px solid rgba(4, 118, 7, 0.08);
-  background: rgba(4, 118, 7, 0.02);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+  background: rgba(245, 158, 11, 0.03);
   transition: all 0.3s ease;
 }
 .cv-tag:hover {
-  border-color: rgba(4, 118, 7, 0.2);
+  border-color: rgba(245, 158, 11, 0.35);
   color: var(--primary);
 }
 

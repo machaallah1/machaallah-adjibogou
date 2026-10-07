@@ -66,7 +66,7 @@ export function ProjectShowcase() {
           </div>
 
           {/* Category Filter Pills (clean single-row layout) */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md overflow-x-auto scrollbar-none max-w-full">
+          <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md">
             {[
               { id: "all", label: t("home.selectedProjects.filters.all") },
               { id: "web", label: t("home.selectedProjects.filters.web") },

@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" className="dark" suppressHydrationWarning>
       <body
         className={`${poppins.variable} ${jetbrainsMono.variable} ${dotGothic.variable} antialiased font-sans`}
       >
@@ -76,7 +76,7 @@ export default function RootLayout({
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange={false}
         >

@@ -9,10 +9,7 @@ import {
   ArrowLeft,
   Globe,
   Code2,
-  Search,
-  Sparkles,
   SlidersHorizontal,
-  X,
 } from "lucide-react";
 import { useLocalizedProjects } from "@/lib/use-localized-projects";
 import type { Project } from "@/lib/projects";
@@ -286,7 +283,6 @@ export default function ProjectPage() {
   const allProjects = useLocalizedProjects();
 
   const [activeFilter, setActiveFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
 
   const filterTabs = useMemo(() => [
     { id: "all", label: locale === "en" ? "All" : "Tous" },
@@ -297,46 +293,35 @@ export default function ProjectPage() {
 
   const filteredProjects = useMemo(() => {
     return allProjects.filter((p) => {
-      // Category filter matching
-      let matchesFilter = true;
+      if (activeFilter === "all") return true;
       if (activeFilter === "web") {
-        matchesFilter =
+        return (
           p.type.toLowerCase().includes("web") ||
           p.sector.toLowerCase().includes("digital") ||
-          p.tags.some((tag) => ["Web", "SaaS", "Plateforme"].includes(tag));
-      } else if (activeFilter === "infra") {
-        matchesFilter =
+          p.tags.some((tag) => ["Web", "SaaS", "Plateforme"].includes(tag))
+        );
+      }
+      if (activeFilter === "infra") {
+        return (
           p.sector.toLowerCase().includes("infrastructures") ||
           p.sector.toLowerCase().includes("technologie") ||
           p.sector.toLowerCase().includes("data") ||
           p.sector.toLowerCase().includes("institutionnel") ||
-          p.tags.some((tag) => ["Institutionnel", "Architecture", "Fullstack"].includes(tag));
-      } else if (activeFilter === "creative") {
-        matchesFilter =
+          p.tags.some((tag) => ["Institutionnel", "Architecture", "Fullstack"].includes(tag))
+        );
+      }
+      if (activeFilter === "creative") {
+        return (
           p.tags.some((tag) => ["Product", "UI", "Design", "Culturel", "Portfolio"].includes(tag)) ||
           p.sector.toLowerCase().includes("sport") ||
           p.sector.toLowerCase().includes("art") ||
           p.sector.toLowerCase().includes("culture") ||
-          p.sector.toLowerCase().includes("loisirs");
+          p.sector.toLowerCase().includes("loisirs")
+        );
       }
-
-      if (!matchesFilter) return false;
-
-      // Search keyword filter matching
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase().trim();
-        const inTitle = p.title.toLowerCase().includes(query);
-        const inSubtitle = p.subtitle?.toLowerCase().includes(query);
-        const inDesc = p.description?.toLowerCase().includes(query);
-        const inSector = p.sector?.toLowerCase().includes(query);
-        const inTools = p.tools?.some((t) => t.toLowerCase().includes(query));
-        const inTags = p.tags?.some((t) => t.toLowerCase().includes(query));
-        return inTitle || inSubtitle || inDesc || inSector || inTools || inTags;
-      }
-
       return true;
     });
-  }, [allProjects, activeFilter, searchQuery]);
+  }, [allProjects, activeFilter]);
 
   const countSummary = filteredProjects.length !== 1
     ? (locale === "en" ? `${filteredProjects.length} projects` : `${filteredProjects.length} projets`)
@@ -357,20 +342,20 @@ export default function ProjectPage() {
           <div className="mb-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-[var(--primary)] transition-colors group"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] backdrop-blur-md text-xs font-mono text-neutral-600 dark:text-neutral-400 hover:text-foreground dark:hover:text-white hover:border-[var(--primary)] transition-all group"
             >
-              <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+              <ArrowLeft size={13} className="transition-transform group-hover:-translate-x-1" />
               <span>{locale === "en" ? "Back to home" : "Retour à l'accueil"}</span>
             </Link>
           </div>
 
           {/* Monumental Header Section */}
-          <div className="mb-14 md:mb-20">
+          <div className="mb-14 md:mb-18">
             <MaskReveal>
               <div className="flex items-center gap-2.5 mb-4">
                 <span className="w-2 h-2 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)] animate-pulse" />
                 <span className="font-mono text-xs text-[var(--primary)] tracking-[0.25em] uppercase font-bold">
-                  01 // {t("projects.label") || "ARCHIVE DES TRAVAUX"}
+                  01 // {t("projects.label") || "ARCHIVE COMPLÈTE"}
                 </span>
               </div>
             </MaskReveal>
@@ -387,26 +372,12 @@ export default function ProjectPage() {
                 {t("projects.subtitle")}
               </p>
             </MaskReveal>
-
-            {/* Quick Metrics Strip */}
-            <MaskReveal delay={0.35}>
-              <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-mono">
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-[#111317] border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
-                  <Sparkles size={12} className="text-[var(--primary)]" />
-                  <span>{allProjects.length} {locale === "en" ? "Case Studies Documented" : "Études de cas documentées"}</span>
-                </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-[#111317] border border-black/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>100% {locale === "en" ? "Production Quality" : "Qualité Production"}</span>
-                </div>
-              </div>
-            </MaskReveal>
           </div>
 
-          {/* Interactive Filter & Search Capsule Strip */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-12 md:mb-16 pb-6 border-b border-black/5 dark:border-white/5">
+          {/* Clean Category Filter Strip */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-12 md:mb-16 pb-6 border-b border-black/5 dark:border-white/5">
             {/* Filter Pills Bar */}
-            <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md overflow-x-auto scrollbar-none max-w-full">
+            <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 backdrop-blur-md">
               {filterTabs.map((f) => {
                 const count = f.id === "all"
                   ? allProjects.length
@@ -427,7 +398,7 @@ export default function ProjectPage() {
                   <button
                     key={f.id}
                     onClick={() => setActiveFilter(f.id)}
-                    className={`flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-mono tracking-wider whitespace-nowrap shrink-0 transition-all duration-300 ${
+                    className={`flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-mono tracking-wider whitespace-nowrap transition-all duration-300 ${
                       activeFilter === f.id
                         ? "bg-[var(--primary)] text-white dark:text-[#08090b] font-bold shadow-[0_0_15px_rgba(217,119,6,0.3)]"
                         : "text-neutral-600 dark:text-neutral-400 hover:text-foreground dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 font-medium"
@@ -448,31 +419,10 @@ export default function ProjectPage() {
               })}
             </div>
 
-            {/* Keyword Search & Summary Count */}
-            <div className="flex items-center gap-4">
-              <div className="relative flex-1 sm:w-64">
-                <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={locale === "en" ? "Filter by stack, keyword..." : "Filtrer par stack, mot-clé..."}
-                  className="w-full pl-9 pr-8 py-2 rounded-full bg-neutral-100/90 dark:bg-[#111317]/90 border border-black/5 dark:border-white/10 text-xs font-mono text-foreground placeholder:text-neutral-400 focus:outline-none focus:border-[var(--primary)]/60 transition-colors"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-foreground"
-                  >
-                    <X size={13} />
-                  </button>
-                )}
-              </div>
-
-              <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-neutral-500 shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
-                <span>{countSummary}</span>
-              </div>
+            {/* Summary Count Pill */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-black/5 dark:border-white/5 bg-black/[0.02] dark:bg-white/[0.02] text-xs font-mono text-neutral-500 shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] shadow-[0_0_8px_var(--primary)]" />
+              <span className="font-bold text-foreground">{countSummary}</span>
             </div>
           </div>
 
@@ -496,10 +446,7 @@ export default function ProjectPage() {
                     : "Essayez de modifier votre mot-clé de recherche ou sélectionnez une autre catégorie."}
                 </p>
                 <button
-                  onClick={() => {
-                    setActiveFilter("all");
-                    setSearchQuery("");
-                  }}
+                  onClick={() => setActiveFilter("all")}
                   className="px-6 py-2.5 rounded-full bg-[var(--primary)] text-white dark:text-[#08090b] font-mono text-xs font-bold tracking-wider uppercase"
                 >
                   {locale === "en" ? "Reset filters" : "Réinitialiser les filtres"}
@@ -507,7 +454,7 @@ export default function ProjectPage() {
               </motion.div>
             ) : (
               <motion.div
-                key={activeFilter + searchQuery}
+                key={activeFilter}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -524,7 +471,7 @@ export default function ProjectPage() {
                 ))}
 
                 {/* Coming Soon R&D Card on "all" filter */}
-                {activeFilter === "all" && !searchQuery && (
+                {activeFilter === "all" && (
                   <ComingSoonCard />
                 )}
               </motion.div>

@@ -165,7 +165,7 @@ export default function ContactPage() {
                         >
                           <span className="relative z-10">{t("contact.form.submit")}</span>
                           <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-                          <span className="absolute inset-0 bg-[#068a09] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                          <span className="absolute inset-0 bg-[#b45309] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                         </button>
                       </Magnetic>
                     </form>
